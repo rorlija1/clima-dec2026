@@ -11,14 +11,14 @@ contributes:
       transition: slide
       slide-number: true
       code-background: true
-      logo: MPG_Minerva_mpg-green.png
+      logo: minerva.png
       chalkboard:
         buttons: true
       navigation-mode: linear
       auto-stretch: true
       center: true
       format-resources:
-        - MPG_Minerva_mpg-green.png
+        - minerva.png
       filters:
         - file-dependencies.lua
     html:

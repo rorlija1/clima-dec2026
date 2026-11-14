@@ -1,0 +1,44 @@
+---
+format:
+  mpim-revealjs: default
+julia:
+  engine: julia
+execute:
+  cache: true
+---
+
+even better:
+```{julia}
+#| engine: julia
+#| echo: true
+abstract type Scientist end
+struct CliMAScientist <: Scientist
+    name::String
+end
+struct MPIMScientist <: Scientist
+    name::String
+end
+struct Other <: Scientist
+    name::String
+    provenance::String
+end
+
+function helloclima(scientist::Other)
+    println("Hello, I'm $(scientist.name), from $(scientist.provenance)!")
+end
+function helloclima(scientist::CliMAScientist)
+    println("What's up, I'm $(scientist.name)!")
+end
+function helloclima(scientist::MPIMScientist)
+    println("Moin, I'm $(scientist.name)!")
+end
+```
+
+```{julia}
+#| echo: true
+#| output: true
+#| engine: julia
+helloclima(MPIMScientist("Rowan"))
+helloclima(CliMAScientist("Rowan"))
+helloclima(Other("Rowan", "Claremont"))
+```

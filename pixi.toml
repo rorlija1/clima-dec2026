@@ -11,6 +11,7 @@ flox = "*"
 intake = "<2"
 intake-xarray = "<2"
 ipfsspec = "*"
+julia = "*"
 jupyter = "*"
 jupyter-cache = "*"
 matplotlib = "*"
@@ -22,5 +23,5 @@ python = ">=3.13"
 quarto = "==1.7.33"
 
 [tasks]
-render = { cmd = ["quarto", "render"] }
-preview = { cmd = ["quarto", "preview", "--no-navigate"] }
+render = { cmd = ["quarto", "render", "index.qmd"] }
+preview = { cmd = ["quarto", "preview", "index.qmd", "--no-navigate"] }

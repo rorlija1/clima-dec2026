@@ -1,0 +1,82 @@
+name: publish slides
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+  workflow_dispatch:
+
+env:
+  GIT_STRATEGY: fetch
+  GIT_DEPTH: 0
+  PIXI_HOME: .pixi
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: install Julia
+        run: curl -fsSL https://install.julialang.org | sh -s -- -y
+
+      - name: add Julia to PATH
+        run: echo "$HOME/.juliaup/bin" >> $GITHUB_PATH
+
+      - name: set up pixi
+        uses: prefix-dev/setup-pixi@v0.8.1
+        with:
+          pixi-version: latest
+          cache: true
+          cache-key: pixi-lock-${{ hashFiles('pixi.lock') }}
+
+      - name: install dependencies
+        run: pixi install
+
+      - name: verify julia
+        run: julia --version
+
+      - name: render
+        run: pixi run render
+
+      - name: upload
+        uses: actions/upload-artifact@v4
+        with:
+          name: slides
+          path: public
+          retention-days: 1
+
+  deploy:
+    needs: build
+    if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Download artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: slides
+          path: public
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
+          publish_branch: gh-pages

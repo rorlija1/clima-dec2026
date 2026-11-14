@@ -1,8 +1,16 @@
 .reveal .quarto-title-block .slide-background-content {
-    background-image: url("titles/green.png");
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
+    background-image:
+      url("MPI_M_Logo_green_ex.png"),
+      url("slide_separators/dots.png");
+    background-size:
+      262.33px 65.66px,
+      contain;
+    background-repeat: 
+      no-repeat, 
+      no-repeat;
+    background-position: 
+      top right, 
+      center;
 }
 
 .reveal .level1 .slide-background-content {

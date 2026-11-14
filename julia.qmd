@@ -1,0 +1,19 @@
+---
+format:
+  mpim-revealjs: default
+julia:
+  engine: julia
+execute:
+  cache: true
+---
+
+<span style="color: #CE3072;">or is it??</span>
+
+```{julia}
+#| output: true
+#| echo: true
+function helloclima(name::String)
+    println("Hello, my name is $(name)!")
+end
+helloclima("Rowan")
+```

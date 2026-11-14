@@ -27,9 +27,9 @@ $presentation-heading-color: $green;
 /*-- scss:rules --*/
 
 .quarto-title-block {
-    color: $white;
+    color: $green;
     h1 {
-        color: $white;
+        color: $green;
     }
 }
 
@@ -39,7 +39,7 @@ $presentation-heading-color: $green;
 
 .date {
     font-weight: 100;
-    font-style: italic;
+    font-style: bold;
 }
 
 h1 {
@@ -148,3 +148,17 @@ div.column {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
   padding: 4px;
 }
+
+#title-slide::after {
+    content: "";
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    max-width: 150px;
+    max-height: 150px;
+    background-image: url(var(--title-logo));
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: 100;
+  }
