@@ -215,23 +215,168 @@ Rowan Orlijan-Rhyne
 <section id="outline" class="slide level2 center">
 <h2>Outline</h2>
 <ul>
-<li><p>What I do (and why)</p></li>
-<li><p>What I’d like to do next (and why)</p></li>
-<li><p>The Barbados Cloud Observatory (BCO) &amp; analysis-ready datasets</p></li>
-<li><p>What questions can we answer with BCO data?</p></li>
-<li><p>What work have I done with BCO data?</p></li>
-<li><p>What work</p></li>
+<li>What I do (and why)</li>
+<li>What I’d like to do next (and why)</li>
 </ul>
 </section>
-<section id="the-solution" class="slide level2 center">
-<h2>The solution</h2>
+<section id="if-ive-learned-anything-living-in-other-countries-its-the-importance-of-making-an-effort-to-learn-the-language" class="slide level2 center">
+<h2>If I’ve learned anything living in other countries, it’s the importance of making an effort to learn the language</h2>
+</section>
+<section id="but-here-its-english" class="slide level2 center">
+<h2>but here, it’s English</h2>
+</section>
+<section id="section" class="title-slide slide level1 quarto-embed-nb-cell center" data-notebook="/home/runner/work/clima-dec2026/clima-dec2026/julia.qmd" data-notebook-cellid="67588e6a-0a8e-4797-a94e-63b99e336640">
+<h1></h1>
+<p><span style="color: #CE3072;">or is it??</span></p>
+<div id="2" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb1-1"><a href=""></a><span class="kw">function</span> <span class="fu">helloclima</span>(name<span class="op">::</span><span class="dt">String</span>)</span>
+<span id="cb1-2"><a href=""></a>    <span class="fu">println</span>(<span class="st">"Hello, my name is </span><span class="sc">$</span>(name)<span class="st">!"</span>)</span>
+<span id="cb1-3"><a href=""></a><span class="kw">end</span></span>
+<span id="cb1-4"><a href=""></a><span class="fu">helloclima</span>(<span class="st">"Rowan"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Hello, my name is Rowan!</code></pre>
+</div>
+</div>
+</section>
+
+<section id="section-1" class="title-slide slide level1 quarto-embed-nb-cell center" data-notebook="/home/runner/work/clima-dec2026/clima-dec2026/julia-2.qmd" data-notebook-cellid="2b287475-1c3c-405f-830c-a2f481f44e50">
+<h1></h1>
+<p>even better:</p>
+<div id="2" class="cell" data-engine="julia" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb3-1"><a href=""></a><span class="kw">abstract type</span> Scientist <span class="kw">end</span></span>
+<span id="cb3-2"><a href=""></a><span class="kw">struct</span> CliMAScientist <span class="op">&lt;:</span><span class="dt"> Scientist</span></span>
+<span id="cb3-3"><a href=""></a>    name<span class="op">::</span><span class="dt">String</span></span>
+<span id="cb3-4"><a href=""></a><span class="kw">end</span></span>
+<span id="cb3-5"><a href=""></a><span class="kw">struct</span> MPIMScientist <span class="op">&lt;:</span><span class="dt"> Scientist</span></span>
+<span id="cb3-6"><a href=""></a>    name<span class="op">::</span><span class="dt">String</span></span>
+<span id="cb3-7"><a href=""></a><span class="kw">end</span></span>
+<span id="cb3-8"><a href=""></a><span class="kw">struct</span> Other <span class="op">&lt;:</span><span class="dt"> Scientist</span></span>
+<span id="cb3-9"><a href=""></a>    name<span class="op">::</span><span class="dt">String</span></span>
+<span id="cb3-10"><a href=""></a>    provenance<span class="op">::</span><span class="dt">String</span></span>
+<span id="cb3-11"><a href=""></a><span class="kw">end</span></span>
+<span id="cb3-12"><a href=""></a></span>
+<span id="cb3-13"><a href=""></a><span class="kw">function</span> <span class="fu">helloclima</span>(scientist<span class="op">::</span><span class="dt">Other</span>)</span>
+<span id="cb3-14"><a href=""></a>    <span class="fu">println</span>(<span class="st">"Hello, I'm </span><span class="sc">$</span>(scientist.name)<span class="st">, from </span><span class="sc">$</span>(scientist.provenance)<span class="st">!"</span>)</span>
+<span id="cb3-15"><a href=""></a><span class="kw">end</span></span>
+<span id="cb3-16"><a href=""></a><span class="kw">function</span> <span class="fu">helloclima</span>(scientist<span class="op">::</span><span class="dt">CliMAScientist</span>)</span>
+<span id="cb3-17"><a href=""></a>    <span class="fu">println</span>(<span class="st">"What's up, I'm </span><span class="sc">$</span>(scientist.name)<span class="st">!"</span>)</span>
+<span id="cb3-18"><a href=""></a><span class="kw">end</span></span>
+<span id="cb3-19"><a href=""></a><span class="kw">function</span> <span class="fu">helloclima</span>(scientist<span class="op">::</span><span class="dt">MPIMScientist</span>)</span>
+<span id="cb3-20"><a href=""></a>    <span class="fu">println</span>(<span class="st">"Moin, I'm </span><span class="sc">$</span>(scientist.name)<span class="st">!"</span>)</span>
+<span id="cb3-21"><a href=""></a><span class="kw">end</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<pre><code>helloclima (generic function with 3 methods)</code></pre>
+</div>
+</div>
+<div id="4" class="cell" data-engine="julia" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb5-1"><a href=""></a><span class="fu">helloclima</span>(<span class="fu">MPIMScientist</span>(<span class="st">"Rowan"</span>))</span>
+<span id="cb5-2"><a href=""></a><span class="fu">helloclima</span>(<span class="fu">CliMAScientist</span>(<span class="st">"Rowan"</span>))</span>
+<span id="cb5-3"><a href=""></a><span class="fu">helloclima</span>(<span class="fu">Other</span>(<span class="st">"Rowan"</span>, <span class="st">"Claremont"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Moin, I'm Rowan!
+What's up, I'm Rowan!
+Hello, I'm Rowan, from Claremont!</code></pre>
+</div>
+</div>
+</section>
+
+<section id="outline-1" class="slide level2 center">
+<h2>outline</h2>
 <ul>
-<li>Creation of analysis-ready datasets</li>
-<li>Stored in publicly available object stores</li>
-<li>Using cloud-native data formats</li>
-<li>Appropriately chunked<sup>1</sup> for analysis</li>
+<li>What I did at CliMA: include a couple plots, thank Anna, Emily, Sajad, etc. say what I learned</li>
 </ul>
-<aside><ol class="aside-footnotes"><li id="fn1"><p>Don’t worry; I will not talk about this today</p></li></ol></aside></section>
+</section>
+<section id="bco" class="slide level2 center">
+<h2>BCO</h2>
+<ul>
+<li>The Barbados Cloud Observatory (BCO) &amp; analysis-ready datasets:
+<ul>
+<li>scientific motivation for BCO:</li>
+<li>tropics receive most energy and export energy poleward; therefore the energetics of the tropics is not important only to the tropics but everywhere</li>
+<li>this is of course mirrored in the circulation, as convection sets the atmospheric state across the tropics and controls meridional mass transport via the Hadley cell</li>
+<li>position of the BCO</li>
+<li>difficulties of datasets and observations</li>
+<li>solution – our infrastructure with DAGs, packages, automation, intake catalog</li>
+<li>overview of instruments with little teaser demos</li>
+<li>difficulties and wonders</li>
+</ul></li>
+</ul>
+</section>
+<section id="science-at-mpi-m" class="slide level2 center">
+<h2>science at MPI-M</h2>
+<ul>
+<li>Feynman</li>
+<li>campaigns, model experiments (aqua planets to look at convection, SSTs, global north and south, orotopo, LAMs), BCO data</li>
+<li>convective permitting model… can I run the bubble with CliMA?</li>
+</ul>
+</section>
+<section id="missing-2024-winter-high-clouds" class="slide level2 center">
+<h2><span style="color: #CE3072;">missing</span>: 2024 winter &amp; high clouds</h2>
+<ul>
+<li>warm winter
+<ul>
+<li>warm conditions 2024 winter</li>
+<li>also lack of high clouds</li>
+<li>synoptic conditions</li>
+<li>warm SSTs + upper level convergence -&gt; heat and moisture trapped below – verify this, do more plots of w and try WL</li>
+</ul></li>
+</ul>
+</section>
+<section id="extensions-1" class="slide level2 center">
+<h2>extensions? <sup>1</sup></h2>
+<ul>
+<li>what drives cirrus clouds at BCO in other conditions?</li>
+<li>would having a very shallow trough in the subtropical westerly jet produce anomalously little upstream convergence, and thereby</li>
+</ul>
+<aside><ol class="aside-footnotes"><li id="fn1"><p>input welcomed!</p></li></ol></aside></section>
+<section id="weak-temperature-gradient-approximation-wtg" class="slide level2 center">
+<h2>weak temperature gradient approximation (WTG)</h2>
+<ul>
+<li>negligible horizontal pressure and temperature gradients in the tropical free troposphere</li>
+<li>gravity waves responsible for advection of energy from convective cores into clear sky regions</li>
+<li>important!</li>
+</ul>
+</section>
+<section id="what-do-we-know" class="slide level2 center">
+<h2>what do we know?</h2>
+<ul>
+<li>the latitudinal scope of the WTG in km-scale, convection-permitting simulations was found to be ~ ±10° <sup>1</sup></li>
+<li>this analysis used column-integrated precipitable water to pick out convection and relies on the ability of models to accurately simulate gravity waves</li>
+<li>we’re not sure models can do this! <sup>2</sup></li>
+</ul>
+<aside><ol class="aside-footnotes"><li id="fn2"><p>Bao, J. &amp; Stevens, B. (2021). The Elements of the Thermodynamic Structure of the Tropical Atmosphere, Journal of the Meteorological Society of Japan.</p></li><li id="fn3"><p>Stephan, C. C. et al.&nbsp;(2019). Intercomparison of Gravity Waves in Global Convection-Permitting Models. J. Atmos. Sci.</p></li></ol></aside></section>
+<section id="observations-to-test-wtg" class="slide level2 center">
+<h2>observations to test WTG</h2>
+<ul>
+<li>high-resolution temperature and moisture measurements from the Raman LIDAR at the BCO</li>
+</ul>
+</section>
+<section id="observations-to-test-the-wtg" class="slide level2 center">
+<h2>observations to test the WTG</h2>
+<ul>
+<li>Tracking Of Organized Convection Algorithm through 3D segmentatioN (TOOCAN)</li>
+<li>identify the moist adiabat which sets the free tropospheric temperature, and study how and whether the BCO conforms to it</li>
+<li>do we observe the time and spatial scales of advection predicted by WTG?</li>
+</ul>
+</section>
+<section id="non-local-stability-inversion-mechanism4" class="slide level2 center">
+<h2>non-local stability-inversion mechanism<sup>1</sup></h2>
+<ul>
+<li>can we observe an increase in invsersion strength and in low cloud amount with convective warming in the free troposphere</li>
+</ul>
+<aside><ol class="aside-footnotes"><li id="fn4"><p>Williams, A. I. L., et al.&nbsp;(2023). Circus tents, convective thresholds, and the non-linear climate response to tropical SSTs. Geophysical Research Letters.</p></li></ol></aside></section>
+<section id="observations-to-test-the-wtg-ii" class="slide level2 center">
+<h2>observations to test the WTG: II</h2>
+<ul>
+<li>gravity wave retrieval from hyperspectral brightness temperatures measured by the atmospheric infrared sounder (AIRS) aboard NASA’s AQUA</li>
+</ul>
+</section>
+<section id="models-to-test-the-wtg" class="slide level2 center">
+<h2>models to test the WTG</h2>
+<ul>
+<li>can be done!</li>
+</ul>
+</section>
 <section id="object-stores" class="slide level2 center">
 <h2>Object stores</h2>
 <ul>
@@ -254,1440 +399,43 @@ Rowan Orlijan-Rhyne
 <div class="fragment">
 <p>Zarr’s chunked storage is aligned with object stores by construction</p>
 <p><img data-src="static/zarr-logo.png" height="52"></p>
-</div>
-</section>
-<section id="the-promise" class="slide level2 center">
-<h2>The promise</h2>
-<div class="columns">
-<div class="column">
-<ul>
-<li>Analysis-ready datasets offer high performance</li>
-<li>Increase collaboration and reproducibility</li>
-<li>They are more fun, which fosters creativity</li>
-</ul>
-</div><div class="column fragment">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="static/scientist_smiling_at_data_insights.png"></p>
-<figcaption>Scientist smiling at data insights (as depicted by ChatGPT)</figcaption>
-</figure>
-</div>
-</div></div>
-<div class="fragment">
-<p><strong>Let’s put this to the test with some real-life examples!</strong></p>
-</div>
-</section>
-<section>
-<section id="scientific-campaigns" class="title-slide slide level1 center">
-<h1>Scientific campaigns</h1>
-<blockquote>
-<p>Plot all HALO flight tracks during the ORCESTRA campaign</p>
-</blockquote>
-</section>
-<section id="orcestra-campaign-data" class="slide level2 center">
-<h2>ORCESTRA campaign data</h2>
-<div class="columns">
-<div class="column">
-<ul>
-<li>Data is spread across various repos<br>(<a href="https://halo-db.pa.op.dlr.de">HALO-DB</a>, <a href="https://www.pangaea.de">PANGAEA</a>, …)</li>
-<li>Access is often restricted by arbitrary embargos</li>
-<li>… or by limited uptime of servers</li>
-<li>Dozens of files in various formats<br>(<a href="https://www.rfc-editor.org/rfc/rfc4180">CSV</a>, <a href="https://airbornescience.nasa.gov/content/Ames_Format_Specification_v20">NASA Ames</a>, <a href="https://www.unidata.ucar.edu/software/netcdf/">NetCDF</a>, …)</li>
-</ul>
-</div><div class="column">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="static/halo-db.png"></p>
-<figcaption><a href="https://halo-db.pa.op.dlr.de/mission/141">PERCUSION mission overview on HALO-DB</a></figcaption>
-</figure>
-</div>
-</div></div>
-</section>
-<section id="orcestra-data-browser" class="slide level2 center">
-<h2>ORCESTRA Data Browser</h2>
-<div class="columns">
-<div class="column">
-<p>Acting as a <strong>data broker</strong> between providers and users</p>
-<ul>
-<li><strong>Manually</strong> collected and <a href="http://github.com/orcestra-campaign/data2ipfs">processed</a> data</li>
-<li>Made data <strong>publicly available</strong> via <a href="https://ipfs.tech">IPFS</a></li>
-<li><strong>List</strong> and <strong>search</strong> all available datasets</li>
-</ul>
-</div><div class="column">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="static/orcestra_data_browser.png"></p>
-<figcaption><a href="https://browser.orcestra-campaign.org">Landing page of the BAHAMAS dataset in the ORCESTRA Data Browser</a></figcaption>
-</figure>
-</div>
-</div></div>
-</section>
-<section id="plotting-all-halo-tracks" class="slide level2 center" data-auto-animate="true">
-<h2 data-id="quarto-animate-title">Plotting all HALO tracks</h2>
-<div id="cda67318" class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode python hljs"><span id="cb1-1" class="hljs-ln-code"><a href=""></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb1-2" class="hljs-ln-code"><a href=""></a><span class="im">import</span> xarray <span class="im">as</span> xr</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="plotting-a-single-halo-track" class="slide level2 center" data-auto-animate="true">
-<h2 data-id="quarto-animate-title">Plotting a single HALO track</h2>
-<div id="732718eb" class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb2" data-code-line-numbers="5"><pre class="sourceCode numberSource python number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode python hljs"><span id="cb2-1" class="hljs-ln-code"><a href=""></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb2-2" class="hljs-ln-code"><a href=""></a><span class="im">import</span> xarray <span class="im">as</span> xr</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section></section>
-<section>
-<section id="continuous-measurements" class="title-slide slide level1 center">
-<h1>Continuous measurements</h1>
-<blockquote>
-<p>Plot a time series of the temperature at the BCO</p>
-</blockquote>
-</section>
-<section id="barbados-cloud-observatory" class="slide level2 center">
-<h2><span style="color: #102952;">Barbados Cloud Observatory 🏝️</span></h2>
-<div class="columns">
-<div class="column">
 <p><span style="color: #ECC24C; text-shadow: 0 0 1px;"><strong>“Half a climate” of atmospheric measurements!</strong></span></p>
-<div class="fragment">
 <ul>
 <li><p>Raw data is continuously copied to <code>breeze</code></p></li>
 <li><p>Usually stored in plain text files</p></li>
-<li><p>You can read <em>any</em><sup>1</sup> file but not <em>all</em></p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource {python3} number-lines code-with-copy"><code class="sourceCode"><span id="cb3-1"><a href=""></a>xr.open_mfdataset("**/Meteorology__Deebles_Point__*.nc")</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<li><p>You can read <em>any</em> file but not <em>all</em></p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource {python3} number-lines code-with-copy"><code class="sourceCode"><span id="cb7-1"><a href=""></a>xr.open_mfdataset("**/Meteorology__Deebles_Point__*.nc")</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="fragment">
 <p><em>will simply fail due to the sheer number of files</em></p>
 </div></li>
 </ul>
 </div>
-</div><div class="column">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="static/bco-website.png"></p>
-<figcaption><a href="https://barbados.mpimet.mpg.de">Official website of the Barbados Cloud Observatory</a></figcaption>
-</figure>
-</div>
-</div></div>
-<aside><ol class="aside-footnotes"><li id="fn2"><p>Ask Rowan or Kirill about the “user experience”</p></li></ol></aside></section>
+</section>
 <section id="automated-processing" class="slide level2 center">
 <h2>Automated processing</h2>
-<div class="columns">
-<div class="column" style="width:50%;">
-<p>Trying to solve the problem on the <strong>provider</strong> side</p>
 <ul>
-<li>Level 0 data is <strong>automatically</strong> processed each day</li>
-<li>Each instrument configuration is stored in a <strong>single</strong> Zarr store</li>
-<li>New data is <strong>appended</strong> to existing datasets</li>
 <li>Orchestration of tasks using an <a href="https://airflow.apache.org">Apache Airflow</a></li>
 <li>Data is <strong>publicly available</strong> on the <a href="https://docs.dkrz.de/doc/datastorage/swift/index.html">DKRZ Swift storage</a></li>
 </ul>
-</div><div class="column">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="static/airflow-screenshot.png"></p>
-<figcaption>Dashboard of the Airflow server used to orchestrate BCO processing</figcaption>
-</figure>
-</div>
-</div></div>
-</section>
+
+<img data-src="static/airflow-screenshot.png" class="r-stretch quarto-figure-center"><p class="caption">Dashboard of the Airflow server used to orchestrate BCO processing</p></section>
 <section id="tcodata-catalog" class="slide level2 center">
 <h2>tcodata catalog</h2>
-<div id="0f9e1cc9" class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href=""></a><span class="im">import</span> intake</span>
-<span id="cb4-2"><a href=""></a></span>
-<span id="cb4-3"><a href=""></a></span>
-<span id="cb4-4"><a href=""></a>cat <span class="op">=</span> intake.open_catalog(<span class="st">"https://tcodata.mpimet.mpg.de/catalog.yaml"</span>)</span>
-<span id="cb4-5"><a href=""></a>wxt <span class="op">=</span> cat.BCO.surfacemet(time<span class="op">=</span><span class="st">"P1D"</span>).to_dask()</span>
-<span id="cb4-6"><a href=""></a></span>
-<span id="cb4-7"><a href=""></a>wxt.ta.plot(ylim<span class="op">=</span>(<span class="dv">23</span>, <span class="dv">33</span>), figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">4</span>))<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<div>
-<figure>
-<p><img data-src="index_files/figure-revealjs/cell-4-output-1.png" width="957" height="376"></p>
-</figure>
-</div>
-</div>
-</div>
-</section></section>
-<section>
-<section id="climate-models" class="title-slide slide level1 center">
-<h1>Climate models</h1>
-<blockquote>
-<p>Plot a time series of the temperature at the BCO <em>from ICON output</em></p>
-</blockquote>
-</section>
-<section id="model-output" class="slide level2 center">
-<h2>Model output</h2>
-<div class="columns">
-<div class="column">
-<ul>
-<li><p>Model output is usually stored in hundreds of datasets</p></li>
-<li><p>They may or may not align well (conflicting <code>height</code>/<code>height_2</code>)</p></li>
-<li><p>Users need to merge and/or concatenate before analysis:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource {sh} number-lines code-with-copy"><code class="sourceCode"><span id="cb5-1"><a href=""></a>cdo -mergetime ngc5004_atm_2d_ml_P1D_*.nc ngc5004_atm_2d_merged.nc</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>or</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource {python3} number-lines code-with-copy"><code class="sourceCode"><span id="cb6-1"><a href=""></a>xr.open_mfdataset("ngc5004_atm_2d_ml_P1D_*.nc")</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="fragment">
-<p><em>which is not necessarily “interactive”…</em></p>
-</div></li>
-</ul>
-<div class="fragment">
-<p>The individual steps are not difficult, but they need to be performed by <strong>each user</strong> for <strong>every run</strong>.</p>
-</div>
-</div><div class="column" style="width:25%;">
-<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource raw number-lines code-with-copy"><code class="sourceCode"><span id="cb7-1"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200101T000000Z.nc</span>
-<span id="cb7-2"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200102T000000Z.nc</span>
-<span id="cb7-3"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200103T000000Z.nc</span>
-<span id="cb7-4"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200104T000000Z.nc</span>
-<span id="cb7-5"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200105T000000Z.nc</span>
-<span id="cb7-6"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200106T000000Z.nc</span>
-<span id="cb7-7"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200107T000000Z.nc</span>
-<span id="cb7-8"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200108T000000Z.nc</span>
-<span id="cb7-9"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200109T000000Z.nc</span>
-<span id="cb7-10"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200110T000000Z.nc</span>
-<span id="cb7-11"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200111T000000Z.nc</span>
-<span id="cb7-12"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200112T000000Z.nc</span>
-<span id="cb7-13"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200113T000000Z.nc</span>
-<span id="cb7-14"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200114T000000Z.nc</span>
-<span id="cb7-15"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200115T000000Z.nc</span>
-<span id="cb7-16"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200116T000000Z.nc</span>
-<span id="cb7-17"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200117T000000Z.nc</span>
-<span id="cb7-18"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200118T000000Z.nc</span>
-<span id="cb7-19"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200119T000000Z.nc</span>
-<span id="cb7-20"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200120T000000Z.nc</span>
-<span id="cb7-21"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200121T000000Z.nc</span>
-<span id="cb7-22"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200122T000000Z.nc</span>
-<span id="cb7-23"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200123T000000Z.nc</span>
-<span id="cb7-24"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200124T000000Z.nc</span>
-<span id="cb7-25"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200125T000000Z.nc</span>
-<span id="cb7-26"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200126T000000Z.nc</span>
-<span id="cb7-27"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200127T000000Z.nc</span>
-<span id="cb7-28"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200128T000000Z.nc</span>
-<span id="cb7-29"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200129T000000Z.nc</span>
-<span id="cb7-30"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200130T000000Z.nc</span>
-<span id="cb7-31"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200131T000000Z.nc</span>
-<span id="cb7-32"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200201T000000Z.nc</span>
-<span id="cb7-33"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200202T000000Z.nc</span>
-<span id="cb7-34"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200203T000000Z.nc</span>
-<span id="cb7-35"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200204T000000Z.nc</span>
-<span id="cb7-36"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200205T000000Z.nc</span>
-<span id="cb7-37"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200206T000000Z.nc</span>
-<span id="cb7-38"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200207T000000Z.nc</span>
-<span id="cb7-39"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200208T000000Z.nc</span>
-<span id="cb7-40"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200209T000000Z.nc</span>
-<span id="cb7-41"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200210T000000Z.nc</span>
-<span id="cb7-42"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200211T000000Z.nc</span>
-<span id="cb7-43"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200212T000000Z.nc</span>
-<span id="cb7-44"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200213T000000Z.nc</span>
-<span id="cb7-45"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200214T000000Z.nc</span>
-<span id="cb7-46"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200215T000000Z.nc</span>
-<span id="cb7-47"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200216T000000Z.nc</span>
-<span id="cb7-48"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200217T000000Z.nc</span>
-<span id="cb7-49"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200218T000000Z.nc</span>
-<span id="cb7-50"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200219T000000Z.nc</span>
-<span id="cb7-51"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200220T000000Z.nc</span>
-<span id="cb7-52"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200221T000000Z.nc</span>
-<span id="cb7-53"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200222T000000Z.nc</span>
-<span id="cb7-54"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200223T000000Z.nc</span>
-<span id="cb7-55"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200224T000000Z.nc</span>
-<span id="cb7-56"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200225T000000Z.nc</span>
-<span id="cb7-57"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200226T000000Z.nc</span>
-<span id="cb7-58"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200227T000000Z.nc</span>
-<span id="cb7-59"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200228T000000Z.nc</span>
-<span id="cb7-60"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200229T000000Z.nc</span>
-<span id="cb7-61"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200301T000000Z.nc</span>
-<span id="cb7-62"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200302T000000Z.nc</span>
-<span id="cb7-63"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200303T000000Z.nc</span>
-<span id="cb7-64"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200304T000000Z.nc</span>
-<span id="cb7-65"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200305T000000Z.nc</span>
-<span id="cb7-66"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200306T000000Z.nc</span>
-<span id="cb7-67"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200307T000000Z.nc</span>
-<span id="cb7-68"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200308T000000Z.nc</span>
-<span id="cb7-69"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200309T000000Z.nc</span>
-<span id="cb7-70"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200310T000000Z.nc</span>
-<span id="cb7-71"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200311T000000Z.nc</span>
-<span id="cb7-72"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200312T000000Z.nc</span>
-<span id="cb7-73"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200313T000000Z.nc</span>
-<span id="cb7-74"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200314T000000Z.nc</span>
-<span id="cb7-75"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200315T000000Z.nc</span>
-<span id="cb7-76"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200316T000000Z.nc</span>
-<span id="cb7-77"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200317T000000Z.nc</span>
-<span id="cb7-78"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200318T000000Z.nc</span>
-<span id="cb7-79"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200319T000000Z.nc</span>
-<span id="cb7-80"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200320T000000Z.nc</span>
-<span id="cb7-81"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200321T000000Z.nc</span>
-<span id="cb7-82"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200322T000000Z.nc</span>
-<span id="cb7-83"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200323T000000Z.nc</span>
-<span id="cb7-84"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200324T000000Z.nc</span>
-<span id="cb7-85"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200325T000000Z.nc</span>
-<span id="cb7-86"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200326T000000Z.nc</span>
-<span id="cb7-87"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200327T000000Z.nc</span>
-<span id="cb7-88"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200328T000000Z.nc</span>
-<span id="cb7-89"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200329T000000Z.nc</span>
-<span id="cb7-90"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200330T000000Z.nc</span>
-<span id="cb7-91"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200331T000000Z.nc</span>
-<span id="cb7-92"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200401T000000Z.nc</span>
-<span id="cb7-93"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200402T000000Z.nc</span>
-<span id="cb7-94"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200403T000000Z.nc</span>
-<span id="cb7-95"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200404T000000Z.nc</span>
-<span id="cb7-96"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200405T000000Z.nc</span>
-<span id="cb7-97"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200406T000000Z.nc</span>
-<span id="cb7-98"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200407T000000Z.nc</span>
-<span id="cb7-99"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200408T000000Z.nc</span>
-<span id="cb7-100"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200409T000000Z.nc</span>
-<span id="cb7-101"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200410T000000Z.nc</span>
-<span id="cb7-102"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200411T000000Z.nc</span>
-<span id="cb7-103"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200412T000000Z.nc</span>
-<span id="cb7-104"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200413T000000Z.nc</span>
-<span id="cb7-105"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200414T000000Z.nc</span>
-<span id="cb7-106"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200415T000000Z.nc</span>
-<span id="cb7-107"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200416T000000Z.nc</span>
-<span id="cb7-108"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200417T000000Z.nc</span>
-<span id="cb7-109"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200418T000000Z.nc</span>
-<span id="cb7-110"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200419T000000Z.nc</span>
-<span id="cb7-111"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200420T000000Z.nc</span>
-<span id="cb7-112"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200421T000000Z.nc</span>
-<span id="cb7-113"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200422T000000Z.nc</span>
-<span id="cb7-114"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200423T000000Z.nc</span>
-<span id="cb7-115"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200424T000000Z.nc</span>
-<span id="cb7-116"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200425T000000Z.nc</span>
-<span id="cb7-117"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200426T000000Z.nc</span>
-<span id="cb7-118"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200427T000000Z.nc</span>
-<span id="cb7-119"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200428T000000Z.nc</span>
-<span id="cb7-120"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200429T000000Z.nc</span>
-<span id="cb7-121"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200430T000000Z.nc</span>
-<span id="cb7-122"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200501T000000Z.nc</span>
-<span id="cb7-123"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200502T000000Z.nc</span>
-<span id="cb7-124"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200503T000000Z.nc</span>
-<span id="cb7-125"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200504T000000Z.nc</span>
-<span id="cb7-126"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200505T000000Z.nc</span>
-<span id="cb7-127"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200506T000000Z.nc</span>
-<span id="cb7-128"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200507T000000Z.nc</span>
-<span id="cb7-129"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200508T000000Z.nc</span>
-<span id="cb7-130"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200509T000000Z.nc</span>
-<span id="cb7-131"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200510T000000Z.nc</span>
-<span id="cb7-132"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200511T000000Z.nc</span>
-<span id="cb7-133"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200512T000000Z.nc</span>
-<span id="cb7-134"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200513T000000Z.nc</span>
-<span id="cb7-135"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200514T000000Z.nc</span>
-<span id="cb7-136"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200515T000000Z.nc</span>
-<span id="cb7-137"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200516T000000Z.nc</span>
-<span id="cb7-138"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200517T000000Z.nc</span>
-<span id="cb7-139"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200518T000000Z.nc</span>
-<span id="cb7-140"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200519T000000Z.nc</span>
-<span id="cb7-141"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200520T000000Z.nc</span>
-<span id="cb7-142"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200521T000000Z.nc</span>
-<span id="cb7-143"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200522T000000Z.nc</span>
-<span id="cb7-144"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200523T000000Z.nc</span>
-<span id="cb7-145"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200524T000000Z.nc</span>
-<span id="cb7-146"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200525T000000Z.nc</span>
-<span id="cb7-147"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200526T000000Z.nc</span>
-<span id="cb7-148"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200527T000000Z.nc</span>
-<span id="cb7-149"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200528T000000Z.nc</span>
-<span id="cb7-150"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200529T000000Z.nc</span>
-<span id="cb7-151"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200530T000000Z.nc</span>
-<span id="cb7-152"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200531T000000Z.nc</span>
-<span id="cb7-153"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200601T000000Z.nc</span>
-<span id="cb7-154"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200602T000000Z.nc</span>
-<span id="cb7-155"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200603T000000Z.nc</span>
-<span id="cb7-156"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200604T000000Z.nc</span>
-<span id="cb7-157"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200605T000000Z.nc</span>
-<span id="cb7-158"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200606T000000Z.nc</span>
-<span id="cb7-159"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200607T000000Z.nc</span>
-<span id="cb7-160"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200608T000000Z.nc</span>
-<span id="cb7-161"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200609T000000Z.nc</span>
-<span id="cb7-162"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200610T000000Z.nc</span>
-<span id="cb7-163"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200611T000000Z.nc</span>
-<span id="cb7-164"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200612T000000Z.nc</span>
-<span id="cb7-165"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200613T000000Z.nc</span>
-<span id="cb7-166"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200614T000000Z.nc</span>
-<span id="cb7-167"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200615T000000Z.nc</span>
-<span id="cb7-168"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200616T000000Z.nc</span>
-<span id="cb7-169"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200617T000000Z.nc</span>
-<span id="cb7-170"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200618T000000Z.nc</span>
-<span id="cb7-171"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200619T000000Z.nc</span>
-<span id="cb7-172"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200620T000000Z.nc</span>
-<span id="cb7-173"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200621T000000Z.nc</span>
-<span id="cb7-174"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200622T000000Z.nc</span>
-<span id="cb7-175"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200623T000000Z.nc</span>
-<span id="cb7-176"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200624T000000Z.nc</span>
-<span id="cb7-177"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200625T000000Z.nc</span>
-<span id="cb7-178"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200626T000000Z.nc</span>
-<span id="cb7-179"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200627T000000Z.nc</span>
-<span id="cb7-180"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200628T000000Z.nc</span>
-<span id="cb7-181"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200629T000000Z.nc</span>
-<span id="cb7-182"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200630T000000Z.nc</span>
-<span id="cb7-183"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200701T000000Z.nc</span>
-<span id="cb7-184"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200702T000000Z.nc</span>
-<span id="cb7-185"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200703T000000Z.nc</span>
-<span id="cb7-186"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200704T000000Z.nc</span>
-<span id="cb7-187"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200705T000000Z.nc</span>
-<span id="cb7-188"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200706T000000Z.nc</span>
-<span id="cb7-189"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200707T000000Z.nc</span>
-<span id="cb7-190"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200708T000000Z.nc</span>
-<span id="cb7-191"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200709T000000Z.nc</span>
-<span id="cb7-192"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200710T000000Z.nc</span>
-<span id="cb7-193"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200711T000000Z.nc</span>
-<span id="cb7-194"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200712T000000Z.nc</span>
-<span id="cb7-195"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200713T000000Z.nc</span>
-<span id="cb7-196"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200714T000000Z.nc</span>
-<span id="cb7-197"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200715T000000Z.nc</span>
-<span id="cb7-198"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200716T000000Z.nc</span>
-<span id="cb7-199"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200717T000000Z.nc</span>
-<span id="cb7-200"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200718T000000Z.nc</span>
-<span id="cb7-201"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200719T000000Z.nc</span>
-<span id="cb7-202"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200720T000000Z.nc</span>
-<span id="cb7-203"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200721T000000Z.nc</span>
-<span id="cb7-204"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200722T000000Z.nc</span>
-<span id="cb7-205"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200723T000000Z.nc</span>
-<span id="cb7-206"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200724T000000Z.nc</span>
-<span id="cb7-207"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200725T000000Z.nc</span>
-<span id="cb7-208"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200726T000000Z.nc</span>
-<span id="cb7-209"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200727T000000Z.nc</span>
-<span id="cb7-210"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200728T000000Z.nc</span>
-<span id="cb7-211"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200729T000000Z.nc</span>
-<span id="cb7-212"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200730T000000Z.nc</span>
-<span id="cb7-213"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200731T000000Z.nc</span>
-<span id="cb7-214"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200801T000000Z.nc</span>
-<span id="cb7-215"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200802T000000Z.nc</span>
-<span id="cb7-216"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200803T000000Z.nc</span>
-<span id="cb7-217"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200804T000000Z.nc</span>
-<span id="cb7-218"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200805T000000Z.nc</span>
-<span id="cb7-219"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200806T000000Z.nc</span>
-<span id="cb7-220"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200807T000000Z.nc</span>
-<span id="cb7-221"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200808T000000Z.nc</span>
-<span id="cb7-222"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200809T000000Z.nc</span>
-<span id="cb7-223"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200810T000000Z.nc</span>
-<span id="cb7-224"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200811T000000Z.nc</span>
-<span id="cb7-225"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200812T000000Z.nc</span>
-<span id="cb7-226"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200813T000000Z.nc</span>
-<span id="cb7-227"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200814T000000Z.nc</span>
-<span id="cb7-228"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200815T000000Z.nc</span>
-<span id="cb7-229"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200816T000000Z.nc</span>
-<span id="cb7-230"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200817T000000Z.nc</span>
-<span id="cb7-231"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200818T000000Z.nc</span>
-<span id="cb7-232"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200819T000000Z.nc</span>
-<span id="cb7-233"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200820T000000Z.nc</span>
-<span id="cb7-234"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200821T000000Z.nc</span>
-<span id="cb7-235"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200822T000000Z.nc</span>
-<span id="cb7-236"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200823T000000Z.nc</span>
-<span id="cb7-237"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200824T000000Z.nc</span>
-<span id="cb7-238"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200825T000000Z.nc</span>
-<span id="cb7-239"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200826T000000Z.nc</span>
-<span id="cb7-240"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200827T000000Z.nc</span>
-<span id="cb7-241"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200828T000000Z.nc</span>
-<span id="cb7-242"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200829T000000Z.nc</span>
-<span id="cb7-243"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200830T000000Z.nc</span>
-<span id="cb7-244"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200831T000000Z.nc</span>
-<span id="cb7-245"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200901T000000Z.nc</span>
-<span id="cb7-246"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200902T000000Z.nc</span>
-<span id="cb7-247"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200903T000000Z.nc</span>
-<span id="cb7-248"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200904T000000Z.nc</span>
-<span id="cb7-249"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200905T000000Z.nc</span>
-<span id="cb7-250"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200906T000000Z.nc</span>
-<span id="cb7-251"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200907T000000Z.nc</span>
-<span id="cb7-252"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200908T000000Z.nc</span>
-<span id="cb7-253"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200909T000000Z.nc</span>
-<span id="cb7-254"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200910T000000Z.nc</span>
-<span id="cb7-255"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200911T000000Z.nc</span>
-<span id="cb7-256"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200912T000000Z.nc</span>
-<span id="cb7-257"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200913T000000Z.nc</span>
-<span id="cb7-258"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200914T000000Z.nc</span>
-<span id="cb7-259"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200915T000000Z.nc</span>
-<span id="cb7-260"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200916T000000Z.nc</span>
-<span id="cb7-261"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200917T000000Z.nc</span>
-<span id="cb7-262"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200918T000000Z.nc</span>
-<span id="cb7-263"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200919T000000Z.nc</span>
-<span id="cb7-264"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200920T000000Z.nc</span>
-<span id="cb7-265"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200921T000000Z.nc</span>
-<span id="cb7-266"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200922T000000Z.nc</span>
-<span id="cb7-267"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200923T000000Z.nc</span>
-<span id="cb7-268"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200924T000000Z.nc</span>
-<span id="cb7-269"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200925T000000Z.nc</span>
-<span id="cb7-270"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200926T000000Z.nc</span>
-<span id="cb7-271"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200927T000000Z.nc</span>
-<span id="cb7-272"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200928T000000Z.nc</span>
-<span id="cb7-273"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200929T000000Z.nc</span>
-<span id="cb7-274"><a href=""></a>ngc5004_atm_2d_P1D_ml_20200930T000000Z.nc</span>
-<span id="cb7-275"><a href=""></a>ngc5004_atm_2d_P1D_ml_20201001T000000Z.nc</span>
-<span id="cb7-276"><a href=""></a>ngc5004_atm_2d_P1D_ml_20201002T000000Z.nc</span>
-<span id="cb7-277"><a href=""></a>ngc5004_atm_2d_P1D_ml_20201003T000000Z.nc</span>
-<span id="cb7-278"><a href=""></a>ngc5004_atm_2d_P1D_ml_20201004T000000Z.nc</span>
-<span id="cb7-279"><a href=""></a>ngc5004_atm_2d_P1D_ml_20201005T000000Z.nc</span>
-<span id="cb7-280"><a href=""></a>ngc5004_atm_2d_P1D_ml_20201006T000000Z.nc</span>
-<span id="cb7-281"><a href=""></a>ngc5004_atm_2d_P1D_ml_20201007T000000Z.nc</span>
-<span id="cb7-282"><a href=""></a>ngc5004_atm_2d_P1D_ml_20201008T000000Z.nc</span>
-<span id="cb7-283"><a href=""></a>ngc5004_atm_2d_P1D_ml_20201009T000000Z.nc</span>
-<span id="cb7-284"><a href=""></a>ngc5004_atm_2d_P1D_ml_20201010T000000Z.nc</span>
-<span id="cb7-285"><a href=""></a>ngc5004_atm_2d_P1D_ml_20201011T000000Z.nc</span>
-<span id="cb7-286"><a href=""></a>ngc5004_atm_2d_P1D_ml_20201012T000000Z.nc</span>
-<span id="cb7-287"><a href=""></a>ngc5004_atm_2d_P1D_ml_20201013T000000Z.nc</span>
-<span id="cb7-288"><a href=""></a>ngc5004_atm_2d_P1D_ml_20201014T000000Z.nc</span>
-<span id="cb7-289"><a href=""></a>ngc5004_atm_2d_P1D_ml_20201015T000000Z.nc</span>
-<span id="cb7-290"><a href=""></a>ngc5004_atm_2d_P1D_ml_20201016T000000Z.nc</span>
-<span id="cb7-291"><a href=""></a>ngc5004_atm_2d_P1D_ml_20201017T000000Z.nc</span>
-<span id="cb7-292"><a href=""></a>ngc5004_atm_2d_P1D_ml_20201018T000000Z.nc</span>
-<span id="cb7-293"><a href=""></a>ngc5004_atm_2d_P1D_ml_20201019T000000Z.nc</span>
-<span id="cb7-294"><a href=""></a>ngc5004_atm_2d_P1D_ml_20201020T000000Z.nc</span>
-<span id="cb7-295"><a href=""></a>ngc5004_atm_2d_P1D_ml_20201021T000000Z.nc</span>
-<span id="cb7-296"><a href=""></a>ngc5004_atm_2d_P1D_ml_20201022T000000Z.nc</span>
-<span id="cb7-297"><a href=""></a>ngc5004_atm_2d_P1D_ml_20201023T000000Z.nc</span>
-<span id="cb7-298"><a href=""></a>ngc5004_atm_2d_P1D_ml_20201024T000000Z.nc</span>
-<span id="cb7-299"><a href=""></a>ngc5004_atm_2d_P1D_ml_20201025T000000Z.nc</span>
-<span id="cb7-300"><a href=""></a>ngc5004_atm_2d_P1D_ml_20201026T000000Z.nc</span>
-<span id="cb7-301"><a href=""></a>ngc5004_atm_2d_P1D_ml_20201027T000000Z.nc</span>
-<span id="cb7-302"><a href=""></a>ngc5004_atm_2d_P1D_ml_20201028T000000Z.nc</span>
-<span id="cb7-303"><a href=""></a>ngc5004_atm_2d_P1D_ml_20201029T000000Z.nc</span>
-<span id="cb7-304"><a href=""></a>ngc5004_atm_2d_P1D_ml_20201030T000000Z.nc</span>
-<span id="cb7-305"><a href=""></a>ngc5004_atm_2d_P1D_ml_20201031T000000Z.nc</span>
-<span id="cb7-306"><a href=""></a>ngc5004_atm_2d_P1D_ml_20201101T000000Z.nc</span>
-<span id="cb7-307"><a href=""></a>ngc5004_atm_2d_P1D_ml_20201102T000000Z.nc</span>
-<span id="cb7-308"><a href=""></a>ngc5004_atm_2d_P1D_ml_20201103T000000Z.nc</span>
-<span id="cb7-309"><a href=""></a>ngc5004_atm_2d_P1D_ml_20201104T000000Z.nc</span>
-<span id="cb7-310"><a href=""></a>ngc5004_atm_2d_P1D_ml_20201105T000000Z.nc</span>
-<span id="cb7-311"><a href=""></a>ngc5004_atm_2d_P1D_ml_20201106T000000Z.nc</span>
-<span id="cb7-312"><a href=""></a>ngc5004_atm_2d_P1D_ml_20201107T000000Z.nc</span>
-<span id="cb7-313"><a href=""></a>ngc5004_atm_2d_P1D_ml_20201108T000000Z.nc</span>
-<span id="cb7-314"><a href=""></a>ngc5004_atm_2d_P1D_ml_20201109T000000Z.nc</span>
-<span id="cb7-315"><a href=""></a>ngc5004_atm_2d_P1D_ml_20201110T000000Z.nc</span>
-<span id="cb7-316"><a href=""></a>ngc5004_atm_2d_P1D_ml_20201111T000000Z.nc</span>
-<span id="cb7-317"><a href=""></a>ngc5004_atm_2d_P1D_ml_20201112T000000Z.nc</span>
-<span id="cb7-318"><a href=""></a>ngc5004_atm_2d_P1D_ml_20201113T000000Z.nc</span>
-<span id="cb7-319"><a href=""></a>ngc5004_atm_2d_P1D_ml_20201114T000000Z.nc</span>
-<span id="cb7-320"><a href=""></a>ngc5004_atm_2d_P1D_ml_20201115T000000Z.nc</span>
-<span id="cb7-321"><a href=""></a>ngc5004_atm_2d_P1D_ml_20201116T000000Z.nc</span>
-<span id="cb7-322"><a href=""></a>ngc5004_atm_2d_P1D_ml_20201117T000000Z.nc</span>
-<span id="cb7-323"><a href=""></a>ngc5004_atm_2d_P1D_ml_20201118T000000Z.nc</span>
-<span id="cb7-324"><a href=""></a>ngc5004_atm_2d_P1D_ml_20201119T000000Z.nc</span>
-<span id="cb7-325"><a href=""></a>ngc5004_atm_2d_P1D_ml_20201120T000000Z.nc</span>
-<span id="cb7-326"><a href=""></a>ngc5004_atm_2d_P1D_ml_20201121T000000Z.nc</span>
-<span id="cb7-327"><a href=""></a>ngc5004_atm_2d_P1D_ml_20201122T000000Z.nc</span>
-<span id="cb7-328"><a href=""></a>ngc5004_atm_2d_P1D_ml_20201123T000000Z.nc</span>
-<span id="cb7-329"><a href=""></a>ngc5004_atm_2d_P1D_ml_20201124T000000Z.nc</span>
-<span id="cb7-330"><a href=""></a>ngc5004_atm_2d_P1D_ml_20201125T000000Z.nc</span>
-<span id="cb7-331"><a href=""></a>ngc5004_atm_2d_P1D_ml_20201126T000000Z.nc</span>
-<span id="cb7-332"><a href=""></a>ngc5004_atm_2d_P1D_ml_20201127T000000Z.nc</span>
-<span id="cb7-333"><a href=""></a>ngc5004_atm_2d_P1D_ml_20201128T000000Z.nc</span>
-<span id="cb7-334"><a href=""></a>ngc5004_atm_2d_P1D_ml_20201129T000000Z.nc</span>
-<span id="cb7-335"><a href=""></a>ngc5004_atm_2d_P1D_ml_20201130T000000Z.nc</span>
-<span id="cb7-336"><a href=""></a>ngc5004_atm_2d_P1D_ml_20201201T000000Z.nc</span>
-<span id="cb7-337"><a href=""></a>ngc5004_atm_2d_P1D_ml_20201202T000000Z.nc</span>
-<span id="cb7-338"><a href=""></a>ngc5004_atm_2d_P1D_ml_20201203T000000Z.nc</span>
-<span id="cb7-339"><a href=""></a>ngc5004_atm_2d_P1D_ml_20201204T000000Z.nc</span>
-<span id="cb7-340"><a href=""></a>ngc5004_atm_2d_P1D_ml_20201205T000000Z.nc</span>
-<span id="cb7-341"><a href=""></a>ngc5004_atm_2d_P1D_ml_20201206T000000Z.nc</span>
-<span id="cb7-342"><a href=""></a>ngc5004_atm_2d_P1D_ml_20201207T000000Z.nc</span>
-<span id="cb7-343"><a href=""></a>ngc5004_atm_2d_P1D_ml_20201208T000000Z.nc</span>
-<span id="cb7-344"><a href=""></a>ngc5004_atm_2d_P1D_ml_20201209T000000Z.nc</span>
-<span id="cb7-345"><a href=""></a>ngc5004_atm_2d_P1D_ml_20201210T000000Z.nc</span>
-<span id="cb7-346"><a href=""></a>ngc5004_atm_2d_P1D_ml_20201211T000000Z.nc</span>
-<span id="cb7-347"><a href=""></a>ngc5004_atm_2d_P1D_ml_20201212T000000Z.nc</span>
-<span id="cb7-348"><a href=""></a>ngc5004_atm_2d_P1D_ml_20201213T000000Z.nc</span>
-<span id="cb7-349"><a href=""></a>ngc5004_atm_2d_P1D_ml_20201214T000000Z.nc</span>
-<span id="cb7-350"><a href=""></a>ngc5004_atm_2d_P1D_ml_20201215T000000Z.nc</span>
-<span id="cb7-351"><a href=""></a>ngc5004_atm_2d_P1D_ml_20201216T000000Z.nc</span>
-<span id="cb7-352"><a href=""></a>ngc5004_atm_2d_P1D_ml_20201217T000000Z.nc</span>
-<span id="cb7-353"><a href=""></a>ngc5004_atm_2d_P1D_ml_20201218T000000Z.nc</span>
-<span id="cb7-354"><a href=""></a>ngc5004_atm_2d_P1D_ml_20201219T000000Z.nc</span>
-<span id="cb7-355"><a href=""></a>ngc5004_atm_2d_P1D_ml_20201220T000000Z.nc</span>
-<span id="cb7-356"><a href=""></a>ngc5004_atm_2d_P1D_ml_20201221T000000Z.nc</span>
-<span id="cb7-357"><a href=""></a>ngc5004_atm_2d_P1D_ml_20201222T000000Z.nc</span>
-<span id="cb7-358"><a href=""></a>ngc5004_atm_2d_P1D_ml_20201223T000000Z.nc</span>
-<span id="cb7-359"><a href=""></a>ngc5004_atm_2d_P1D_ml_20201224T000000Z.nc</span>
-<span id="cb7-360"><a href=""></a>ngc5004_atm_2d_P1D_ml_20201225T000000Z.nc</span>
-<span id="cb7-361"><a href=""></a>ngc5004_atm_2d_P1D_ml_20201226T000000Z.nc</span>
-<span id="cb7-362"><a href=""></a>ngc5004_atm_2d_P1D_ml_20201227T000000Z.nc</span>
-<span id="cb7-363"><a href=""></a>ngc5004_atm_2d_P1D_ml_20201228T000000Z.nc</span>
-<span id="cb7-364"><a href=""></a>ngc5004_atm_2d_P1D_ml_20201229T000000Z.nc</span>
-<span id="cb7-365"><a href=""></a>ngc5004_atm_2d_P1D_ml_20201230T000000Z.nc</span>
-<span id="cb7-366"><a href=""></a>ngc5004_atm_2d_P1D_ml_20201231T000000Z.nc</span>
-<span id="cb7-367"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210101T000000Z.nc</span>
-<span id="cb7-368"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210102T000000Z.nc</span>
-<span id="cb7-369"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210103T000000Z.nc</span>
-<span id="cb7-370"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210104T000000Z.nc</span>
-<span id="cb7-371"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210105T000000Z.nc</span>
-<span id="cb7-372"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210106T000000Z.nc</span>
-<span id="cb7-373"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210107T000000Z.nc</span>
-<span id="cb7-374"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210108T000000Z.nc</span>
-<span id="cb7-375"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210109T000000Z.nc</span>
-<span id="cb7-376"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210110T000000Z.nc</span>
-<span id="cb7-377"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210111T000000Z.nc</span>
-<span id="cb7-378"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210112T000000Z.nc</span>
-<span id="cb7-379"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210113T000000Z.nc</span>
-<span id="cb7-380"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210114T000000Z.nc</span>
-<span id="cb7-381"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210115T000000Z.nc</span>
-<span id="cb7-382"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210116T000000Z.nc</span>
-<span id="cb7-383"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210117T000000Z.nc</span>
-<span id="cb7-384"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210118T000000Z.nc</span>
-<span id="cb7-385"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210119T000000Z.nc</span>
-<span id="cb7-386"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210120T000000Z.nc</span>
-<span id="cb7-387"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210121T000000Z.nc</span>
-<span id="cb7-388"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210122T000000Z.nc</span>
-<span id="cb7-389"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210123T000000Z.nc</span>
-<span id="cb7-390"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210124T000000Z.nc</span>
-<span id="cb7-391"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210125T000000Z.nc</span>
-<span id="cb7-392"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210126T000000Z.nc</span>
-<span id="cb7-393"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210127T000000Z.nc</span>
-<span id="cb7-394"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210128T000000Z.nc</span>
-<span id="cb7-395"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210129T000000Z.nc</span>
-<span id="cb7-396"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210130T000000Z.nc</span>
-<span id="cb7-397"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210131T000000Z.nc</span>
-<span id="cb7-398"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210201T000000Z.nc</span>
-<span id="cb7-399"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210202T000000Z.nc</span>
-<span id="cb7-400"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210203T000000Z.nc</span>
-<span id="cb7-401"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210204T000000Z.nc</span>
-<span id="cb7-402"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210205T000000Z.nc</span>
-<span id="cb7-403"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210206T000000Z.nc</span>
-<span id="cb7-404"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210207T000000Z.nc</span>
-<span id="cb7-405"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210208T000000Z.nc</span>
-<span id="cb7-406"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210209T000000Z.nc</span>
-<span id="cb7-407"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210210T000000Z.nc</span>
-<span id="cb7-408"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210211T000000Z.nc</span>
-<span id="cb7-409"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210212T000000Z.nc</span>
-<span id="cb7-410"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210213T000000Z.nc</span>
-<span id="cb7-411"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210214T000000Z.nc</span>
-<span id="cb7-412"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210215T000000Z.nc</span>
-<span id="cb7-413"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210216T000000Z.nc</span>
-<span id="cb7-414"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210217T000000Z.nc</span>
-<span id="cb7-415"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210218T000000Z.nc</span>
-<span id="cb7-416"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210219T000000Z.nc</span>
-<span id="cb7-417"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210220T000000Z.nc</span>
-<span id="cb7-418"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210221T000000Z.nc</span>
-<span id="cb7-419"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210222T000000Z.nc</span>
-<span id="cb7-420"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210223T000000Z.nc</span>
-<span id="cb7-421"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210224T000000Z.nc</span>
-<span id="cb7-422"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210225T000000Z.nc</span>
-<span id="cb7-423"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210226T000000Z.nc</span>
-<span id="cb7-424"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210227T000000Z.nc</span>
-<span id="cb7-425"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210228T000000Z.nc</span>
-<span id="cb7-426"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210301T000000Z.nc</span>
-<span id="cb7-427"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210302T000000Z.nc</span>
-<span id="cb7-428"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210303T000000Z.nc</span>
-<span id="cb7-429"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210304T000000Z.nc</span>
-<span id="cb7-430"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210305T000000Z.nc</span>
-<span id="cb7-431"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210306T000000Z.nc</span>
-<span id="cb7-432"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210307T000000Z.nc</span>
-<span id="cb7-433"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210308T000000Z.nc</span>
-<span id="cb7-434"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210309T000000Z.nc</span>
-<span id="cb7-435"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210310T000000Z.nc</span>
-<span id="cb7-436"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210311T000000Z.nc</span>
-<span id="cb7-437"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210312T000000Z.nc</span>
-<span id="cb7-438"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210313T000000Z.nc</span>
-<span id="cb7-439"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210314T000000Z.nc</span>
-<span id="cb7-440"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210315T000000Z.nc</span>
-<span id="cb7-441"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210316T000000Z.nc</span>
-<span id="cb7-442"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210317T000000Z.nc</span>
-<span id="cb7-443"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210318T000000Z.nc</span>
-<span id="cb7-444"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210319T000000Z.nc</span>
-<span id="cb7-445"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210320T000000Z.nc</span>
-<span id="cb7-446"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210321T000000Z.nc</span>
-<span id="cb7-447"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210322T000000Z.nc</span>
-<span id="cb7-448"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210323T000000Z.nc</span>
-<span id="cb7-449"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210324T000000Z.nc</span>
-<span id="cb7-450"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210325T000000Z.nc</span>
-<span id="cb7-451"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210326T000000Z.nc</span>
-<span id="cb7-452"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210327T000000Z.nc</span>
-<span id="cb7-453"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210328T000000Z.nc</span>
-<span id="cb7-454"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210329T000000Z.nc</span>
-<span id="cb7-455"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210330T000000Z.nc</span>
-<span id="cb7-456"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210331T000000Z.nc</span>
-<span id="cb7-457"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210401T000000Z.nc</span>
-<span id="cb7-458"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210402T000000Z.nc</span>
-<span id="cb7-459"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210403T000000Z.nc</span>
-<span id="cb7-460"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210404T000000Z.nc</span>
-<span id="cb7-461"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210405T000000Z.nc</span>
-<span id="cb7-462"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210406T000000Z.nc</span>
-<span id="cb7-463"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210407T000000Z.nc</span>
-<span id="cb7-464"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210408T000000Z.nc</span>
-<span id="cb7-465"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210409T000000Z.nc</span>
-<span id="cb7-466"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210410T000000Z.nc</span>
-<span id="cb7-467"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210411T000000Z.nc</span>
-<span id="cb7-468"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210412T000000Z.nc</span>
-<span id="cb7-469"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210413T000000Z.nc</span>
-<span id="cb7-470"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210414T000000Z.nc</span>
-<span id="cb7-471"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210415T000000Z.nc</span>
-<span id="cb7-472"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210416T000000Z.nc</span>
-<span id="cb7-473"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210417T000000Z.nc</span>
-<span id="cb7-474"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210418T000000Z.nc</span>
-<span id="cb7-475"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210419T000000Z.nc</span>
-<span id="cb7-476"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210420T000000Z.nc</span>
-<span id="cb7-477"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210421T000000Z.nc</span>
-<span id="cb7-478"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210422T000000Z.nc</span>
-<span id="cb7-479"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210423T000000Z.nc</span>
-<span id="cb7-480"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210424T000000Z.nc</span>
-<span id="cb7-481"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210425T000000Z.nc</span>
-<span id="cb7-482"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210426T000000Z.nc</span>
-<span id="cb7-483"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210427T000000Z.nc</span>
-<span id="cb7-484"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210428T000000Z.nc</span>
-<span id="cb7-485"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210429T000000Z.nc</span>
-<span id="cb7-486"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210430T000000Z.nc</span>
-<span id="cb7-487"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210501T000000Z.nc</span>
-<span id="cb7-488"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210502T000000Z.nc</span>
-<span id="cb7-489"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210503T000000Z.nc</span>
-<span id="cb7-490"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210504T000000Z.nc</span>
-<span id="cb7-491"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210505T000000Z.nc</span>
-<span id="cb7-492"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210506T000000Z.nc</span>
-<span id="cb7-493"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210507T000000Z.nc</span>
-<span id="cb7-494"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210508T000000Z.nc</span>
-<span id="cb7-495"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210509T000000Z.nc</span>
-<span id="cb7-496"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210510T000000Z.nc</span>
-<span id="cb7-497"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210511T000000Z.nc</span>
-<span id="cb7-498"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210512T000000Z.nc</span>
-<span id="cb7-499"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210513T000000Z.nc</span>
-<span id="cb7-500"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210514T000000Z.nc</span>
-<span id="cb7-501"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210515T000000Z.nc</span>
-<span id="cb7-502"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210516T000000Z.nc</span>
-<span id="cb7-503"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210517T000000Z.nc</span>
-<span id="cb7-504"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210518T000000Z.nc</span>
-<span id="cb7-505"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210519T000000Z.nc</span>
-<span id="cb7-506"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210520T000000Z.nc</span>
-<span id="cb7-507"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210521T000000Z.nc</span>
-<span id="cb7-508"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210522T000000Z.nc</span>
-<span id="cb7-509"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210523T000000Z.nc</span>
-<span id="cb7-510"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210524T000000Z.nc</span>
-<span id="cb7-511"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210525T000000Z.nc</span>
-<span id="cb7-512"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210526T000000Z.nc</span>
-<span id="cb7-513"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210527T000000Z.nc</span>
-<span id="cb7-514"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210528T000000Z.nc</span>
-<span id="cb7-515"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210529T000000Z.nc</span>
-<span id="cb7-516"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210530T000000Z.nc</span>
-<span id="cb7-517"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210531T000000Z.nc</span>
-<span id="cb7-518"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210601T000000Z.nc</span>
-<span id="cb7-519"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210602T000000Z.nc</span>
-<span id="cb7-520"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210603T000000Z.nc</span>
-<span id="cb7-521"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210604T000000Z.nc</span>
-<span id="cb7-522"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210605T000000Z.nc</span>
-<span id="cb7-523"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210606T000000Z.nc</span>
-<span id="cb7-524"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210607T000000Z.nc</span>
-<span id="cb7-525"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210608T000000Z.nc</span>
-<span id="cb7-526"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210609T000000Z.nc</span>
-<span id="cb7-527"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210610T000000Z.nc</span>
-<span id="cb7-528"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210611T000000Z.nc</span>
-<span id="cb7-529"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210612T000000Z.nc</span>
-<span id="cb7-530"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210613T000000Z.nc</span>
-<span id="cb7-531"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210614T000000Z.nc</span>
-<span id="cb7-532"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210615T000000Z.nc</span>
-<span id="cb7-533"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210616T000000Z.nc</span>
-<span id="cb7-534"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210617T000000Z.nc</span>
-<span id="cb7-535"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210618T000000Z.nc</span>
-<span id="cb7-536"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210619T000000Z.nc</span>
-<span id="cb7-537"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210620T000000Z.nc</span>
-<span id="cb7-538"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210621T000000Z.nc</span>
-<span id="cb7-539"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210622T000000Z.nc</span>
-<span id="cb7-540"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210623T000000Z.nc</span>
-<span id="cb7-541"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210624T000000Z.nc</span>
-<span id="cb7-542"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210625T000000Z.nc</span>
-<span id="cb7-543"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210626T000000Z.nc</span>
-<span id="cb7-544"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210627T000000Z.nc</span>
-<span id="cb7-545"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210628T000000Z.nc</span>
-<span id="cb7-546"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210629T000000Z.nc</span>
-<span id="cb7-547"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210630T000000Z.nc</span>
-<span id="cb7-548"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210701T000000Z.nc</span>
-<span id="cb7-549"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210702T000000Z.nc</span>
-<span id="cb7-550"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210703T000000Z.nc</span>
-<span id="cb7-551"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210704T000000Z.nc</span>
-<span id="cb7-552"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210705T000000Z.nc</span>
-<span id="cb7-553"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210706T000000Z.nc</span>
-<span id="cb7-554"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210707T000000Z.nc</span>
-<span id="cb7-555"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210708T000000Z.nc</span>
-<span id="cb7-556"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210709T000000Z.nc</span>
-<span id="cb7-557"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210710T000000Z.nc</span>
-<span id="cb7-558"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210711T000000Z.nc</span>
-<span id="cb7-559"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210712T000000Z.nc</span>
-<span id="cb7-560"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210713T000000Z.nc</span>
-<span id="cb7-561"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210714T000000Z.nc</span>
-<span id="cb7-562"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210715T000000Z.nc</span>
-<span id="cb7-563"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210716T000000Z.nc</span>
-<span id="cb7-564"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210717T000000Z.nc</span>
-<span id="cb7-565"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210718T000000Z.nc</span>
-<span id="cb7-566"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210719T000000Z.nc</span>
-<span id="cb7-567"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210720T000000Z.nc</span>
-<span id="cb7-568"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210721T000000Z.nc</span>
-<span id="cb7-569"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210722T000000Z.nc</span>
-<span id="cb7-570"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210723T000000Z.nc</span>
-<span id="cb7-571"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210724T000000Z.nc</span>
-<span id="cb7-572"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210725T000000Z.nc</span>
-<span id="cb7-573"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210726T000000Z.nc</span>
-<span id="cb7-574"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210727T000000Z.nc</span>
-<span id="cb7-575"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210728T000000Z.nc</span>
-<span id="cb7-576"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210729T000000Z.nc</span>
-<span id="cb7-577"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210730T000000Z.nc</span>
-<span id="cb7-578"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210731T000000Z.nc</span>
-<span id="cb7-579"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210801T000000Z.nc</span>
-<span id="cb7-580"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210802T000000Z.nc</span>
-<span id="cb7-581"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210803T000000Z.nc</span>
-<span id="cb7-582"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210804T000000Z.nc</span>
-<span id="cb7-583"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210805T000000Z.nc</span>
-<span id="cb7-584"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210806T000000Z.nc</span>
-<span id="cb7-585"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210807T000000Z.nc</span>
-<span id="cb7-586"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210808T000000Z.nc</span>
-<span id="cb7-587"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210809T000000Z.nc</span>
-<span id="cb7-588"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210810T000000Z.nc</span>
-<span id="cb7-589"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210811T000000Z.nc</span>
-<span id="cb7-590"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210812T000000Z.nc</span>
-<span id="cb7-591"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210813T000000Z.nc</span>
-<span id="cb7-592"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210814T000000Z.nc</span>
-<span id="cb7-593"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210815T000000Z.nc</span>
-<span id="cb7-594"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210816T000000Z.nc</span>
-<span id="cb7-595"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210817T000000Z.nc</span>
-<span id="cb7-596"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210818T000000Z.nc</span>
-<span id="cb7-597"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210819T000000Z.nc</span>
-<span id="cb7-598"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210820T000000Z.nc</span>
-<span id="cb7-599"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210821T000000Z.nc</span>
-<span id="cb7-600"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210822T000000Z.nc</span>
-<span id="cb7-601"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210823T000000Z.nc</span>
-<span id="cb7-602"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210824T000000Z.nc</span>
-<span id="cb7-603"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210825T000000Z.nc</span>
-<span id="cb7-604"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210826T000000Z.nc</span>
-<span id="cb7-605"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210827T000000Z.nc</span>
-<span id="cb7-606"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210828T000000Z.nc</span>
-<span id="cb7-607"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210829T000000Z.nc</span>
-<span id="cb7-608"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210830T000000Z.nc</span>
-<span id="cb7-609"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210831T000000Z.nc</span>
-<span id="cb7-610"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210901T000000Z.nc</span>
-<span id="cb7-611"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210902T000000Z.nc</span>
-<span id="cb7-612"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210903T000000Z.nc</span>
-<span id="cb7-613"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210904T000000Z.nc</span>
-<span id="cb7-614"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210905T000000Z.nc</span>
-<span id="cb7-615"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210906T000000Z.nc</span>
-<span id="cb7-616"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210907T000000Z.nc</span>
-<span id="cb7-617"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210908T000000Z.nc</span>
-<span id="cb7-618"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210909T000000Z.nc</span>
-<span id="cb7-619"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210910T000000Z.nc</span>
-<span id="cb7-620"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210911T000000Z.nc</span>
-<span id="cb7-621"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210912T000000Z.nc</span>
-<span id="cb7-622"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210913T000000Z.nc</span>
-<span id="cb7-623"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210914T000000Z.nc</span>
-<span id="cb7-624"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210915T000000Z.nc</span>
-<span id="cb7-625"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210916T000000Z.nc</span>
-<span id="cb7-626"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210917T000000Z.nc</span>
-<span id="cb7-627"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210918T000000Z.nc</span>
-<span id="cb7-628"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210919T000000Z.nc</span>
-<span id="cb7-629"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210920T000000Z.nc</span>
-<span id="cb7-630"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210921T000000Z.nc</span>
-<span id="cb7-631"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210922T000000Z.nc</span>
-<span id="cb7-632"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210923T000000Z.nc</span>
-<span id="cb7-633"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210924T000000Z.nc</span>
-<span id="cb7-634"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210925T000000Z.nc</span>
-<span id="cb7-635"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210926T000000Z.nc</span>
-<span id="cb7-636"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210927T000000Z.nc</span>
-<span id="cb7-637"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210928T000000Z.nc</span>
-<span id="cb7-638"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210929T000000Z.nc</span>
-<span id="cb7-639"><a href=""></a>ngc5004_atm_2d_P1D_ml_20210930T000000Z.nc</span>
-<span id="cb7-640"><a href=""></a>ngc5004_atm_2d_P1D_ml_20211001T000000Z.nc</span>
-<span id="cb7-641"><a href=""></a>ngc5004_atm_2d_P1D_ml_20211002T000000Z.nc</span>
-<span id="cb7-642"><a href=""></a>ngc5004_atm_2d_P1D_ml_20211003T000000Z.nc</span>
-<span id="cb7-643"><a href=""></a>ngc5004_atm_2d_P1D_ml_20211004T000000Z.nc</span>
-<span id="cb7-644"><a href=""></a>ngc5004_atm_2d_P1D_ml_20211005T000000Z.nc</span>
-<span id="cb7-645"><a href=""></a>ngc5004_atm_2d_P1D_ml_20211006T000000Z.nc</span>
-<span id="cb7-646"><a href=""></a>ngc5004_atm_2d_P1D_ml_20211007T000000Z.nc</span>
-<span id="cb7-647"><a href=""></a>ngc5004_atm_2d_P1D_ml_20211008T000000Z.nc</span>
-<span id="cb7-648"><a href=""></a>ngc5004_atm_2d_P1D_ml_20211009T000000Z.nc</span>
-<span id="cb7-649"><a href=""></a>ngc5004_atm_2d_P1D_ml_20211010T000000Z.nc</span>
-<span id="cb7-650"><a href=""></a>ngc5004_atm_2d_P1D_ml_20211011T000000Z.nc</span>
-<span id="cb7-651"><a href=""></a>ngc5004_atm_2d_P1D_ml_20211012T000000Z.nc</span>
-<span id="cb7-652"><a href=""></a>ngc5004_atm_2d_P1D_ml_20211013T000000Z.nc</span>
-<span id="cb7-653"><a href=""></a>ngc5004_atm_2d_P1D_ml_20211014T000000Z.nc</span>
-<span id="cb7-654"><a href=""></a>ngc5004_atm_2d_P1D_ml_20211015T000000Z.nc</span>
-<span id="cb7-655"><a href=""></a>ngc5004_atm_2d_P1D_ml_20211016T000000Z.nc</span>
-<span id="cb7-656"><a href=""></a>ngc5004_atm_2d_P1D_ml_20211017T000000Z.nc</span>
-<span id="cb7-657"><a href=""></a>ngc5004_atm_2d_P1D_ml_20211018T000000Z.nc</span>
-<span id="cb7-658"><a href=""></a>ngc5004_atm_2d_P1D_ml_20211019T000000Z.nc</span>
-<span id="cb7-659"><a href=""></a>ngc5004_atm_2d_P1D_ml_20211020T000000Z.nc</span>
-<span id="cb7-660"><a href=""></a>ngc5004_atm_2d_P1D_ml_20211021T000000Z.nc</span>
-<span id="cb7-661"><a href=""></a>ngc5004_atm_2d_P1D_ml_20211022T000000Z.nc</span>
-<span id="cb7-662"><a href=""></a>ngc5004_atm_2d_P1D_ml_20211023T000000Z.nc</span>
-<span id="cb7-663"><a href=""></a>ngc5004_atm_2d_P1D_ml_20211024T000000Z.nc</span>
-<span id="cb7-664"><a href=""></a>ngc5004_atm_2d_P1D_ml_20211025T000000Z.nc</span>
-<span id="cb7-665"><a href=""></a>ngc5004_atm_2d_P1D_ml_20211026T000000Z.nc</span>
-<span id="cb7-666"><a href=""></a>ngc5004_atm_2d_P1D_ml_20211027T000000Z.nc</span>
-<span id="cb7-667"><a href=""></a>ngc5004_atm_2d_P1D_ml_20211028T000000Z.nc</span>
-<span id="cb7-668"><a href=""></a>ngc5004_atm_2d_P1D_ml_20211029T000000Z.nc</span>
-<span id="cb7-669"><a href=""></a>ngc5004_atm_2d_P1D_ml_20211030T000000Z.nc</span>
-<span id="cb7-670"><a href=""></a>ngc5004_atm_2d_P1D_ml_20211031T000000Z.nc</span>
-<span id="cb7-671"><a href=""></a>ngc5004_atm_2d_P1D_ml_20211101T000000Z.nc</span>
-<span id="cb7-672"><a href=""></a>ngc5004_atm_2d_P1D_ml_20211102T000000Z.nc</span>
-<span id="cb7-673"><a href=""></a>ngc5004_atm_2d_P1D_ml_20211103T000000Z.nc</span>
-<span id="cb7-674"><a href=""></a>ngc5004_atm_2d_P1D_ml_20211104T000000Z.nc</span>
-<span id="cb7-675"><a href=""></a>ngc5004_atm_2d_P1D_ml_20211105T000000Z.nc</span>
-<span id="cb7-676"><a href=""></a>ngc5004_atm_2d_P1D_ml_20211106T000000Z.nc</span>
-<span id="cb7-677"><a href=""></a>ngc5004_atm_2d_P1D_ml_20211107T000000Z.nc</span>
-<span id="cb7-678"><a href=""></a>ngc5004_atm_2d_P1D_ml_20211108T000000Z.nc</span>
-<span id="cb7-679"><a href=""></a>ngc5004_atm_2d_P1D_ml_20211109T000000Z.nc</span>
-<span id="cb7-680"><a href=""></a>ngc5004_atm_2d_P1D_ml_20211110T000000Z.nc</span>
-<span id="cb7-681"><a href=""></a>ngc5004_atm_2d_P1D_ml_20211111T000000Z.nc</span>
-<span id="cb7-682"><a href=""></a>ngc5004_atm_2d_P1D_ml_20211112T000000Z.nc</span>
-<span id="cb7-683"><a href=""></a>ngc5004_atm_2d_P1D_ml_20211113T000000Z.nc</span>
-<span id="cb7-684"><a href=""></a>ngc5004_atm_2d_P1D_ml_20211114T000000Z.nc</span>
-<span id="cb7-685"><a href=""></a>ngc5004_atm_2d_P1D_ml_20211115T000000Z.nc</span>
-<span id="cb7-686"><a href=""></a>ngc5004_atm_2d_P1D_ml_20211116T000000Z.nc</span>
-<span id="cb7-687"><a href=""></a>ngc5004_atm_2d_P1D_ml_20211117T000000Z.nc</span>
-<span id="cb7-688"><a href=""></a>ngc5004_atm_2d_P1D_ml_20211118T000000Z.nc</span>
-<span id="cb7-689"><a href=""></a>ngc5004_atm_2d_P1D_ml_20211119T000000Z.nc</span>
-<span id="cb7-690"><a href=""></a>ngc5004_atm_2d_P1D_ml_20211120T000000Z.nc</span>
-<span id="cb7-691"><a href=""></a>ngc5004_atm_2d_P1D_ml_20211121T000000Z.nc</span>
-<span id="cb7-692"><a href=""></a>ngc5004_atm_2d_P1D_ml_20211122T000000Z.nc</span>
-<span id="cb7-693"><a href=""></a>ngc5004_atm_2d_P1D_ml_20211123T000000Z.nc</span>
-<span id="cb7-694"><a href=""></a>ngc5004_atm_2d_P1D_ml_20211124T000000Z.nc</span>
-<span id="cb7-695"><a href=""></a>ngc5004_atm_2d_P1D_ml_20211125T000000Z.nc</span>
-<span id="cb7-696"><a href=""></a>ngc5004_atm_2d_P1D_ml_20211126T000000Z.nc</span>
-<span id="cb7-697"><a href=""></a>ngc5004_atm_2d_P1D_ml_20211127T000000Z.nc</span>
-<span id="cb7-698"><a href=""></a>ngc5004_atm_2d_P1D_ml_20211128T000000Z.nc</span>
-<span id="cb7-699"><a href=""></a>ngc5004_atm_2d_P1D_ml_20211129T000000Z.nc</span>
-<span id="cb7-700"><a href=""></a>ngc5004_atm_2d_P1D_ml_20211130T000000Z.nc</span>
-<span id="cb7-701"><a href=""></a>ngc5004_atm_2d_P1D_ml_20211201T000000Z.nc</span>
-<span id="cb7-702"><a href=""></a>ngc5004_atm_2d_P1D_ml_20211202T000000Z.nc</span>
-<span id="cb7-703"><a href=""></a>ngc5004_atm_2d_P1D_ml_20211203T000000Z.nc</span>
-<span id="cb7-704"><a href=""></a>ngc5004_atm_2d_P1D_ml_20211204T000000Z.nc</span>
-<span id="cb7-705"><a href=""></a>ngc5004_atm_2d_P1D_ml_20211205T000000Z.nc</span>
-<span id="cb7-706"><a href=""></a>ngc5004_atm_2d_P1D_ml_20211206T000000Z.nc</span>
-<span id="cb7-707"><a href=""></a>ngc5004_atm_2d_P1D_ml_20211207T000000Z.nc</span>
-<span id="cb7-708"><a href=""></a>ngc5004_atm_2d_P1D_ml_20211208T000000Z.nc</span>
-<span id="cb7-709"><a href=""></a>ngc5004_atm_2d_P1D_ml_20211209T000000Z.nc</span>
-<span id="cb7-710"><a href=""></a>ngc5004_atm_2d_P1D_ml_20211210T000000Z.nc</span>
-<span id="cb7-711"><a href=""></a>ngc5004_atm_2d_P1D_ml_20211211T000000Z.nc</span>
-<span id="cb7-712"><a href=""></a>ngc5004_atm_2d_P1D_ml_20211212T000000Z.nc</span>
-<span id="cb7-713"><a href=""></a>ngc5004_atm_2d_P1D_ml_20211213T000000Z.nc</span>
-<span id="cb7-714"><a href=""></a>ngc5004_atm_2d_P1D_ml_20211214T000000Z.nc</span>
-<span id="cb7-715"><a href=""></a>ngc5004_atm_2d_P1D_ml_20211215T000000Z.nc</span>
-<span id="cb7-716"><a href=""></a>ngc5004_atm_2d_P1D_ml_20211216T000000Z.nc</span>
-<span id="cb7-717"><a href=""></a>ngc5004_atm_2d_P1D_ml_20211217T000000Z.nc</span>
-<span id="cb7-718"><a href=""></a>ngc5004_atm_2d_P1D_ml_20211218T000000Z.nc</span>
-<span id="cb7-719"><a href=""></a>ngc5004_atm_2d_P1D_ml_20211219T000000Z.nc</span>
-<span id="cb7-720"><a href=""></a>ngc5004_atm_2d_P1D_ml_20211220T000000Z.nc</span>
-<span id="cb7-721"><a href=""></a>ngc5004_atm_2d_P1D_ml_20211221T000000Z.nc</span>
-<span id="cb7-722"><a href=""></a>ngc5004_atm_2d_P1D_ml_20211222T000000Z.nc</span>
-<span id="cb7-723"><a href=""></a>ngc5004_atm_2d_P1D_ml_20211223T000000Z.nc</span>
-<span id="cb7-724"><a href=""></a>ngc5004_atm_2d_P1D_ml_20211224T000000Z.nc</span>
-<span id="cb7-725"><a href=""></a>ngc5004_atm_2d_P1D_ml_20211225T000000Z.nc</span>
-<span id="cb7-726"><a href=""></a>ngc5004_atm_2d_P1D_ml_20211226T000000Z.nc</span>
-<span id="cb7-727"><a href=""></a>ngc5004_atm_2d_P1D_ml_20211227T000000Z.nc</span>
-<span id="cb7-728"><a href=""></a>ngc5004_atm_2d_P1D_ml_20211228T000000Z.nc</span>
-<span id="cb7-729"><a href=""></a>ngc5004_atm_2d_P1D_ml_20211229T000000Z.nc</span>
-<span id="cb7-730"><a href=""></a>ngc5004_atm_2d_P1D_ml_20211230T000000Z.nc</span>
-<span id="cb7-731"><a href=""></a>ngc5004_atm_2d_P1D_ml_20211231T000000Z.nc</span>
-<span id="cb7-732"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220101T000000Z.nc</span>
-<span id="cb7-733"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220102T000000Z.nc</span>
-<span id="cb7-734"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220103T000000Z.nc</span>
-<span id="cb7-735"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220104T000000Z.nc</span>
-<span id="cb7-736"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220105T000000Z.nc</span>
-<span id="cb7-737"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220106T000000Z.nc</span>
-<span id="cb7-738"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220107T000000Z.nc</span>
-<span id="cb7-739"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220108T000000Z.nc</span>
-<span id="cb7-740"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220109T000000Z.nc</span>
-<span id="cb7-741"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220110T000000Z.nc</span>
-<span id="cb7-742"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220111T000000Z.nc</span>
-<span id="cb7-743"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220112T000000Z.nc</span>
-<span id="cb7-744"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220113T000000Z.nc</span>
-<span id="cb7-745"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220114T000000Z.nc</span>
-<span id="cb7-746"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220115T000000Z.nc</span>
-<span id="cb7-747"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220116T000000Z.nc</span>
-<span id="cb7-748"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220117T000000Z.nc</span>
-<span id="cb7-749"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220118T000000Z.nc</span>
-<span id="cb7-750"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220119T000000Z.nc</span>
-<span id="cb7-751"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220120T000000Z.nc</span>
-<span id="cb7-752"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220121T000000Z.nc</span>
-<span id="cb7-753"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220122T000000Z.nc</span>
-<span id="cb7-754"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220123T000000Z.nc</span>
-<span id="cb7-755"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220124T000000Z.nc</span>
-<span id="cb7-756"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220125T000000Z.nc</span>
-<span id="cb7-757"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220126T000000Z.nc</span>
-<span id="cb7-758"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220127T000000Z.nc</span>
-<span id="cb7-759"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220128T000000Z.nc</span>
-<span id="cb7-760"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220129T000000Z.nc</span>
-<span id="cb7-761"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220130T000000Z.nc</span>
-<span id="cb7-762"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220131T000000Z.nc</span>
-<span id="cb7-763"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220201T000000Z.nc</span>
-<span id="cb7-764"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220202T000000Z.nc</span>
-<span id="cb7-765"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220203T000000Z.nc</span>
-<span id="cb7-766"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220204T000000Z.nc</span>
-<span id="cb7-767"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220205T000000Z.nc</span>
-<span id="cb7-768"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220206T000000Z.nc</span>
-<span id="cb7-769"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220207T000000Z.nc</span>
-<span id="cb7-770"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220208T000000Z.nc</span>
-<span id="cb7-771"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220209T000000Z.nc</span>
-<span id="cb7-772"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220210T000000Z.nc</span>
-<span id="cb7-773"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220211T000000Z.nc</span>
-<span id="cb7-774"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220212T000000Z.nc</span>
-<span id="cb7-775"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220213T000000Z.nc</span>
-<span id="cb7-776"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220214T000000Z.nc</span>
-<span id="cb7-777"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220215T000000Z.nc</span>
-<span id="cb7-778"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220216T000000Z.nc</span>
-<span id="cb7-779"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220217T000000Z.nc</span>
-<span id="cb7-780"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220218T000000Z.nc</span>
-<span id="cb7-781"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220219T000000Z.nc</span>
-<span id="cb7-782"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220220T000000Z.nc</span>
-<span id="cb7-783"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220221T000000Z.nc</span>
-<span id="cb7-784"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220222T000000Z.nc</span>
-<span id="cb7-785"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220223T000000Z.nc</span>
-<span id="cb7-786"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220224T000000Z.nc</span>
-<span id="cb7-787"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220225T000000Z.nc</span>
-<span id="cb7-788"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220226T000000Z.nc</span>
-<span id="cb7-789"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220227T000000Z.nc</span>
-<span id="cb7-790"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220228T000000Z.nc</span>
-<span id="cb7-791"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220301T000000Z.nc</span>
-<span id="cb7-792"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220302T000000Z.nc</span>
-<span id="cb7-793"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220303T000000Z.nc</span>
-<span id="cb7-794"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220304T000000Z.nc</span>
-<span id="cb7-795"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220305T000000Z.nc</span>
-<span id="cb7-796"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220306T000000Z.nc</span>
-<span id="cb7-797"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220307T000000Z.nc</span>
-<span id="cb7-798"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220308T000000Z.nc</span>
-<span id="cb7-799"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220309T000000Z.nc</span>
-<span id="cb7-800"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220310T000000Z.nc</span>
-<span id="cb7-801"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220311T000000Z.nc</span>
-<span id="cb7-802"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220312T000000Z.nc</span>
-<span id="cb7-803"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220313T000000Z.nc</span>
-<span id="cb7-804"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220314T000000Z.nc</span>
-<span id="cb7-805"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220315T000000Z.nc</span>
-<span id="cb7-806"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220316T000000Z.nc</span>
-<span id="cb7-807"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220317T000000Z.nc</span>
-<span id="cb7-808"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220318T000000Z.nc</span>
-<span id="cb7-809"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220319T000000Z.nc</span>
-<span id="cb7-810"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220320T000000Z.nc</span>
-<span id="cb7-811"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220321T000000Z.nc</span>
-<span id="cb7-812"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220322T000000Z.nc</span>
-<span id="cb7-813"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220323T000000Z.nc</span>
-<span id="cb7-814"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220324T000000Z.nc</span>
-<span id="cb7-815"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220325T000000Z.nc</span>
-<span id="cb7-816"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220326T000000Z.nc</span>
-<span id="cb7-817"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220327T000000Z.nc</span>
-<span id="cb7-818"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220328T000000Z.nc</span>
-<span id="cb7-819"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220329T000000Z.nc</span>
-<span id="cb7-820"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220330T000000Z.nc</span>
-<span id="cb7-821"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220331T000000Z.nc</span>
-<span id="cb7-822"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220401T000000Z.nc</span>
-<span id="cb7-823"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220402T000000Z.nc</span>
-<span id="cb7-824"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220403T000000Z.nc</span>
-<span id="cb7-825"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220404T000000Z.nc</span>
-<span id="cb7-826"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220405T000000Z.nc</span>
-<span id="cb7-827"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220406T000000Z.nc</span>
-<span id="cb7-828"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220407T000000Z.nc</span>
-<span id="cb7-829"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220408T000000Z.nc</span>
-<span id="cb7-830"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220409T000000Z.nc</span>
-<span id="cb7-831"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220410T000000Z.nc</span>
-<span id="cb7-832"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220411T000000Z.nc</span>
-<span id="cb7-833"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220412T000000Z.nc</span>
-<span id="cb7-834"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220413T000000Z.nc</span>
-<span id="cb7-835"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220414T000000Z.nc</span>
-<span id="cb7-836"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220415T000000Z.nc</span>
-<span id="cb7-837"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220416T000000Z.nc</span>
-<span id="cb7-838"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220417T000000Z.nc</span>
-<span id="cb7-839"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220418T000000Z.nc</span>
-<span id="cb7-840"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220419T000000Z.nc</span>
-<span id="cb7-841"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220420T000000Z.nc</span>
-<span id="cb7-842"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220421T000000Z.nc</span>
-<span id="cb7-843"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220422T000000Z.nc</span>
-<span id="cb7-844"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220423T000000Z.nc</span>
-<span id="cb7-845"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220424T000000Z.nc</span>
-<span id="cb7-846"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220425T000000Z.nc</span>
-<span id="cb7-847"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220426T000000Z.nc</span>
-<span id="cb7-848"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220427T000000Z.nc</span>
-<span id="cb7-849"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220428T000000Z.nc</span>
-<span id="cb7-850"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220429T000000Z.nc</span>
-<span id="cb7-851"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220430T000000Z.nc</span>
-<span id="cb7-852"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220501T000000Z.nc</span>
-<span id="cb7-853"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220502T000000Z.nc</span>
-<span id="cb7-854"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220503T000000Z.nc</span>
-<span id="cb7-855"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220504T000000Z.nc</span>
-<span id="cb7-856"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220505T000000Z.nc</span>
-<span id="cb7-857"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220506T000000Z.nc</span>
-<span id="cb7-858"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220507T000000Z.nc</span>
-<span id="cb7-859"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220508T000000Z.nc</span>
-<span id="cb7-860"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220509T000000Z.nc</span>
-<span id="cb7-861"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220510T000000Z.nc</span>
-<span id="cb7-862"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220511T000000Z.nc</span>
-<span id="cb7-863"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220512T000000Z.nc</span>
-<span id="cb7-864"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220513T000000Z.nc</span>
-<span id="cb7-865"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220514T000000Z.nc</span>
-<span id="cb7-866"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220515T000000Z.nc</span>
-<span id="cb7-867"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220516T000000Z.nc</span>
-<span id="cb7-868"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220517T000000Z.nc</span>
-<span id="cb7-869"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220518T000000Z.nc</span>
-<span id="cb7-870"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220519T000000Z.nc</span>
-<span id="cb7-871"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220520T000000Z.nc</span>
-<span id="cb7-872"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220521T000000Z.nc</span>
-<span id="cb7-873"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220522T000000Z.nc</span>
-<span id="cb7-874"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220523T000000Z.nc</span>
-<span id="cb7-875"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220524T000000Z.nc</span>
-<span id="cb7-876"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220525T000000Z.nc</span>
-<span id="cb7-877"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220526T000000Z.nc</span>
-<span id="cb7-878"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220527T000000Z.nc</span>
-<span id="cb7-879"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220528T000000Z.nc</span>
-<span id="cb7-880"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220529T000000Z.nc</span>
-<span id="cb7-881"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220530T000000Z.nc</span>
-<span id="cb7-882"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220531T000000Z.nc</span>
-<span id="cb7-883"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220601T000000Z.nc</span>
-<span id="cb7-884"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220602T000000Z.nc</span>
-<span id="cb7-885"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220603T000000Z.nc</span>
-<span id="cb7-886"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220604T000000Z.nc</span>
-<span id="cb7-887"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220605T000000Z.nc</span>
-<span id="cb7-888"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220606T000000Z.nc</span>
-<span id="cb7-889"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220607T000000Z.nc</span>
-<span id="cb7-890"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220608T000000Z.nc</span>
-<span id="cb7-891"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220609T000000Z.nc</span>
-<span id="cb7-892"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220610T000000Z.nc</span>
-<span id="cb7-893"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220611T000000Z.nc</span>
-<span id="cb7-894"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220612T000000Z.nc</span>
-<span id="cb7-895"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220613T000000Z.nc</span>
-<span id="cb7-896"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220614T000000Z.nc</span>
-<span id="cb7-897"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220615T000000Z.nc</span>
-<span id="cb7-898"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220616T000000Z.nc</span>
-<span id="cb7-899"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220617T000000Z.nc</span>
-<span id="cb7-900"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220618T000000Z.nc</span>
-<span id="cb7-901"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220619T000000Z.nc</span>
-<span id="cb7-902"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220620T000000Z.nc</span>
-<span id="cb7-903"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220621T000000Z.nc</span>
-<span id="cb7-904"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220622T000000Z.nc</span>
-<span id="cb7-905"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220623T000000Z.nc</span>
-<span id="cb7-906"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220624T000000Z.nc</span>
-<span id="cb7-907"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220625T000000Z.nc</span>
-<span id="cb7-908"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220626T000000Z.nc</span>
-<span id="cb7-909"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220627T000000Z.nc</span>
-<span id="cb7-910"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220628T000000Z.nc</span>
-<span id="cb7-911"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220629T000000Z.nc</span>
-<span id="cb7-912"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220630T000000Z.nc</span>
-<span id="cb7-913"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220701T000000Z.nc</span>
-<span id="cb7-914"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220702T000000Z.nc</span>
-<span id="cb7-915"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220703T000000Z.nc</span>
-<span id="cb7-916"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220704T000000Z.nc</span>
-<span id="cb7-917"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220705T000000Z.nc</span>
-<span id="cb7-918"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220706T000000Z.nc</span>
-<span id="cb7-919"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220707T000000Z.nc</span>
-<span id="cb7-920"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220708T000000Z.nc</span>
-<span id="cb7-921"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220709T000000Z.nc</span>
-<span id="cb7-922"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220710T000000Z.nc</span>
-<span id="cb7-923"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220711T000000Z.nc</span>
-<span id="cb7-924"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220712T000000Z.nc</span>
-<span id="cb7-925"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220713T000000Z.nc</span>
-<span id="cb7-926"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220714T000000Z.nc</span>
-<span id="cb7-927"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220715T000000Z.nc</span>
-<span id="cb7-928"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220716T000000Z.nc</span>
-<span id="cb7-929"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220717T000000Z.nc</span>
-<span id="cb7-930"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220718T000000Z.nc</span>
-<span id="cb7-931"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220719T000000Z.nc</span>
-<span id="cb7-932"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220720T000000Z.nc</span>
-<span id="cb7-933"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220721T000000Z.nc</span>
-<span id="cb7-934"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220722T000000Z.nc</span>
-<span id="cb7-935"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220723T000000Z.nc</span>
-<span id="cb7-936"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220724T000000Z.nc</span>
-<span id="cb7-937"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220725T000000Z.nc</span>
-<span id="cb7-938"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220726T000000Z.nc</span>
-<span id="cb7-939"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220727T000000Z.nc</span>
-<span id="cb7-940"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220728T000000Z.nc</span>
-<span id="cb7-941"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220729T000000Z.nc</span>
-<span id="cb7-942"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220730T000000Z.nc</span>
-<span id="cb7-943"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220731T000000Z.nc</span>
-<span id="cb7-944"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220801T000000Z.nc</span>
-<span id="cb7-945"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220802T000000Z.nc</span>
-<span id="cb7-946"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220803T000000Z.nc</span>
-<span id="cb7-947"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220804T000000Z.nc</span>
-<span id="cb7-948"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220805T000000Z.nc</span>
-<span id="cb7-949"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220806T000000Z.nc</span>
-<span id="cb7-950"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220807T000000Z.nc</span>
-<span id="cb7-951"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220808T000000Z.nc</span>
-<span id="cb7-952"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220809T000000Z.nc</span>
-<span id="cb7-953"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220810T000000Z.nc</span>
-<span id="cb7-954"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220811T000000Z.nc</span>
-<span id="cb7-955"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220812T000000Z.nc</span>
-<span id="cb7-956"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220813T000000Z.nc</span>
-<span id="cb7-957"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220814T000000Z.nc</span>
-<span id="cb7-958"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220815T000000Z.nc</span>
-<span id="cb7-959"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220816T000000Z.nc</span>
-<span id="cb7-960"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220817T000000Z.nc</span>
-<span id="cb7-961"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220818T000000Z.nc</span>
-<span id="cb7-962"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220819T000000Z.nc</span>
-<span id="cb7-963"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220820T000000Z.nc</span>
-<span id="cb7-964"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220821T000000Z.nc</span>
-<span id="cb7-965"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220822T000000Z.nc</span>
-<span id="cb7-966"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220823T000000Z.nc</span>
-<span id="cb7-967"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220824T000000Z.nc</span>
-<span id="cb7-968"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220825T000000Z.nc</span>
-<span id="cb7-969"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220826T000000Z.nc</span>
-<span id="cb7-970"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220827T000000Z.nc</span>
-<span id="cb7-971"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220828T000000Z.nc</span>
-<span id="cb7-972"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220829T000000Z.nc</span>
-<span id="cb7-973"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220830T000000Z.nc</span>
-<span id="cb7-974"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220831T000000Z.nc</span>
-<span id="cb7-975"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220901T000000Z.nc</span>
-<span id="cb7-976"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220902T000000Z.nc</span>
-<span id="cb7-977"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220903T000000Z.nc</span>
-<span id="cb7-978"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220904T000000Z.nc</span>
-<span id="cb7-979"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220905T000000Z.nc</span>
-<span id="cb7-980"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220906T000000Z.nc</span>
-<span id="cb7-981"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220907T000000Z.nc</span>
-<span id="cb7-982"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220908T000000Z.nc</span>
-<span id="cb7-983"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220909T000000Z.nc</span>
-<span id="cb7-984"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220910T000000Z.nc</span>
-<span id="cb7-985"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220911T000000Z.nc</span>
-<span id="cb7-986"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220912T000000Z.nc</span>
-<span id="cb7-987"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220913T000000Z.nc</span>
-<span id="cb7-988"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220914T000000Z.nc</span>
-<span id="cb7-989"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220915T000000Z.nc</span>
-<span id="cb7-990"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220916T000000Z.nc</span>
-<span id="cb7-991"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220917T000000Z.nc</span>
-<span id="cb7-992"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220918T000000Z.nc</span>
-<span id="cb7-993"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220919T000000Z.nc</span>
-<span id="cb7-994"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220920T000000Z.nc</span>
-<span id="cb7-995"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220921T000000Z.nc</span>
-<span id="cb7-996"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220922T000000Z.nc</span>
-<span id="cb7-997"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220923T000000Z.nc</span>
-<span id="cb7-998"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220924T000000Z.nc</span>
-<span id="cb7-999"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220925T000000Z.nc</span>
-<span id="cb7-1000"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220926T000000Z.nc</span>
-<span id="cb7-1001"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220927T000000Z.nc</span>
-<span id="cb7-1002"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220928T000000Z.nc</span>
-<span id="cb7-1003"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220929T000000Z.nc</span>
-<span id="cb7-1004"><a href=""></a>ngc5004_atm_2d_P1D_ml_20220930T000000Z.nc</span>
-<span id="cb7-1005"><a href=""></a>ngc5004_atm_2d_P1D_ml_20221001T000000Z.nc</span>
-<span id="cb7-1006"><a href=""></a>ngc5004_atm_2d_P1D_ml_20221002T000000Z.nc</span>
-<span id="cb7-1007"><a href=""></a>ngc5004_atm_2d_P1D_ml_20221003T000000Z.nc</span>
-<span id="cb7-1008"><a href=""></a>ngc5004_atm_2d_P1D_ml_20221004T000000Z.nc</span>
-<span id="cb7-1009"><a href=""></a>ngc5004_atm_2d_P1D_ml_20221005T000000Z.nc</span>
-<span id="cb7-1010"><a href=""></a>ngc5004_atm_2d_P1D_ml_20221006T000000Z.nc</span>
-<span id="cb7-1011"><a href=""></a>ngc5004_atm_2d_P1D_ml_20221007T000000Z.nc</span>
-<span id="cb7-1012"><a href=""></a>ngc5004_atm_2d_P1D_ml_20221008T000000Z.nc</span>
-<span id="cb7-1013"><a href=""></a>ngc5004_atm_2d_P1D_ml_20221009T000000Z.nc</span>
-<span id="cb7-1014"><a href=""></a>ngc5004_atm_2d_P1D_ml_20221010T000000Z.nc</span>
-<span id="cb7-1015"><a href=""></a>ngc5004_atm_2d_P1D_ml_20221011T000000Z.nc</span>
-<span id="cb7-1016"><a href=""></a>ngc5004_atm_2d_P1D_ml_20221012T000000Z.nc</span>
-<span id="cb7-1017"><a href=""></a>ngc5004_atm_2d_P1D_ml_20221013T000000Z.nc</span>
-<span id="cb7-1018"><a href=""></a>ngc5004_atm_2d_P1D_ml_20221014T000000Z.nc</span>
-<span id="cb7-1019"><a href=""></a>ngc5004_atm_2d_P1D_ml_20221015T000000Z.nc</span>
-<span id="cb7-1020"><a href=""></a>ngc5004_atm_2d_P1D_ml_20221016T000000Z.nc</span>
-<span id="cb7-1021"><a href=""></a>ngc5004_atm_2d_P1D_ml_20221017T000000Z.nc</span>
-<span id="cb7-1022"><a href=""></a>ngc5004_atm_2d_P1D_ml_20221018T000000Z.nc</span>
-<span id="cb7-1023"><a href=""></a>ngc5004_atm_2d_P1D_ml_20221019T000000Z.nc</span>
-<span id="cb7-1024"><a href=""></a>ngc5004_atm_2d_P1D_ml_20221020T000000Z.nc</span>
-<span id="cb7-1025"><a href=""></a>ngc5004_atm_2d_P1D_ml_20221021T000000Z.nc</span>
-<span id="cb7-1026"><a href=""></a>ngc5004_atm_2d_P1D_ml_20221022T000000Z.nc</span>
-<span id="cb7-1027"><a href=""></a>ngc5004_atm_2d_P1D_ml_20221023T000000Z.nc</span>
-<span id="cb7-1028"><a href=""></a>ngc5004_atm_2d_P1D_ml_20221024T000000Z.nc</span>
-<span id="cb7-1029"><a href=""></a>ngc5004_atm_2d_P1D_ml_20221025T000000Z.nc</span>
-<span id="cb7-1030"><a href=""></a>ngc5004_atm_2d_P1D_ml_20221026T000000Z.nc</span>
-<span id="cb7-1031"><a href=""></a>ngc5004_atm_2d_P1D_ml_20221027T000000Z.nc</span>
-<span id="cb7-1032"><a href=""></a>ngc5004_atm_2d_P1D_ml_20221028T000000Z.nc</span>
-<span id="cb7-1033"><a href=""></a>ngc5004_atm_2d_P1D_ml_20221029T000000Z.nc</span>
-<span id="cb7-1034"><a href=""></a>ngc5004_atm_2d_P1D_ml_20221030T000000Z.nc</span>
-<span id="cb7-1035"><a href=""></a>ngc5004_atm_2d_P1D_ml_20221031T000000Z.nc</span>
-<span id="cb7-1036"><a href=""></a>ngc5004_atm_2d_P1D_ml_20221101T000000Z.nc</span>
-<span id="cb7-1037"><a href=""></a>ngc5004_atm_2d_P1D_ml_20221102T000000Z.nc</span>
-<span id="cb7-1038"><a href=""></a>ngc5004_atm_2d_P1D_ml_20221103T000000Z.nc</span>
-<span id="cb7-1039"><a href=""></a>ngc5004_atm_2d_P1D_ml_20221104T000000Z.nc</span>
-<span id="cb7-1040"><a href=""></a>ngc5004_atm_2d_P1D_ml_20221105T000000Z.nc</span>
-<span id="cb7-1041"><a href=""></a>ngc5004_atm_2d_P1D_ml_20221106T000000Z.nc</span>
-<span id="cb7-1042"><a href=""></a>ngc5004_atm_2d_P1D_ml_20221107T000000Z.nc</span>
-<span id="cb7-1043"><a href=""></a>ngc5004_atm_2d_P1D_ml_20221108T000000Z.nc</span>
-<span id="cb7-1044"><a href=""></a>ngc5004_atm_2d_P1D_ml_20221109T000000Z.nc</span>
-<span id="cb7-1045"><a href=""></a>ngc5004_atm_2d_P1D_ml_20221110T000000Z.nc</span>
-<span id="cb7-1046"><a href=""></a>ngc5004_atm_2d_P1D_ml_20221111T000000Z.nc</span>
-<span id="cb7-1047"><a href=""></a>ngc5004_atm_2d_P1D_ml_20221112T000000Z.nc</span>
-<span id="cb7-1048"><a href=""></a>ngc5004_atm_2d_P1D_ml_20221113T000000Z.nc</span>
-<span id="cb7-1049"><a href=""></a>ngc5004_atm_2d_P1D_ml_20221114T000000Z.nc</span>
-<span id="cb7-1050"><a href=""></a>ngc5004_atm_2d_P1D_ml_20221115T000000Z.nc</span>
-<span id="cb7-1051"><a href=""></a>ngc5004_atm_2d_P1D_ml_20221116T000000Z.nc</span>
-<span id="cb7-1052"><a href=""></a>ngc5004_atm_2d_P1D_ml_20221117T000000Z.nc</span>
-<span id="cb7-1053"><a href=""></a>ngc5004_atm_2d_P1D_ml_20221118T000000Z.nc</span>
-<span id="cb7-1054"><a href=""></a>ngc5004_atm_2d_P1D_ml_20221119T000000Z.nc</span>
-<span id="cb7-1055"><a href=""></a>ngc5004_atm_2d_P1D_ml_20221120T000000Z.nc</span>
-<span id="cb7-1056"><a href=""></a>ngc5004_atm_2d_P1D_ml_20221121T000000Z.nc</span>
-<span id="cb7-1057"><a href=""></a>ngc5004_atm_2d_P1D_ml_20221122T000000Z.nc</span>
-<span id="cb7-1058"><a href=""></a>ngc5004_atm_2d_P1D_ml_20221123T000000Z.nc</span>
-<span id="cb7-1059"><a href=""></a>ngc5004_atm_2d_P1D_ml_20221124T000000Z.nc</span>
-<span id="cb7-1060"><a href=""></a>ngc5004_atm_2d_P1D_ml_20221125T000000Z.nc</span>
-<span id="cb7-1061"><a href=""></a>ngc5004_atm_2d_P1D_ml_20221126T000000Z.nc</span>
-<span id="cb7-1062"><a href=""></a>ngc5004_atm_2d_P1D_ml_20221127T000000Z.nc</span>
-<span id="cb7-1063"><a href=""></a>ngc5004_atm_2d_P1D_ml_20221128T000000Z.nc</span>
-<span id="cb7-1064"><a href=""></a>ngc5004_atm_2d_P1D_ml_20221129T000000Z.nc</span>
-<span id="cb7-1065"><a href=""></a>ngc5004_atm_2d_P1D_ml_20221130T000000Z.nc</span>
-<span id="cb7-1066"><a href=""></a>ngc5004_atm_2d_P1D_ml_20221201T000000Z.nc</span>
-<span id="cb7-1067"><a href=""></a>ngc5004_atm_2d_P1D_ml_20221202T000000Z.nc</span>
-<span id="cb7-1068"><a href=""></a>ngc5004_atm_2d_P1D_ml_20221203T000000Z.nc</span>
-<span id="cb7-1069"><a href=""></a>ngc5004_atm_2d_P1D_ml_20221204T000000Z.nc</span>
-<span id="cb7-1070"><a href=""></a>ngc5004_atm_2d_P1D_ml_20221205T000000Z.nc</span>
-<span id="cb7-1071"><a href=""></a>ngc5004_atm_2d_P1D_ml_20221206T000000Z.nc</span>
-<span id="cb7-1072"><a href=""></a>ngc5004_atm_2d_P1D_ml_20221207T000000Z.nc</span>
-<span id="cb7-1073"><a href=""></a>ngc5004_atm_2d_P1D_ml_20221208T000000Z.nc</span>
-<span id="cb7-1074"><a href=""></a>ngc5004_atm_2d_P1D_ml_20221209T000000Z.nc</span>
-<span id="cb7-1075"><a href=""></a>ngc5004_atm_2d_P1D_ml_20221210T000000Z.nc</span>
-<span id="cb7-1076"><a href=""></a>ngc5004_atm_2d_P1D_ml_20221211T000000Z.nc</span>
-<span id="cb7-1077"><a href=""></a>ngc5004_atm_2d_P1D_ml_20221212T000000Z.nc</span>
-<span id="cb7-1078"><a href=""></a>ngc5004_atm_2d_P1D_ml_20221213T000000Z.nc</span>
-<span id="cb7-1079"><a href=""></a>ngc5004_atm_2d_P1D_ml_20221214T000000Z.nc</span>
-<span id="cb7-1080"><a href=""></a>ngc5004_atm_2d_P1D_ml_20221215T000000Z.nc</span>
-<span id="cb7-1081"><a href=""></a>ngc5004_atm_2d_P1D_ml_20221216T000000Z.nc</span>
-<span id="cb7-1082"><a href=""></a>ngc5004_atm_2d_P1D_ml_20221217T000000Z.nc</span>
-<span id="cb7-1083"><a href=""></a>ngc5004_atm_2d_P1D_ml_20221218T000000Z.nc</span>
-<span id="cb7-1084"><a href=""></a>ngc5004_atm_2d_P1D_ml_20221219T000000Z.nc</span>
-<span id="cb7-1085"><a href=""></a>ngc5004_atm_2d_P1D_ml_20221220T000000Z.nc</span>
-<span id="cb7-1086"><a href=""></a>ngc5004_atm_2d_P1D_ml_20221221T000000Z.nc</span>
-<span id="cb7-1087"><a href=""></a>ngc5004_atm_2d_P1D_ml_20221222T000000Z.nc</span>
-<span id="cb7-1088"><a href=""></a>ngc5004_atm_2d_P1D_ml_20221223T000000Z.nc</span>
-<span id="cb7-1089"><a href=""></a>ngc5004_atm_2d_P1D_ml_20221224T000000Z.nc</span>
-<span id="cb7-1090"><a href=""></a>ngc5004_atm_2d_P1D_ml_20221225T000000Z.nc</span>
-<span id="cb7-1091"><a href=""></a>ngc5004_atm_2d_P1D_ml_20221226T000000Z.nc</span>
-<span id="cb7-1092"><a href=""></a>ngc5004_atm_2d_P1D_ml_20221227T000000Z.nc</span>
-<span id="cb7-1093"><a href=""></a>ngc5004_atm_2d_P1D_ml_20221228T000000Z.nc</span>
-<span id="cb7-1094"><a href=""></a>ngc5004_atm_2d_P1D_ml_20221229T000000Z.nc</span>
-<span id="cb7-1095"><a href=""></a>ngc5004_atm_2d_P1D_ml_20221230T000000Z.nc</span>
-<span id="cb7-1096"><a href=""></a>ngc5004_atm_2d_P1D_ml_20221231T000000Z.nc</span>
-<span id="cb7-1097"><a href=""></a>ngc5004_atm_2d_P1D_ml_20230101T000000Z.nc</span>
-<span id="cb7-1098"><a href=""></a>ngc5004_atm_2d_P1D_ml_20230102T000000Z.nc</span>
-<span id="cb7-1099"><a href=""></a>ngc5004_atm_2d_P1D_ml_20230103T000000Z.nc</span>
-<span id="cb7-1100"><a href=""></a>ngc5004_atm_2d_P1D_ml_20230104T000000Z.nc</span>
-<span id="cb7-1101"><a href=""></a>ngc5004_atm_2d_P1D_ml_20230105T000000Z.nc</span>
-<span id="cb7-1102"><a href=""></a>ngc5004_atm_2d_P1D_ml_20230106T000000Z.nc</span>
-<span id="cb7-1103"><a href=""></a>ngc5004_atm_2d_P1D_ml_20230107T000000Z.nc</span>
-<span id="cb7-1104"><a href=""></a>ngc5004_atm_2d_P1D_ml_20230108T000000Z.nc</span>
-<span id="cb7-1105"><a href=""></a>ngc5004_atm_2d_P1D_ml_20230109T000000Z.nc</span>
-<span id="cb7-1106"><a href=""></a>ngc5004_atm_2d_P1D_ml_20230110T000000Z.nc</span>
-<span id="cb7-1107"><a href=""></a>ngc5004_atm_2d_P1D_ml_20230111T000000Z.nc</span>
-<span id="cb7-1108"><a href=""></a>ngc5004_atm_2d_P1D_ml_20230112T000000Z.nc</span>
-<span id="cb7-1109"><a href=""></a>ngc5004_atm_2d_P1D_ml_20230113T000000Z.nc</span>
-<span id="cb7-1110"><a href=""></a>ngc5004_atm_2d_P1D_ml_20230114T000000Z.nc</span>
-<span id="cb7-1111"><a href=""></a>ngc5004_atm_2d_P1D_ml_20230115T000000Z.nc</span>
-<span id="cb7-1112"><a href=""></a>ngc5004_atm_2d_P1D_ml_20230116T000000Z.nc</span>
-<span id="cb7-1113"><a href=""></a>ngc5004_atm_2d_P1D_ml_20230117T000000Z.nc</span>
-<span id="cb7-1114"><a href=""></a>ngc5004_atm_2d_P1D_ml_20230118T000000Z.nc</span>
-<span id="cb7-1115"><a href=""></a>ngc5004_atm_2d_P1D_ml_20230119T000000Z.nc</span>
-<span id="cb7-1116"><a href=""></a>ngc5004_atm_2d_P1D_ml_20230120T000000Z.nc</span>
-<span id="cb7-1117"><a href=""></a>ngc5004_atm_2d_P1D_ml_20230121T000000Z.nc</span>
-<span id="cb7-1118"><a href=""></a>ngc5004_atm_2d_P1D_ml_20230122T000000Z.nc</span>
-<span id="cb7-1119"><a href=""></a>ngc5004_atm_2d_P1D_ml_20230123T000000Z.nc</span>
-<span id="cb7-1120"><a href=""></a>ngc5004_atm_2d_P1D_ml_20230124T000000Z.nc</span>
-<span id="cb7-1121"><a href=""></a>ngc5004_atm_2d_P1D_ml_20230125T000000Z.nc</span>
-<span id="cb7-1122"><a href=""></a>ngc5004_atm_2d_P1D_ml_20230126T000000Z.nc</span>
-<span id="cb7-1123"><a href=""></a>ngc5004_atm_2d_P1D_ml_20230127T000000Z.nc</span>
-<span id="cb7-1124"><a href=""></a>ngc5004_atm_2d_P1D_ml_20230128T000000Z.nc</span>
-<span id="cb7-1125"><a href=""></a>ngc5004_atm_2d_P1D_ml_20230129T000000Z.nc</span>
-<span id="cb7-1126"><a href=""></a>ngc5004_atm_2d_P1D_ml_20230130T000000Z.nc</span>
-<span id="cb7-1127"><a href=""></a>ngc5004_atm_2d_P1D_ml_20230131T000000Z.nc</span>
-<span id="cb7-1128"><a href=""></a>ngc5004_atm_2d_P1D_ml_20230201T000000Z.nc</span>
-<span id="cb7-1129"><a href=""></a>ngc5004_atm_2d_P1D_ml_20230202T000000Z.nc</span>
-<span id="cb7-1130"><a href=""></a>ngc5004_atm_2d_P1D_ml_20230203T000000Z.nc</span>
-<span id="cb7-1131"><a href=""></a>ngc5004_atm_2d_P1D_ml_20230204T000000Z.nc</span>
-<span id="cb7-1132"><a href=""></a>ngc5004_atm_2d_P1D_ml_20230205T000000Z.nc</span>
-<span id="cb7-1133"><a href=""></a>ngc5004_atm_2d_P1D_ml_20230206T000000Z.nc</span>
-<span id="cb7-1134"><a href=""></a>ngc5004_atm_2d_P1D_ml_20230207T000000Z.nc</span>
-<span id="cb7-1135"><a href=""></a>ngc5004_atm_2d_P1D_ml_20230208T000000Z.nc</span>
-<span id="cb7-1136"><a href=""></a>ngc5004_atm_2d_P1D_ml_20230209T000000Z.nc</span>
-<span id="cb7-1137"><a href=""></a>ngc5004_atm_2d_P1D_ml_20230210T000000Z.nc</span>
-<span id="cb7-1138"><a href=""></a>ngc5004_atm_2d_P1D_ml_20230211T000000Z.nc</span>
-<span id="cb7-1139"><a href=""></a>ngc5004_atm_2d_P1D_ml_20230212T000000Z.nc</span>
-<span id="cb7-1140"><a href=""></a>ngc5004_atm_2d_P1D_ml_20230213T000000Z.nc</span>
-<span id="cb7-1141"><a href=""></a>ngc5004_atm_2d_P1D_ml_20230214T000000Z.nc</span>
-<span id="cb7-1142"><a href=""></a>ngc5004_atm_2d_P1D_ml_20230215T000000Z.nc</span>
-<span id="cb7-1143"><a href=""></a>ngc5004_atm_2d_P1D_ml_20230216T000000Z.nc</span>
-<span id="cb7-1144"><a href=""></a>ngc5004_atm_2d_P1D_ml_20230217T000000Z.nc</span>
-<span id="cb7-1145"><a href=""></a>ngc5004_atm_2d_P1D_ml_20230218T000000Z.nc</span>
-<span id="cb7-1146"><a href=""></a>ngc5004_atm_2d_P1D_ml_20230219T000000Z.nc</span>
-<span id="cb7-1147"><a href=""></a>ngc5004_atm_2d_P1D_ml_20230220T000000Z.nc</span>
-<span id="cb7-1148"><a href=""></a>ngc5004_atm_2d_P1D_ml_20230221T000000Z.nc</span>
-<span id="cb7-1149"><a href=""></a>ngc5004_atm_2d_P1D_ml_20230222T000000Z.nc</span>
-<span id="cb7-1150"><a href=""></a>ngc5004_atm_2d_P1D_ml_20230223T000000Z.nc</span>
-<span id="cb7-1151"><a href=""></a>ngc5004_atm_2d_P1D_ml_20230224T000000Z.nc</span>
-<span id="cb7-1152"><a href=""></a>ngc5004_atm_2d_P1D_ml_20230225T000000Z.nc</span>
-<span id="cb7-1153"><a href=""></a>ngc5004_atm_2d_P1D_ml_20230226T000000Z.nc</span>
-<span id="cb7-1154"><a href=""></a>ngc5004_atm_2d_P1D_ml_20230227T000000Z.nc</span>
-<span id="cb7-1155"><a href=""></a>ngc5004_atm_2d_P1D_ml_20230228T000000Z.nc</span>
-<span id="cb7-1156"><a href=""></a>ngc5004_atm_2d_P1D_ml_20230301T000000Z.nc</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div></div>
-</section>
-<section id="wcrp-global-hackathon" class="slide level2 center">
-<h2>WCRP Global Hackathon</h2>
-<div class="columns">
-<div class="column">
-<ul>
-<li>Comparing ~10 high-resolution climate models</li>
-<li>Scientists were located at 10-ish nodes across the globe</li>
-<li>Access to analysis-ready<sup>1</sup> datasets stored at the producing centres</li>
-<li>Technical teams were <strong>pre-processing for weeks</strong></li>
-<li>ICON data was written analysis-ready<sup>1</sup> directly by <code>hiopy</code></li>
-</ul>
-</div><div class="column" style="width:40%;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="static/global_Hackathon_Logo_V2.svg"></p>
-<figcaption>Location of the nodes participating in the <a href="https://digital-earths-global-hackathon.github.io/hk25/">WCRP Global Hackathon 2025</a></figcaption>
-</figure>
-</div>
-</div></div>
-<aside><ol class="aside-footnotes"><li id="fn3"><p>At least we are getting there 😉</p></li></ol></aside></section>
-<section id="the-hackathon-data-catalog" class="slide level2 center">
-<h2>The hackathon data catalog</h2>
-<div id="2fa536f3" class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href=""></a><span class="im">import</span> healpix <span class="im">as</span> hp</span>
-<span id="cb8-2"><a href=""></a><span class="im">import</span> intake</span>
+<div id="6c110402" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href=""></a><span class="im">import</span> intake</span>
+<span id="cb8-2"><a href=""></a></span>
 <span id="cb8-3"><a href=""></a></span>
-<span id="cb8-4"><a href=""></a></span>
-<span id="cb8-5"><a href=""></a>cat <span class="op">=</span> intake.open_catalog(<span class="st">"https://digital-earths-global-hackathon.github.io/catalog/catalog.yaml"</span>)[<span class="st">"online"</span>]</span>
-<span id="cb8-6"><a href=""></a>icon <span class="op">=</span> cat.icon_d3hp003(zoom<span class="op">=</span><span class="dv">11</span>, time<span class="op">=</span><span class="st">"PT6H"</span>).to_dask()</span>
-<span id="cb8-7"><a href=""></a></span>
-<span id="cb8-8"><a href=""></a><span class="co"># Find the grid cell that is closest to the BCO.</span></span>
-<span id="cb8-9"><a href=""></a>cell_bco <span class="op">=</span> hp.ang2pix(icon.crs.healpix_nside, <span class="op">-</span><span class="fl">59.4288</span>, <span class="fl">13.1627</span>, lonlat<span class="op">=</span><span class="va">True</span>, nest<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb8-10"><a href=""></a></span>
-<span id="cb8-11"><a href=""></a>icon.tas.sel(cell<span class="op">=</span>cell_bco).plot()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<div>
-<figure>
-<p><img data-src="index_files/figure-revealjs/cell-5-output-1.png" width="816" height="429"></p>
-</figure>
+<span id="cb8-4"><a href=""></a><span class="co">#cat = intake.open_catalog("https://tcodata.mpimet.mpg.de/catalog.yaml")</span></span>
+<span id="cb8-5"><a href=""></a><span class="co">#wxt = cat.BCO.surfacemet(time="P1D").to_dask()</span></span>
+<span id="cb8-6"><a href=""></a></span>
+<span id="cb8-7"><a href=""></a><span class="co">#wxt.ta.plot(ylim=(23, 33), figsize=(12, 4));</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</div>
-</div>
-</section></section>
-<section>
-<section id="quick-looks" class="title-slide slide level1 center">
-<h1>Quick looks</h1>
-<blockquote>
-<p>Why a shortcut is sometimes the slower route</p>
-</blockquote>
-</section>
-<section id="section" class="slide level2 center">
-<h2></h2>
-<div class="columns">
-<div class="column">
 <p>Quick looks …</p>
 <ul>
 <li>are often provided <strong>instead</strong> of data</li>
 <li>relieve the pressure of providing the actual data</li>
 <li>usually show <strong>almost</strong> what you are interested in</li>
 </ul>
-</div><div class="column">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="static/smart-quicklook.png" height="600"></p>
-<figcaption><a href="https://orcestra-campaign.org/reports/HALO-20240821a.html">Quick looks for the SMART instrument on flight HALO-20240821a</a></figcaption>
-</figure>
-</div>
-</div></div>
-</section>
-<section id="smart-time-series-halo-20240821a" class="slide level2 center" data-auto-animate="true">
-<h2 data-id="quarto-animate-title">SMART time series HALO-20240821a</h2>
-<div id="6fd381f1" class="cell" data-execution_count="5">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode python hljs"><span id="cb9-1" class="hljs-ln-code"><a href=""></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb9-2" class="hljs-ln-code"><a href=""></a><span class="im">import</span> xarray <span class="im">as</span> xr</span>
-<span id="cb9-3" class="hljs-ln-code"><a href=""></a></span>
-<span id="cb9-4" class="hljs-ln-code"><a href=""></a></span>
-<span id="cb9-5" class="hljs-ln-code"><a href=""></a></span>
-<span id="cb9-6" class="hljs-ln-code"><a href=""></a>fig, axes <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">6</span>, <span class="dv">6</span>), nrows<span class="op">=</span><span class="dv">3</span>, sharex<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="smart-time-series-halo-20240821a-1" class="slide level2 center" data-auto-animate="true">
-<h2 data-id="quarto-animate-title">SMART time series HALO-20240821a</h2>
-<div id="a091e75d" class="cell" data-execution_count="6">
-<div class="cell-output cell-output-display">
-<div>
-<figure>
-<p><img data-src="index_files/figure-revealjs/cell-7-output-1.png" width="515" height="490"></p>
-</figure>
-</div>
-</div>
-</div>
-</section>
-<section id="section-1" class="slide level2 center">
-<h2></h2>
-<div class="columns">
-<div class="column">
 <p>Quick looks …</p>
 <ul>
 <li>are often provided <strong>instead</strong> of data</li>
@@ -1696,48 +444,13 @@ Rowan Orlijan-Rhyne
 </li><li class="fragment">
 are (often) created from a <strong>different dataset</strong>
 </li>
-</ul>
-</div><div class="column">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="static/smart-quicklook.png" height="600"></p>
-<figcaption><a href="https://orcestra-campaign.org/reports/HALO-20240821a.html">Quick looks for the SMART instrument on flight HALO-20240821a</a></figcaption>
-</figure>
-</div>
-</div></div>
-</section></section>
-<section id="summary" class="title-slide slide level1 center">
-<h1>Summary</h1>
-<ul>
 <li>Analysis-ready cloud-native repositories provide <strong>scalable access</strong> to large datasets</li>
 <li>Reduce duplication of data, support <strong>collaboration</strong>, and are <strong>fun to use</strong></li>
 <li>Shift responsibility from the data users towards the data providers</li>
 </ul>
-<div class="fragment">
-<p><strong>We need to ensure that our human resources scale!</strong><br>There is usually <strong>one</strong> data provider, but <strong>many</strong> users.</p>
-</div>
-</section>
-
-<section>
-<section id="the-end" class="title-slide slide level1 center">
-<h1>The end…?</h1>
+<p>There is usually <strong>one</strong> data provider, but <strong>many</strong> users.</p>
 
 </section>
-<section id="the-problem-part-2" class="slide level2 center">
-<h2>The problem: Part 2</h2>
-<blockquote>
-<p>Shift responsibility from the data users towards the data providers</p>
-</blockquote>
-<ul>
-<li>Data providers usually consider their job done once their data has been written to disk</li>
-<li>Asking for “analysis-ready datasets” means that data providers must <strong>consider usability</strong></li>
-<li>We want to <strong>avoid data brokers</strong> since they are not experts on the data</li>
-</ul>
-<div class="fragment">
-<p><strong>We need tools (e.g.&nbsp;hiopy, BCO processing chain) that can create analysis-ready datasets directly</strong></p>
-
-</div>
-</section></section>
 
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
