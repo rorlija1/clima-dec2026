@@ -10,7 +10,7 @@ execute:
 even better:
 ```{julia}
 #| engine: julia
-#| echo: true
+#| output: false
 abstract type Scientist end
 struct CliMAScientist <: Scientist
     name::String

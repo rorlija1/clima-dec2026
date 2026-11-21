@@ -63,17 +63,14 @@ jobs:
     needs: build
     if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Download artifacts
+      - name: download slides
         uses: actions/download-artifact@v4
         with:
           name: slides
           path: public
 
-      - name: Deploy to GitHub Pages
+      - name: deploy 😼
         id: deployment
         uses: peaceiris/actions-gh-pages@v4
         with:
