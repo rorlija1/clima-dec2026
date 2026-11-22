@@ -14,7 +14,7 @@
 
   <meta name="author" content="Rowan Orlijan-Rhyne">
   <meta name="dcterms.date" content="2026-12-01">
-  <title>Bringing the tropics to Hamburg…</title>
+  <title>Datasets, clouds, convection,</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -199,8 +199,8 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Bringing the tropics to Hamburg…</h1>
-  <p class="subtitle">and Hamburg to the tropics, and the story to CliMA</p>
+  <h1 class="title">Datasets, clouds, convection,</h1>
+  <p class="subtitle">and the fun along the way</p>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -219,13 +219,13 @@ Rowan Orlijan-Rhyne
 <li>What I’d like to do next (and why)</li>
 </ul>
 </section>
-<section id="if-ive-learned-anything-living-in-other-countries-its-the-importance-of-making-an-effort-to-learn-the-language" class="slide level2 center">
-<h2>If I’ve learned anything living in other countries, it’s the importance of making an effort to learn the language</h2>
+<section id="as-a-guest-its-important-to-me-to-at-least-try-to-speak-the-language" class="slide level2 center">
+<h2>as a guest, it’s important to me to (at least try to) speak the language</h2>
 </section>
 <section id="but-here-its-english" class="slide level2 center">
-<h2>but here, it’s English</h2>
+<h2>but here, it’s English…</h2>
 </section>
-<section id="section" class="title-slide slide level1 quarto-embed-nb-cell center" data-notebook="/home/runner/work/clima-dec2026/clima-dec2026/julia.qmd" data-notebook-cellid="6225022d-e97e-46aa-a7f7-b58d87173347">
+<section id="section" class="title-slide slide level1 quarto-embed-nb-cell center" data-notebook="/home/runner/work/clima-dec2026/clima-dec2026/julia.qmd" data-notebook-cellid="dbe3d052-f7ee-422f-9b3a-d99c8a1b932c">
 <h1></h1>
 <p><span style="color: #CE3072;">or is it??</span></p>
 <div id="2" class="cell" data-execution_count="1">
@@ -239,39 +239,13 @@ Rowan Orlijan-Rhyne
 </div>
 </section>
 
-<section id="section-1" class="title-slide slide level1 quarto-embed-nb-cell center" data-notebook="/home/runner/work/clima-dec2026/clima-dec2026/julia-2.qmd" data-notebook-cellid="de1f4166-ce71-4d75-a977-863a3078ac61">
+<section id="section-1" class="title-slide slide level1 quarto-embed-nb-cell center" data-notebook="/home/runner/work/clima-dec2026/clima-dec2026/julia-2.qmd" data-notebook-cellid="e1add9ec-c1d4-434c-a855-1613a6eda5d0">
 <h1></h1>
 <p>even better:</p>
-<div id="2" class="cell" data-engine="julia" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb3-1"><a href=""></a><span class="kw">abstract type</span> Scientist <span class="kw">end</span></span>
-<span id="cb3-2"><a href=""></a><span class="kw">struct</span> CliMAScientist <span class="op">&lt;:</span><span class="dt"> Scientist</span></span>
-<span id="cb3-3"><a href=""></a>    name<span class="op">::</span><span class="dt">String</span></span>
-<span id="cb3-4"><a href=""></a><span class="kw">end</span></span>
-<span id="cb3-5"><a href=""></a><span class="kw">struct</span> MPIMScientist <span class="op">&lt;:</span><span class="dt"> Scientist</span></span>
-<span id="cb3-6"><a href=""></a>    name<span class="op">::</span><span class="dt">String</span></span>
-<span id="cb3-7"><a href=""></a><span class="kw">end</span></span>
-<span id="cb3-8"><a href=""></a><span class="kw">struct</span> Other <span class="op">&lt;:</span><span class="dt"> Scientist</span></span>
-<span id="cb3-9"><a href=""></a>    name<span class="op">::</span><span class="dt">String</span></span>
-<span id="cb3-10"><a href=""></a>    provenance<span class="op">::</span><span class="dt">String</span></span>
-<span id="cb3-11"><a href=""></a><span class="kw">end</span></span>
-<span id="cb3-12"><a href=""></a></span>
-<span id="cb3-13"><a href=""></a><span class="kw">function</span> <span class="fu">helloclima</span>(scientist<span class="op">::</span><span class="dt">Other</span>)</span>
-<span id="cb3-14"><a href=""></a>    <span class="fu">println</span>(<span class="st">"Hello, I'm </span><span class="sc">$</span>(scientist.name)<span class="st">, from </span><span class="sc">$</span>(scientist.provenance)<span class="st">!"</span>)</span>
-<span id="cb3-15"><a href=""></a><span class="kw">end</span></span>
-<span id="cb3-16"><a href=""></a><span class="kw">function</span> <span class="fu">helloclima</span>(scientist<span class="op">::</span><span class="dt">CliMAScientist</span>)</span>
-<span id="cb3-17"><a href=""></a>    <span class="fu">println</span>(<span class="st">"What's up, I'm </span><span class="sc">$</span>(scientist.name)<span class="st">!"</span>)</span>
-<span id="cb3-18"><a href=""></a><span class="kw">end</span></span>
-<span id="cb3-19"><a href=""></a><span class="kw">function</span> <span class="fu">helloclima</span>(scientist<span class="op">::</span><span class="dt">MPIMScientist</span>)</span>
-<span id="cb3-20"><a href=""></a>    <span class="fu">println</span>(<span class="st">"Moin, I'm </span><span class="sc">$</span>(scientist.name)<span class="st">!"</span>)</span>
-<span id="cb3-21"><a href=""></a><span class="kw">end</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<pre><code>helloclima (generic function with 3 methods)</code></pre>
-</div>
-</div>
 <div id="4" class="cell" data-engine="julia" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb5-1"><a href=""></a><span class="fu">helloclima</span>(<span class="fu">MPIMScientist</span>(<span class="st">"Rowan"</span>))</span>
-<span id="cb5-2"><a href=""></a><span class="fu">helloclima</span>(<span class="fu">CliMAScientist</span>(<span class="st">"Rowan"</span>))</span>
-<span id="cb5-3"><a href=""></a><span class="fu">helloclima</span>(<span class="fu">Other</span>(<span class="st">"Rowan"</span>, <span class="st">"Claremont"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb3-1"><a href=""></a><span class="fu">helloclima</span>(<span class="fu">MPIMScientist</span>(<span class="st">"Rowan"</span>))</span>
+<span id="cb3-2"><a href=""></a><span class="fu">helloclima</span>(<span class="fu">CliMAScientist</span>(<span class="st">"Rowan"</span>))</span>
+<span id="cb3-3"><a href=""></a><span class="fu">helloclima</span>(<span class="fu">Other</span>(<span class="st">"Rowan"</span>, <span class="st">"Claremont"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Moin, I'm Rowan!
 What's up, I'm Rowan!
@@ -286,171 +260,582 @@ Hello, I'm Rowan, from Claremont!</code></pre>
 <li>What I did at CliMA: include a couple plots, thank Anna, Emily, Sajad, etc. say what I learned</li>
 </ul>
 </section>
-<section id="bco" class="slide level2 center">
-<h2>BCO</h2>
+<section>
+<section id="the-barbados-cloud-observatory-bco" class="title-slide slide level1 center">
+<h1>The Barbados Cloud Observatory (BCO)</h1>
+
+</section>
+<section id="interest-in-the-tropics" class="slide level2 center">
+<h2>interest in the tropics</h2>
+<div class="columns">
+<div class="column">
 <ul>
-<li>The Barbados Cloud Observatory (BCO) &amp; analysis-ready datasets:
+<li>the tropics drive Earth’s energetics and large scale circulations</li>
+</ul>
+</div><div class="column">
+<div id="2e3d96dd" class="cell" data-execution_count="1">
+<div class="cell-output cell-output-display">
+<div>
+<figure>
+<p><img data-src="index_files/figure-revealjs/cell-2-output-1.png" width="537" height="537"></p>
+</figure>
+</div>
+</div>
+</div>
+</div></div>
+</section>
+<section id="lets-go-to-the-atlantic" class="slide level2 center" data-transition="none">
+<h2>let’s go to the Atlantic</h2>
+<div class="columns">
+<div class="column">
 <ul>
-<li>scientific motivation for BCO:</li>
-<li>tropics receive most energy and export energy poleward; therefore the energetics of the tropics is not important only to the tropics but everywhere</li>
-<li>this is of course mirrored in the circulation, as convection sets the atmospheric state across the tropics and controls meridional mass transport via the Hadley cell</li>
-<li>position of the BCO</li>
-<li>difficulties of datasets and observations</li>
-<li>solution – our infrastructure with DAGs, packages, automation, intake catalog</li>
-<li>overview of instruments with little teaser demos</li>
-<li>difficulties and wonders</li>
+<li>understanding tropical circulation and energy means understanding tropical clouds, and vice versa</li>
+</ul>
+</div><div class="column">
+<div class="fragment">
+<div id="2f5eaba8" class="cell" data-execution_count="2">
+<div class="cell-output cell-output-display">
+<div>
+<figure>
+<p><img data-src="index_files/figure-revealjs/cell-3-output-1.png" width="614" height="178"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div></div>
+</section>
+<section id="clouds-over-the-atlantic" class="slide level2 center" data-transition="none">
+<h2>clouds over the Atlantic</h2>
+<div class="columns">
+<div class="column">
+<ul>
+<li>understanding tropical circulation and energy means understanding tropical clouds, and vice versa</li>
+</ul>
+</div><div class="column">
+<div id="ca936434" class="cell" data-execution_count="3">
+<div class="cell-output cell-output-display">
+<div>
+<figure>
+<p><img data-src="index_files/figure-revealjs/cell-4-output-1.png" width="614" height="178"></p>
+</figure>
+</div>
+</div>
+</div>
+</div></div>
+</section>
+<section id="clouds-over-the-atlantic-1" class="slide level2 center" data-transition="none">
+<h2>clouds over the Atlantic</h2>
+<div class="columns">
+<div class="column">
+<ul>
+<li>understanding tropical circulation and energy means understanding tropical clouds, and vice versa</li>
+</ul>
+</div><div class="column">
+<div id="88350e44" class="cell" data-execution_count="4">
+<div class="cell-output cell-output-display">
+<div>
+<figure>
+<p><img data-src="index_files/figure-revealjs/cell-5-output-1.png" width="614" height="178"></p>
+</figure>
+</div>
+</div>
+</div>
+</div></div>
+</section>
+<section id="clouds-over-the-atlantic-2" class="slide level2 center" data-transition="none" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">clouds over the Atlantic</h2>
+<div class="columns">
+<div class="column">
+<ul>
+<li>understanding tropical circulation and energy means understanding tropical clouds, and vice versa</li>
+</ul>
+</div><div class="column">
+<div id="7bf27052" class="cell" data-execution_count="5">
+<div class="cell-output cell-output-display">
+<div>
+<figure>
+<p><img data-src="index_files/figure-revealjs/cell-6-output-1.png" width="614" height="178"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="fragment">
+<p><span style="color: #ffab57"> BCO, and ‘<a href="https://eurec4a.eu/">EUREC4A</a> box’</span></p>
+</div>
+</div></div>
+</section>
+<section id="half-a-climate-at-the-bco" class="slide level2 center">
+<h2><span style="color: #ffab57">Half a climate</span> at the <a href="https://tcodata.mpimet.mpg.de">BCO</a></h2>
+<div class="columns">
+<div class="column">
+<div class="fragment">
+<p>est. Dec 2010</p>
+</div>
+<div class="fragment">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="static/bcosite_20250925_115213.jpg"></p>
+<figcaption>photo: Friedhelm Jansen</figcaption>
+</figure>
+</div>
+</div>
+</div><div class="column">
+<div id="22e1432e" class="cell" data-execution_count="6">
+<div class="cell-output cell-output-display">
+<div>
+<figure>
+<p><img data-src="index_files/figure-revealjs/cell-7-output-1.png" width="392" height="341"></p>
+</figure>
+</div>
+</div>
+</div>
+</div></div>
+</section></section>
+<section>
+<section id="my-job-make-datasets-1" class="title-slide slide level1 center">
+<h1>my job: make datasets <sup>1</sup></h1>
+<div class="fragment">
+
+</div>
+<aside><ol class="aside-footnotes"><li id="fn1"><p>continuously growing, analysis-ready, cloud-optimized datasets, which are versioned, reproducible, and quality controlled</p></li></ol></aside></section>
+<section id="observational-data-is-messy" class="slide level2 center">
+<h2>observational data is messy</h2>
+<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource {python3} number-lines code-with-copy"><code class="sourceCode"><span id="cb5-1"><a href=""></a>xr.open_mfdataset("**/bco_radar_dataset_*.nc")</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="fragment">
+<p><em>would fail due to the sheer number of files</em></p>
+</div>
+<div class="fragment">
+<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource {python3} number-lines code-with-copy"><code class="sourceCode"><span id="cb6-1"><a href=""></a>xr.open_mfdataset([pd.read_csv(f).to_xarray() for f in rawfiles])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="fragment">
+<p><em>is not well-suited to an ever-growing (and -changing) record</em></p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource {sh} number-lines code-with-copy"><code class="sourceCode"><span id="cb7-1"><a href=""></a>ERROR: cannot reindex along dimension 'range' with differing sizes {'range': 200} and {'range': 199}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="fragment">
+<p><em>not to mention other buggy oddities</em></p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource {sh} number-lines code-with-copy"><code class="sourceCode"><span id="cb8-1"><a href=""></a>ERROR: non-monotonic time axis!</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="previously-on-climate-data-diving" class="slide level2 center">
+<h2>previously, on <em>climate data diving</em></h2>
+<ul>
+<li>individuals run painstaking processing for period(s) and instrument(s) of interest</li>
+</ul>
+<div class="fragment">
+<ul>
+<li>or if the data is processed, it is probably (choose one or more):</li>
+</ul>
+<div class="fragment">
+<ul>
+<li>private to individuals or institutions</li>
+<li>(down)loaded eagerly</li>
+<li>not versioned, hashed, or content-addressable</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="even-model-data-can-be-ugly" class="slide level2 center">
+<h2>even model data can be ugly</h2>
+
+<img data-src="static/cmip6-dataportal.png" class="r-stretch quarto-figure-center"><p class="caption">CMIP6 data browser</p></section>
+<section id="downloads-a-shell-script" class="slide level2 center">
+<h2>downloads a shell script</h2>
+<div id="05d5afb0" class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href=""></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">"static/wget_script_2026-11-20_18-48-52.sh"</span>, <span class="st">'r'</span>) <span class="im">as</span> f:</span>
+<span id="cb9-2"><a href=""></a>        <span class="bu">print</span>(<span class="bu">sum</span>(<span class="dv">1</span> <span class="cf">for</span> line <span class="kw">in</span> f))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>1058</code></pre>
+</div>
+</div>
+</section>
+<section id="which-in-turn-downloads-these-netcdfs" class="slide level2 center">
+<h2>which in turn downloads these netcdfs</h2>
+<div class="sourceCode" id="cb11"><pre class="sourceCode numberSource {bash} number-lines code-with-copy"><code class="sourceCode"><span id="cb11-1"><a href=""></a>download_files="$(cat &lt;&lt;EOF--dataset.file.url.chksum_type.chksum</span>
+<span id="cb11-2"><a href=""></a>'ta_AERmonZ_MPI-ESM1-2-HR_ssp585_r2i1p1f1_gn_201501-201912.nc' 'http://esgf3.dkrz.de/thredds/fileServer/cmip6/ScenarioMIP/DWD/MPI-ESM1-2-HR/ssp585/r2i1p1f1/AERmonZ/ta/gn/v20190710/ta_AERmonZ_MPI-ESM1-2-HR_ssp585_r2i1p1f1_gn_201501-201912.nc' 'SHA256' '8e44799f025076eca06db7ed7e811a54dba59fd8b6c9b436cca64a08ea9337fc'</span>
+<span id="cb11-3"><a href=""></a>'ta_AERmonZ_MPI-ESM1-2-HR_ssp585_r2i1p1f1_gn_202001-202412.nc' 'http://esgf3.dkrz.de/thredds/fileServer/cmip6/ScenarioMIP/DWD/MPI-ESM1-2-HR/ssp585/r2i1p1f1/AERmonZ/ta/gn/v20190710/ta_AERmonZ_MPI-ESM1-2-HR_ssp585_r2i1p1f1_gn_202001-202412.nc' 'SHA256' '29c416b8a940aba48212dffc461ecaca1408419eee29860d64bc3efea86d75b0'</span>
+<span id="cb11-4"><a href=""></a>'ta_AERmonZ_MPI-ESM1-2-HR_ssp585_r2i1p1f1_gn_202501-202912.nc' 'http://esgf3.dkrz.de/thredds/fileServer/cmip6/ScenarioMIP/DWD/MPI-ESM1-2-HR/ssp585/r2i1p1f1/AERmonZ/ta/gn/v20190710/ta_AERmonZ_MPI-ESM1-2-HR_ssp585_r2i1p1f1_gn_202501-202912.nc' 'SHA256' '8c8208aec60aacc91affce87a986f61a569dbdd110a61828d05a95ea832c38e2'</span>
+<span id="cb11-5"><a href=""></a>'ta_AERmonZ_MPI-ESM1-2-HR_ssp585_r2i1p1f1_gn_203001-203412.nc' 'http://esgf3.dkrz.de/thredds/fileServer/cmip6/ScenarioMIP/DWD/MPI-ESM1-2-HR/ssp585/r2i1p1f1/AERmonZ/ta/gn/v20190710/ta_AERmonZ_MPI-ESM1-2-HR_ssp585_r2i1p1f1_gn_203001-203412.nc' 'SHA256' '1c25d3005850a1bca7ea65e2b69a9273d6222683f6faf2e91f267b4dae483f85'</span>
+<span id="cb11-6"><a href=""></a>'ta_AERmonZ_MPI-ESM1-2-HR_ssp585_r2i1p1f1_gn_203501-203912.nc' 'http://esgf3.dkrz.de/thredds/fileServer/cmip6/ScenarioMIP/DWD/MPI-ESM1-2-HR/ssp585/r2i1p1f1/AERmonZ/ta/gn/v20190710/ta_AERmonZ_MPI-ESM1-2-HR_ssp585_r2i1p1f1_gn_203501-203912.nc' 'SHA256' '70e62190627b04b6c06d8c2cccc419d5816f8cfc5fb7a36c67faac46825b8fc1'</span>
+<span id="cb11-7"><a href=""></a>'ta_AERmonZ_MPI-ESM1-2-HR_ssp585_r2i1p1f1_gn_204001-204412.nc' 'http://esgf3.dkrz.de/thredds/fileServer/cmip6/ScenarioMIP/DWD/MPI-ESM1-2-HR/ssp585/r2i1p1f1/AERmonZ/ta/gn/v20190710/ta_AERmonZ_MPI-ESM1-2-HR_ssp585_r2i1p1f1_gn_204001-204412.nc' 'SHA256' 'dd51584cbbef310e75462b11e9346456fd616d5e668a8b7ff1f1aa5daa8802e5'</span>
+<span id="cb11-8"><a href=""></a>'ta_AERmonZ_MPI-ESM1-2-HR_ssp585_r2i1p1f1_gn_204501-204912.nc' 'http://esgf3.dkrz.de/thredds/fileServer/cmip6/ScenarioMIP/DWD/MPI-ESM1-2-HR/ssp585/r2i1p1f1/AERmonZ/ta/gn/v20190710/ta_AERmonZ_MPI-ESM1-2-HR_ssp585_r2i1p1f1_gn_204501-204912.nc' 'SHA256' '19ff152622b2f83e62b264d66bb35f638d4ab49be83477ef7633e5537bba6793'</span>
+<span id="cb11-9"><a href=""></a>'ta_AERmonZ_MPI-ESM1-2-HR_ssp585_r2i1p1f1_gn_205001-205412.nc' 'http://esgf3.dkrz.de/thredds/fileServer/cmip6/ScenarioMIP/DWD/MPI-ESM1-2-HR/ssp585/r2i1p1f1/AERmonZ/ta/gn/v20190710/ta_AERmonZ_MPI-ESM1-2-HR_ssp585_r2i1p1f1_gn_205001-205412.nc' 'SHA256' '20af86e46c848c1be03e5deafdf1309f07b7016381e4a9ecedfdbc8ce94df2ca'</span>
+<span id="cb11-10"><a href=""></a>'ta_AERmonZ_MPI-ESM1-2-HR_ssp585_r2i1p1f1_gn_205501-205912.nc' 'http://esgf3.dkrz.de/thredds/fileServer/cmip6/ScenarioMIP/DWD/MPI-ESM1-2-HR/ssp585/r2i1p1f1/AERmonZ/ta/gn/v20190710/ta_AERmonZ_MPI-ESM1-2-HR_ssp585_r2i1p1f1_gn_205501-205912.nc' 'SHA256' '835ab27a12d83464afd4fdd1528cfe800895006a2f2739da2c10b4985acf4ee1'</span>
+<span id="cb11-11"><a href=""></a>'ta_AERmonZ_MPI-ESM1-2-HR_ssp585_r2i1p1f1_gn_206001-206412.nc' 'http://esgf3.dkrz.de/thredds/fileServer/cmip6/ScenarioMIP/DWD/MPI-ESM1-2-HR/ssp585/r2i1p1f1/AERmonZ/ta/gn/v20190710/ta_AERmonZ_MPI-ESM1-2-HR_ssp585_r2i1p1f1_gn_206001-206412.nc' 'SHA256' '36535020a9e57d9f1b0a53045a9d424f841467b51f2b35004ae2e88c38886b8d'</span>
+<span id="cb11-12"><a href=""></a>'ta_AERmonZ_MPI-ESM1-2-HR_ssp585_r2i1p1f1_gn_206501-206912.nc' 'http://esgf3.dkrz.de/thredds/fileServer/cmip6/ScenarioMIP/DWD/MPI-ESM1-2-HR/ssp585/r2i1p1f1/AERmonZ/ta/gn/v20190710/ta_AERmonZ_MPI-ESM1-2-HR_ssp585_r2i1p1f1_gn_206501-206912.nc' 'SHA256' '15d7d05f398b14449404f6c5ef178b930af88c62f5a4c3826a427dd52b60e936'</span>
+<span id="cb11-13"><a href=""></a>'ta_AERmonZ_MPI-ESM1-2-HR_ssp585_r2i1p1f1_gn_207001-207412.nc' 'http://esgf3.dkrz.de/thredds/fileServer/cmip6/ScenarioMIP/DWD/MPI-ESM1-2-HR/ssp585/r2i1p1f1/AERmonZ/ta/gn/v20190710/ta_AERmonZ_MPI-ESM1-2-HR_ssp585_r2i1p1f1_gn_207001-207412.nc' 'SHA256' '507764dcda8233f5223b5c6dc09c577f2312b075559c89c5224e2d7bbf2772db'</span>
+<span id="cb11-14"><a href=""></a>'ta_AERmonZ_MPI-ESM1-2-HR_ssp585_r2i1p1f1_gn_207501-207912.nc' 'http://esgf3.dkrz.de/thredds/fileServer/cmip6/ScenarioMIP/DWD/MPI-ESM1-2-HR/ssp585/r2i1p1f1/AERmonZ/ta/gn/v20190710/ta_AERmonZ_MPI-ESM1-2-HR_ssp585_r2i1p1f1_gn_207501-207912.nc' 'SHA256' '3a2a1687ff071dec5ef960e9b28a65be584529b71f8756114f28485857fa8e18'</span>
+<span id="cb11-15"><a href=""></a>'ta_AERmonZ_MPI-ESM1-2-HR_ssp585_r2i1p1f1_gn_208001-208412.nc' 'http://esgf3.dkrz.de/thredds/fileServer/cmip6/ScenarioMIP/DWD/MPI-ESM1-2-HR/ssp585/r2i1p1f1/AERmonZ/ta/gn/v20190710/ta_AERmonZ_MPI-ESM1-2-HR_ssp585_r2i1p1f1_gn_208001-208412.nc' 'SHA256' '68beb694fc61be818b02772cf77299a67cf032132ab77d8cedd08688d0b88c74'</span>
+<span id="cb11-16"><a href=""></a>'ta_AERmonZ_MPI-ESM1-2-HR_ssp585_r2i1p1f1_gn_208501-208912.nc' 'http://esgf3.dkrz.de/thredds/fileServer/cmip6/ScenarioMIP/DWD/MPI-ESM1-2-HR/ssp585/r2i1p1f1/AERmonZ/ta/gn/v20190710/ta_AERmonZ_MPI-ESM1-2-HR_ssp585_r2i1p1f1_gn_208501-208912.nc' 'SHA256' '6cc038ad3a5c513209b28839eeb6fec1b5b402b261c51187470b7ab74161200c'</span>
+<span id="cb11-17"><a href=""></a>'ta_AERmonZ_MPI-ESM1-2-HR_ssp585_r2i1p1f1_gn_209001-209412.nc' 'http://esgf3.dkrz.de/thredds/fileServer/cmip6/ScenarioMIP/DWD/MPI-ESM1-2-HR/ssp585/r2i1p1f1/AERmonZ/ta/gn/v20190710/ta_AERmonZ_MPI-ESM1-2-HR_ssp585_r2i1p1f1_gn_209001-209412.nc' 'SHA256' '2ff05ee5e9c888125c931969d3214988e24671bd44493c222f40e1ac5c5a4cb2'</span>
+<span id="cb11-18"><a href=""></a>'ta_AERmonZ_MPI-ESM1-2-HR_ssp585_r2i1p1f1_gn_209501-209912.nc' 'http://esgf3.dkrz.de/thredds/fileServer/cmip6/ScenarioMIP/DWD/MPI-ESM1-2-HR/ssp585/r2i1p1f1/AERmonZ/ta/gn/v20190710/ta_AERmonZ_MPI-ESM1-2-HR_ssp585_r2i1p1f1_gn_209501-209912.nc' 'SHA256' '4835be984f99cabadac7539d35e350f81d658655d8d513ab421799caca81bac2'</span>
+<span id="cb11-19"><a href=""></a>'ta_AERmonZ_MPI-ESM1-2-HR_ssp585_r2i1p1f1_gn_210001-210012.nc' 'http://esgf3.dkrz.de/thredds/fileServer/cmip6/ScenarioMIP/DWD/MPI-ESM1-2-HR/ssp585/r2i1p1f1/AERmonZ/ta/gn/v20190710/ta_AERmonZ_MPI-ESM1-2-HR_ssp585_r2i1p1f1_gn_210001-210012.nc' 'SHA256' '15e2fa8c6ed13c4cad79a17186da66c06e23da886397a30a4c47119a405449fd'</span>
+<span id="cb11-20"><a href=""></a>EOF--dataset.file.url.chksum_type.chksum</span>
+<span id="cb11-21"><a href=""></a>)"</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="fragment">
+<p>but at least they’re checksummed</p>
+</div>
+</section>
+<section id="the-solution" class="slide level2 center">
+<h2>the solution</h2>
+<ul>
+<li>analysis-ready, cloud-optimized (ARCO) datasets<sup>1</sup></li>
+</ul>
+<div class="fragment">
+<ul>
+<li><a href="https://zarr.dev/">zarr</a> format on a publicly available <a href="https://docs.dkrz.de/doc/datastorage/swift/index.html">object store</a>
+<ul>
+<li>lazy loading</li>
 </ul></li>
 </ul>
-</section>
-<section id="science-at-mpi-m" class="slide level2 center">
-<h2>science at MPI-M</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="static/zarr-logo.png" class="quarto-figure quarto-figure-center" height="52"></p>
+</figure>
+</div>
+</div>
+<div class="fragment">
 <ul>
-<li>Feynman</li>
-<li>campaigns, model experiments (aqua planets to look at convection, SSTs, global north and south, orotopo, LAMs), BCO data</li>
-<li>convective permitting model… can I run the bubble with CliMA?</li>
+<li>burden on provider, not user<span style="color: #CE3072;">s</span></li>
 </ul>
-</section>
-<section id="missing-2024-winter-high-clouds" class="slide level2 center">
-<h2><span style="color: #CE3072;">missing</span>: 2024 winter &amp; high clouds</h2>
+</div>
+<aside><ol class="aside-footnotes"><li id="fn2"><p>R. P. Abernathey et al.&nbsp;(2021). <a href="https://doi.org/10.1109/MCSE.2021.3059437">Cloud-Native Repositories for Big Scientific Data</a>, Computing in Science &amp; Engineering.</p></li></ol></aside></section>
+<section id="implementation" class="slide level2 center">
+<h2>implementation</h2>
+<div class="columns">
+<div class="column">
 <ul>
-<li>warm winter
+<li>data transferred daily to MPI-M file system</li>
+<li>automated workflows using <a href="https://airflow.apache.org">Apache Airflow</a>’s direct acyclic graphs (DAGs)</li>
+</ul>
+<div class="fragment">
 <ul>
-<li>warm conditions 2024 winter</li>
-<li>also lack of high clouds</li>
-<li>synoptic conditions</li>
-<li>warm SSTs + upper level convergence -&gt; heat and moisture trapped below – verify this, do more plots of w and try WL</li>
+<li>each dataset is:
+<ul>
+<li>versioned with its processing code and that of its input datasets</li>
+<li>reproducible, with a unique object ID</li>
 </ul></li>
 </ul>
+</div>
+</div><div class="column">
+<div class="fragment">
+<p><img data-src="static/dag.png" width="1000"></p>
+</div>
+</div></div>
 </section>
-<section id="extensions-1" class="slide level2 center">
+<section id="data-access" class="slide level2 center">
+<h2>data access</h2>
+<div id="595092d5" class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href=""></a><span class="im">import</span> intake</span>
+<span id="cb12-2"><a href=""></a>cat <span class="op">=</span> intake.open_catalog(<span class="st">"https://tcodata.mpimet.mpg.de/catalog.yaml"</span>)</span>
+<span id="cb12-3"><a href=""></a><span class="bu">print</span>(<span class="bu">len</span>(<span class="bu">list</span>(cat.BCO)))</span>
+<span id="cb12-4"><a href=""></a>[e <span class="cf">for</span> e <span class="kw">in</span> <span class="bu">list</span>(cat.BCO) <span class="cf">if</span> <span class="st">"LIDAR"</span> <span class="kw">not</span> <span class="kw">in</span> e <span class="kw">and</span> <span class="st">"lidar"</span> <span class="kw">not</span> <span class="kw">in</span> e]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>100</code></pre>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="8">
+<pre><code>['HATPRO_BRT',
+ 'HATPRO_HKD',
+ 'HATPRO_IWV',
+ 'allsky_csv',
+ 'allsky_netcdf',
+ 'bucket_WAD_c1_v1',
+ 'ceilometer_c1',
+ 'ceilometer_c1_v1',
+ 'ceilometer_c2',
+ 'ceilometer_c2_v1',
+ 'ceilometer_c3',
+ 'cloudradar',
+ 'coral_app_hr',
+ 'coral_app_lr',
+ 'dewpoint',
+ 'katrin_c1',
+ 'katrin_c2',
+ 'katrin_c3',
+ 'katrin_c4',
+ 'katrin_c5',
+ 'katrin_c6',
+ 'katrin_c7',
+ 'mbr2_c1',
+ 'mbr2_c2',
+ 'mbr2_c3',
+ 'mbr2_c4',
+ 'mbrs',
+ 'mbrs_spectra',
+ 'mrr',
+ 'mrrpro',
+ 'parsivel_451995',
+ 'parsivel_451996',
+ 'parsivel_451997',
+ 'radar_KATRIN_c1',
+ 'radar_MBR2_c1_v1',
+ 'radar_MBR2_c2_v1',
+ 'radar_MBR2_c3_v1',
+ 'radar_MBR2_c4_v1',
+ 'radar_MBRS_c1_v1',
+ 'radiation',
+ 'radiation_c1',
+ 'radiation_c2',
+ 'radiation_l2',
+ 'radiometer_HATPRO_BRT_c1_v1',
+ 'radiometer_HATPRO_HKD_c1_v1',
+ 'radiometer_HATPRO_IWV_c1_v1',
+ 'raingauge',
+ 'rumba_c1',
+ 'rumba_c2',
+ 'rumba_c3',
+ 'rumba_c4',
+ 'surfacemet',
+ 'surfacemet2',
+ 'surfacemet_hc2a',
+ 'surfacemet_hc2a_l2',
+ 'verticalwind',
+ 'wxt']</code></pre>
+</div>
+</div>
+</section>
+<section id="a-short-tour-surface-meteorology" class="slide level2 center">
+<h2>a short tour: surface meteorology</h2>
+<div id="c2f6342f" class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href=""></a>sfc <span class="op">=</span> cat.BCO.surfacemet(time<span class="op">=</span><span class="st">"P1D"</span>).to_dask()</span>
+<span id="cb15-2"><a href=""></a>sfc.ta.plot(<span class="op">**</span>line_args)</span>
+<span id="cb15-3"><a href=""></a>plt.title(<span class="va">None</span>)</span>
+<span id="cb15-4"><a href=""></a>plt.ylabel(<span class="st">"T / deg C"</span>, <span class="op">**</span>axis_labels)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure>
+<p><img data-src="index_files/figure-revealjs/cell-11-output-1.png" width="818" height="429"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="a-short-tour-surface-meteorology-1" class="slide level2 center" data-transition="none">
+<h2>a short tour: surface meteorology</h2>
+<div id="86c14161" class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href=""></a><span class="bu">dir</span> <span class="op">=</span> np.mod(<span class="dv">180</span> <span class="op">+</span> np.degrees(np.arctan2(sfc.u, sfc.v)), <span class="dv">360</span>)</span>
+<span id="cb16-2"><a href=""></a><span class="bu">dir</span>.plot.hist(bins<span class="op">=</span><span class="dv">75</span>, density<span class="op">=</span><span class="va">True</span>, color<span class="op">=</span>line_color)</span>
+<span id="cb16-3"><a href=""></a>plt.title(<span class="va">None</span>)</span>
+<span id="cb16-4"><a href=""></a>plt.xlabel(<span class="st">"wind dir / deg"</span>, <span class="op">**</span>axis_labels)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure>
+<p><img data-src="index_files/figure-revealjs/cell-12-output-1.png" width="802" height="440"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="a-short-tour-clouds" class="slide level2 center">
+<h2>a short tour: clouds</h2>
+<div id="8412ec9b" class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href=""></a>ds <span class="op">=</span> cat.BCO.cloudradar(time<span class="op">=</span><span class="st">"P1D"</span>).to_dask()</span>
+<span id="cb17-2"><a href=""></a>ds.cloud_fraction.sel(time<span class="op">=</span>ds.time.dt.month.isin([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>])).mean(dim<span class="op">=</span><span class="st">"time"</span>).plot(y<span class="op">=</span><span class="st">"alt"</span>, label<span class="op">=</span><span class="st">"JFM"</span>, <span class="op">**</span>line_args)</span>
+<span id="cb17-3"><a href=""></a>ds.cloud_fraction.sel(time<span class="op">=</span>ds.time.dt.month.isin([<span class="dv">9</span>, <span class="dv">10</span>, <span class="dv">11</span>])).mean(dim<span class="op">=</span><span class="st">"time"</span>).plot(y<span class="op">=</span><span class="st">"alt"</span>, label<span class="op">=</span><span class="st">"SON"</span>, <span class="op">**</span>line_args_acc)</span>
+<span id="cb17-4"><a href=""></a>plt.title(<span class="st">"Z &gt; -40 dBZ"</span>, <span class="op">**</span>axis_labels)</span>
+<span id="cb17-5"><a href=""></a>plt.ylabel(<span class="st">"alt / m"</span>, <span class="op">**</span>axis_labels)</span>
+<span id="cb17-6"><a href=""></a>plt.xlabel(<span class="st">"cloud fraction / 1"</span>, <span class="op">**</span>axis_labels)</span>
+<span id="cb17-7"><a href=""></a>plt.legend()</span>
+<span id="cb17-8"><a href=""></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure>
+<p><img data-src="index_files/figure-revealjs/cell-13-output-1.png" width="844" height="466"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="a-short-tour-clouds-1" class="slide level2 center">
+<h2>a short tour: clouds</h2>
+<ul>
+<li>todo: plot a cool big cloud</li>
+</ul>
+<div id="44b1190d" class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href=""></a>plt.title(<span class="va">None</span>)</span>
+<span id="cb18-2"><a href=""></a>plt.ylabel(<span class="st">"alt / m"</span>, <span class="op">**</span>axis_labels)</span>
+<span id="cb18-3"><a href=""></a>plt.xlabel(<span class="st">"time"</span>, <span class="op">**</span>axis_labels)</span>
+<span id="cb18-4"><a href=""></a>plt.legend()</span>
+<span id="cb18-5"><a href=""></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure>
+<p><img data-src="index_files/figure-revealjs/cell-15-output-1.png" width="833" height="445"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="science-at-the-mpi-m" class="slide level2 center">
+<h2>science at the MPI-M</h2>
+<p><iframe data-external="1" src="https://www.youtube.com/embed/0KmimDq4cSU?si=grZzYoGu0PC9oPEG?start=20" width="889" height="500" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe><sup>1</sup></p>
+<aside><ol class="aside-footnotes"><li id="fn3"><p>Feynman, R. (1964). Seeking New Laws. Cornell University lecture.</p></li></ol></aside></section>
+<section id="how-is-it-done" class="slide level2 center">
+<h2>how is it done?</h2>
+<ul>
+<li>campaigns: EUREC4A, <a href="https://orcestra-campaign.org/">ORCESTRA</a></li>
+<li>model experiments with a convection-permitting model:
+<ul>
+<li>aqua planets</li>
+<li>global north and south</li>
+<li>remove Americas</li>
+<li>smoothed orography</li>
+<li>LAMs</li>
+</ul></li>
+</ul>
+</section></section>
+<section>
+<section id="a-brief-investigation" class="title-slide slide level1 center">
+<h1>a brief investigation 🧐</h1>
+
+</section>
+<section id="missing-2024-winter" class="slide level2 center">
+<h2><span style="color: #CE3072;">missing</span>: 2024 winter</h2>
+<div id="df84ab98" class="cell" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href=""></a>(sfc.ta.groupby(sfc.time.dt.dayofyear) <span class="op">-</span> clim).sel(time<span class="op">=</span><span class="bu">slice</span>(<span class="st">"2023-11"</span>, <span class="st">"2024-04"</span>)).plot(<span class="op">**</span>line_args)</span>
+<span id="cb19-2"><a href=""></a>plt.axhline(<span class="dv">0</span>, linestyle<span class="op">=</span><span class="st">"--"</span>, alpha<span class="op">=</span><span class="fl">0.7</span>, <span class="op">**</span>line_args)</span>
+<span id="cb19-3"><a href=""></a>plt.ylabel(<span class="st">"temp. anomaly / deg C"</span>, <span class="op">**</span>axis_labels)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure>
+<p><img data-src="index_files/figure-revealjs/cell-17-output-1.png" width="834" height="429"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>warm winter (follows nearby SSTs)</p>
+</section>
+<section id="missing-2024-high-clouds" class="slide level2 center">
+<h2><span style="color: #CE3072;">missing</span>: 2024 high clouds</h2>
+<div id="19caa590" class="cell" data-execution_count="18">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href=""></a><span class="cf">for</span> i, (m, da) <span class="kw">in</span> <span class="bu">enumerate</span>(<span class="bu">zip</span>(months, highcloudsbymonth)):</span>
+<span id="cb20-2"><a href=""></a>    da.plot(y<span class="op">=</span><span class="st">"alt"</span>, label<span class="op">=</span>m, color<span class="op">=</span>colors[i])</span>
+<span id="cb20-3"><a href=""></a>plt.title(<span class="va">None</span>)</span>
+<span id="cb20-4"><a href=""></a>plt.xlabel(<span class="st">"cloud fraction / 1"</span>, <span class="op">**</span>axis_labels)</span>
+<span id="cb20-5"><a href=""></a>plt.ylabel(<span class="st">"alt / m"</span>, <span class="op">**</span>axis_labels)</span>
+<span id="cb20-6"><a href=""></a>plt.legend()</span>
+<span id="cb20-7"><a href=""></a>plt.xlim([<span class="fl">0.0</span>, <span class="fl">0.06</span>])</span>
+<span id="cb20-8"><a href=""></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure>
+<p><img data-src="index_files/figure-revealjs/cell-19-output-1.png" width="858" height="440"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="role-of-the-synoptic-state" class="slide level2 center">
+<h2>role of the synoptic state</h2>
+<ul>
+<li>todo: get rid of trade wind arrows, make nicer, try JFM average or a 3 panel thing, try plotting ssts</li>
+</ul>
+
+<img data-src="static/2024-01-clim-circ-div.png" class="r-stretch quarto-figure-center"><p class="caption">climatological subtropical westerly jet</p></section>
+<section id="role-of-the-synoptic-state-1" class="slide level2 center" data-transition="none">
+<h2>role of the synoptic state</h2>
+<ul>
+<li>todo: make nicer, try also plotting cloud cover anomaly averaged over different levels</li>
+</ul>
+
+<img data-src="static/2024-01-circ-rh-ano.png" class="r-stretch quarto-figure-center"><p class="caption">accentuated trough, upstream convergence</p></section>
+<section id="proposed-mechanism" class="slide level2 center">
+<h2>proposed mechanism:</h2>
+<ul>
+<li>warm SSTs + upper level convergence</li>
+<li>heat and moisture trapped below</li>
+<li>hot surface temperatures, and suppressed high cloud amount</li>
+</ul>
+</section>
+<section id="extensions-4" class="slide level2 center">
 <h2>extensions? <sup>1</sup></h2>
 <ul>
 <li>what drives cirrus clouds at BCO in other conditions?</li>
-<li>would having a very shallow trough in the subtropical westerly jet produce anomalously little upstream convergence, and thereby</li>
+<li>would having a very shallow trough in the subtropical westerly jet produce anomalously little upstream convergence, and more high clouds?</li>
+<li>would a weaker subtropical jet and less wind shear allow clouds to grow taller?</li>
 </ul>
-<aside><ol class="aside-footnotes"><li id="fn1"><p>input welcomed!</p></li></ol></aside></section>
-<section id="weak-temperature-gradient-approximation-wtg" class="slide level2 center">
-<h2>weak temperature gradient approximation (WTG)</h2>
-<ul>
-<li>negligible horizontal pressure and temperature gradients in the tropical free troposphere</li>
-<li>gravity waves responsible for advection of energy from convective cores into clear sky regions</li>
-<li>important!</li>
-</ul>
+<aside><ol class="aside-footnotes"><li id="fn4"><p>input welcomed!</p></li></ol></aside></section></section>
+<section>
+<section id="another-idea" class="title-slide slide level1 center">
+<h1>another idea</h1>
+
 </section>
+<section id="weak-temperature-gradient-approximation-wtg5" class="slide level2 center">
+<h2>weak temperature gradient approximation (WTG)<sup>1</sup></h2>
+<ul>
+<li>Coriolis force is weak near equator</li>
+<li>gravity waves are extremely effective in smoothing free tropospheric temperature and pressure gradients</li>
+<li>convection and the accompanying latent heating generates gravity waves, controlling the free troposhperic temperature</li>
+</ul>
+<aside><ol class="aside-footnotes"><li id="fn5"><p>Sobel, A. et al.&nbsp;(2001). <a href="https://doi.org/10.1175/1520-0469(2001)058%3C3650:TWTGAA%3E2.0.CO;2">The Weak Temperature Gradient Approximation and Balanced Tropical Moisture Waves</a>. Journal of the Atmospheric Sciences.</p></li></ol></aside></section>
 <section id="what-do-we-know" class="slide level2 center">
 <h2>what do we know?</h2>
 <ul>
-<li>the latitudinal scope of the WTG in km-scale, convection-permitting simulations was found to be ~ ±10° <sup>1</sup></li>
-<li>this analysis used column-integrated precipitable water to pick out convection and relies on the ability of models to accurately simulate gravity waves</li>
-<li>we’re not sure models can do this! <sup>2</sup></li>
+<li>the latitudinal scope of the WTG in km-scale, convection-permitting simulations is thought to be ~ ±10°</li>
+<li><sup>1</sup> used column-integrated precipitable water to pick out convection</li>
 </ul>
-<aside><ol class="aside-footnotes"><li id="fn2"><p>Bao, J. &amp; Stevens, B. (2021). The Elements of the Thermodynamic Structure of the Tropical Atmosphere, Journal of the Meteorological Society of Japan.</p></li><li id="fn3"><p>Stephan, C. C. et al.&nbsp;(2019). Intercomparison of Gravity Waves in Global Convection-Permitting Models. J. Atmos. Sci.</p></li></ol></aside></section>
+<div class="fragment">
+<ul>
+<li>we’re not sure that models can accurately simulate gravity waves! <sup>2</sup></li>
+</ul>
+</div>
+<aside><ol class="aside-footnotes"><li id="fn6"><p>Bao, J. &amp; Stevens, B. (2021). The Elements of the Thermodynamic Structure of the Tropical Atmosphere, Journal of the Meteorological Society of Japan.</p></li><li id="fn7"><p>Stephan, C. C. et al.&nbsp;(2019). Intercomparison of Gravity Waves in Global Convection-Permitting Models. J. Atmos. Sci.</p></li></ol></aside></section>
 <section id="observations-to-test-wtg" class="slide level2 center">
 <h2>observations to test WTG</h2>
 <ul>
 <li>high-resolution temperature and moisture measurements from the Raman LIDAR at the BCO</li>
 </ul>
+<div id="b9f343a3" class="cell" data-execution_count="20">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href=""></a><span class="cf">for</span> i, t <span class="kw">in</span> <span class="bu">enumerate</span>(lidar.time.values):</span>
+<span id="cb21-2"><a href=""></a>    lidar.sel(time<span class="op">=</span>t).ta.where(<span class="kw">lambda</span> da: (da <span class="op">&gt;</span> <span class="dv">0</span>) <span class="op">&amp;</span> (da <span class="op">&lt;</span> <span class="dv">500</span>)).plot(y<span class="op">=</span><span class="st">"alt"</span>, label<span class="op">=</span>t.astype(<span class="st">"datetime64[m]"</span>), color<span class="op">=</span>tcolor[i])</span>
+<span id="cb21-3"><a href=""></a>plt.ylabel(<span class="st">"alt / m"</span>, <span class="op">**</span>axis_labels)</span>
+<span id="cb21-4"><a href=""></a>plt.xlabel(<span class="st">"ta / deg K"</span>, <span class="op">**</span>axis_labels)</span>
+<span id="cb21-5"><a href=""></a>plt.title(<span class="va">None</span>)</span>
+<span id="cb21-6"><a href=""></a>plt.legend()</span>
+<span id="cb21-7"><a href=""></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure>
+<p><img data-src="index_files/figure-revealjs/cell-21-output-1.png" width="853" height="440"></p>
+</figure>
+</div>
+</div>
+</div>
 </section>
 <section id="observations-to-test-the-wtg" class="slide level2 center">
 <h2>observations to test the WTG</h2>
 <ul>
+<li>is it possible to identify the moist adiabat to which temperature at the BCO relaxes?</li>
 <li>Tracking Of Organized Convection Algorithm through 3D segmentatioN (TOOCAN)</li>
-<li>identify the moist adiabat which sets the free tropospheric temperature, and study how and whether the BCO conforms to it</li>
-<li>do we observe the time and spatial scales of advection predicted by WTG?</li>
+<li>if so, do we observe the time and spatial scales of advection predicted by WTG?</li>
 </ul>
 </section>
-<section id="non-local-stability-inversion-mechanism4" class="slide level2 center">
+<section id="non-local-stability-inversion-mechanism8" class="slide level2 center">
 <h2>non-local stability-inversion mechanism<sup>1</sup></h2>
 <ul>
 <li>can we observe an increase in invsersion strength and in low cloud amount with convective warming in the free troposphere</li>
 </ul>
-<aside><ol class="aside-footnotes"><li id="fn4"><p>Williams, A. I. L., et al.&nbsp;(2023). Circus tents, convective thresholds, and the non-linear climate response to tropical SSTs. Geophysical Research Letters.</p></li></ol></aside></section>
+<aside><ol class="aside-footnotes"><li id="fn8"><p>Williams, A. I. L., et al.&nbsp;(2023). Circus tents, convective thresholds, and the non-linear climate response to tropical SSTs. Geophysical Research Letters.</p></li></ol></aside></section>
 <section id="observations-to-test-the-wtg-ii" class="slide level2 center">
 <h2>observations to test the WTG: II</h2>
 <ul>
 <li>gravity wave retrieval from hyperspectral brightness temperatures measured by the atmospheric infrared sounder (AIRS) aboard NASA’s AQUA</li>
+<li>method used in <sup>1</sup> for a geostationary satellite could be adapted to a scanning instrument</li>
+</ul>
+<aside><ol class="aside-footnotes"><li id="fn9"><p>Poujol, B., &amp; Bony, S. (2024). Measuring clear-air vertical motions from space. AGU Advances.</p></li></ol></aside></section>
+<section id="measurement-campaign" class="slide level2 center">
+<h2>measurement campaign!</h2>
+</section>
+<section id="link-to-next-gems-orcestra-other-nice-dataset-examples" class="slide level2 center">
+<h2>LINK TO next gems, ORCESTRA, other nice dataset examples</h2>
+<ul>
+<li>convective permitting model… can I run the bubble with CliMA?</li>
 </ul>
 </section>
-<section id="models-to-test-the-wtg" class="slide level2 center">
-<h2>models to test the WTG</h2>
-<ul>
-<li>can be done!</li>
-</ul>
-</section>
-<section id="object-stores" class="slide level2 center">
-<h2>Object stores</h2>
-<ul>
-<li>Store data as <em>objects</em> (blob + metadata + unique key)</li>
-<li>Flat namespace (no real directories, just keys that look like paths)</li>
-<li>Accessed via web APIs (e.g., HTTP, S3), not via mounted drives</li>
-<li>Scales to billions of objects and petabytes of data</li>
-<li>Durable, redundant storage</li>
-<li>Global access via URLs, no special software needed</li>
-</ul>
-</section>
-<section id="cloud-native-data-formats" class="slide level2 center">
-<h2><span style="color: #CE3072;">Cloud-native data formats</span></h2>
-<ul>
-<li>Designed for efficient reading/writing of chunks</li>
-<li>Metadata kept separate from data</li>
-<li>Support lazy, parallel access</li>
-<li>Work seamlessly with HTTP/S3 APIs</li>
-</ul>
-<div class="fragment">
-<p>Zarr’s chunked storage is aligned with object stores by construction</p>
-<p><img data-src="static/zarr-logo.png" height="52"></p>
-<p><span style="color: #ECC24C; text-shadow: 0 0 1px;"><strong>“Half a climate” of atmospheric measurements!</strong></span></p>
-<ul>
-<li><p>Raw data is continuously copied to <code>breeze</code></p></li>
-<li><p>Usually stored in plain text files</p></li>
-<li><p>You can read <em>any</em> file but not <em>all</em></p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource {python3} number-lines code-with-copy"><code class="sourceCode"><span id="cb7-1"><a href=""></a>xr.open_mfdataset("**/Meteorology__Deebles_Point__*.nc")</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="fragment">
-<p><em>will simply fail due to the sheer number of files</em></p>
-</div></li>
-</ul>
-</div>
-</section>
-<section id="automated-processing" class="slide level2 center">
-<h2>Automated processing</h2>
-<ul>
-<li>Orchestration of tasks using an <a href="https://airflow.apache.org">Apache Airflow</a></li>
-<li>Data is <strong>publicly available</strong> on the <a href="https://docs.dkrz.de/doc/datastorage/swift/index.html">DKRZ Swift storage</a></li>
-</ul>
+<section id="demo-with-tobis-cloud-radar-tool" class="slide level2 center">
+<h2>demo with Tobi’s cloud radar tool?</h2>
 
-<img data-src="static/airflow-screenshot.png" class="r-stretch quarto-figure-center"><p class="caption">Dashboard of the Airflow server used to orchestrate BCO processing</p></section>
-<section id="tcodata-catalog" class="slide level2 center">
-<h2>tcodata catalog</h2>
-<div id="d4100c42" class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href=""></a><span class="im">import</span> intake</span>
-<span id="cb8-2"><a href=""></a></span>
-<span id="cb8-3"><a href=""></a></span>
-<span id="cb8-4"><a href=""></a><span class="co">#cat = intake.open_catalog("https://tcodata.mpimet.mpg.de/catalog.yaml")</span></span>
-<span id="cb8-5"><a href=""></a><span class="co">#wxt = cat.BCO.surfacemet(time="P1D").to_dask()</span></span>
-<span id="cb8-6"><a href=""></a></span>
-<span id="cb8-7"><a href=""></a><span class="co">#wxt.ta.plot(ylim=(23, 33), figsize=(12, 4));</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Quick looks …</p>
-<ul>
-<li>are often provided <strong>instead</strong> of data</li>
-<li>relieve the pressure of providing the actual data</li>
-<li>usually show <strong>almost</strong> what you are interested in</li>
-</ul>
-<p>Quick looks …</p>
-<ul>
-<li>are often provided <strong>instead</strong> of data</li>
-<li>relieve the pressure of providing the actual data</li>
-<li>usually show <strong>almost</strong> what you are interested in
-</li><li class="fragment">
-are (often) created from a <strong>different dataset</strong>
-</li>
-<li>Analysis-ready cloud-native repositories provide <strong>scalable access</strong> to large datasets</li>
-<li>Reduce duplication of data, support <strong>collaboration</strong>, and are <strong>fun to use</strong></li>
-<li>Shift responsibility from the data users towards the data providers</li>
-</ul>
-<p>There is usually <strong>one</strong> data provider, but <strong>many</strong> users.</p>
-
-</section>
+</section></section>
 
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
