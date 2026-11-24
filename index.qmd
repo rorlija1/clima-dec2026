@@ -1,6 +1,5 @@
 ---
-title: Datasets, clouds, convection,
-subtitle: and the fun along the way
+title: Cloud-native cloud datasets
 format:
   mpim-revealjs: default
 author:
@@ -8,10 +7,7 @@ author:
 date: 2026-12-01
 ---
 
-## Outline
-
-* What I do (and why)
-* What I'd like to do next (and why)
+## who am I?
 
 ## as a guest, it's important to me to (at least try to) speak the language
 
@@ -22,9 +18,10 @@ date: 2026-12-01
 {{< embed julia-2.qmd include="content" >}}
 
 
-## outline
+## I was here before!
 
-* What I did at CliMA: include a couple plots, thank Anna, Emily, Sajad, etc. say what I learned
+ * Thanks for teaching me!
+ * Where is P3 now?
 
 # The Barbados Cloud Observatory (BCO)
 
@@ -68,13 +65,6 @@ plt.show()
 
 ## let's go to the Atlantic {transition="none"}
 
-::::{.columns}
-:::{.column}
-* understanding tropical circulation and energy means understanding tropical clouds, and vice versa
-:::
-
-:::{.column}
-:::{.fragment}
 ```{python}
 #| code-fold: true
 #| code-summary: "expand"
@@ -103,19 +93,10 @@ ax2.add_feature(cfeature.LAND.with_scale("50m"),
 ax2.add_feature(cfeature.COASTLINE.with_scale("50m"),
                 edgecolor=COAST_COLOR, linewidth=0.5, zorder=3)
 ```
-:::
-:::
-
-::::
 
 ## clouds over the Atlantic {transition="none"}
 
-::::{.columns}
-:::{.column}
-* understanding tropical circulation and energy means understanding tropical clouds, and vice versa
-:::
 
-:::{.column}
 ```{python}
 fig2, ax2 = plt.subplots(
     figsize=(8, 8),
@@ -127,17 +108,9 @@ ax2.add_feature(cfeature.LAND.with_scale("50m"),
 ax2.add_feature(cfeature.COASTLINE.with_scale("50m"),
                 edgecolor=COAST_COLOR, linewidth=0.5, zorder=3)
 ```
-:::
 
-::::
 ## clouds over the Atlantic {transition="none"}
 
-::::{.columns}
-:::{.column}
-* understanding tropical circulation and energy means understanding tropical clouds, and vice versa
-:::
-
-:::{.column}
 ```{python}
 fig2, ax2 = plt.subplots(
     figsize=(8, 8),
@@ -159,17 +132,9 @@ for arrow_lon, arrow_lat in arrows:
                 textcoords=ccrs.PlateCarree()._as_mpl_transform(ax2),
                 arrowprops=dict(arrowstyle='->', color=COAST_COLOR, lw=1.5, alpha=0.7))
 ```
-:::
 
-::::
 ## clouds over the Atlantic {transition="none" auto-animate=true}
 
-::::{.columns}
-:::{.column}
-* understanding tropical circulation and energy means understanding tropical clouds, and vice versa
-:::
-
-:::{.column}
 ```{python}
 fig2, ax2 = plt.subplots(
     figsize=(8, 8),
@@ -201,9 +166,6 @@ plot_extent_box(ax2, extent=[-58.5, -57, 12.5, 14], color=ACCENT)
 :::{.fragment}
 <span style="color: #ffab57"> BCO, and '[EUREC4A](https://eurec4a.eu/) box'</span>
 :::
-:::
-
-::::
 
 
 ## <span style="color: #ffab57">Half a climate</span> at the [BCO](https://tcodata.mpimet.mpg.de)
@@ -219,6 +181,8 @@ est. Dec 2010
 
 :::{.fragment}
 ![photo: Friedhelm Jansen](static/bcosite_20250925_115213.jpg)
+
+instruments measuring clouds, rain, radiation, surface meteorology...
 :::
 
 :::
@@ -256,58 +220,27 @@ plt.box(False)
 :::
 :::
 
-# my job: make datasets [^1]
+# my job: make BCO datasets [^1]
 
 :::{.fragment}
 [^1]: continuously growing, analysis-ready, cloud-optimized datasets, which are versioned, reproducible, and quality controlled
 :::
 
-## observational data is messy
-
-```{python3}
-xr.open_mfdataset("**/bco_radar_dataset_*.nc")
-```
-:::{.fragment}
-_would fail due to the sheer number of files_
-:::
-
-:::{.fragment}
-```{python3}
-xr.open_mfdataset([pd.read_csv(f).to_xarray() for f in rawfiles])
-```
-:::
-
-:::{.fragment}
-_is not well-suited to an ever-growing (and -changing) record_
-
-```{sh}
-ERROR: cannot reindex along dimension 'range' with differing sizes {'range': 200} and {'range': 199}
-```
-:::
-
-:::{.fragment}
-_not to mention other buggy oddities_
-
-```{sh}
-ERROR: non-monotonic time axis!
-```
-:::
-
-## previously, on _climate data diving_
+## weather and climate data wrangling
 
 * individuals run painstaking processing for period(s) and instrument(s) of interest
 
 . . .
 
-* or if the data is processed, it is probably (choose one or more):
+ * or if the data is processed, it is probably (choose one or more):
 
 :::{.fragment}
-  * private to individuals or institutions
-  * (down)loaded eagerly
-  * not versioned, hashed, or content-addressable
+ * private to individuals or institutions
+ * (down)loaded eagerly
+ * not versioned, hashed, or content-addressable
 :::
 
-## even model data can be ugly
+## (even / especially) large organizations are not perfect
 
 ![CMIP6 data browser](static/cmip6-dataportal.png)
 
@@ -316,10 +249,10 @@ ERROR: non-monotonic time axis!
 ```{python}
 #| echo: true
 with open("static/wget_script_2026-11-20_18-48-52.sh", 'r') as f:
-        print(sum(1 for line in f))
+        print(f"shell script is {sum(1 for line in f)} lines")
 ```
 
-## which in turn downloads these netcdfs
+## all of this to download 18 netcdfs
 
 ```{bash}
 download_files="$(cat <<EOF--dataset.file.url.chksum_type.chksum
@@ -349,50 +282,97 @@ EOF--dataset.file.url.chksum_type.chksum
 
 but at least they're checksummed
 
-## the solution
+## our philosophy
 
-* analysis-ready, cloud-optimized (ARCO) datasets[^2]
+ * analysis-ready, cloud-optimized (ARCO) datasets[^2]
 
 :::{.fragment}
-* [zarr](https://zarr.dev/) format on a publicly available [object store](https://docs.dkrz.de/doc/datastorage/swift/index.html)
-    * lazy loading
+ * [zarr](https://zarr.dev/) format on a publicly available [object store](https://docs.dkrz.de/doc/datastorage/swift/index.html)
+   * lazy loading
 
 ![](static/zarr-logo.png){height=52px fig-align='center'}
 :::
 
 :::{.fragment}
-* burden on provider, not user<span style="color: #CE3072;">s</span>
+ * burden on provider, not user<span style="color: #CE3072;">s</span>
 :::
+
+:::{.fragment}
+ * versioned and reproducible processing
+:::
+
 
 [^2]: R. P. Abernathey et al. (2021). [Cloud-Native Repositories for Big Scientific Data](https://doi.org/10.1109/MCSE.2021.3059437), Computing in Science & Engineering.
 
+## particularity of continuously-growing datasets
+
+(as opposed to campaign data, model data)
+
+:::{.fragment}
+```{python3}
+xr.open_mfdataset([pd.read_csv(f).to_xarray() for f in rawfiles])
+```
+:::
+
+:::{.fragment}
+_is not well-suited to an ever-growing (and -changing) record_
+
+```{sh}
+ERROR: cannot reindex along dimension 'range' with differing sizes {'range': 200} and {'range': 199}
+```
+:::
+
+## it isn't straightforward
+
+```{python3}
+xr.open_mfdataset("**/bco_radar_dataset_*.nc")
+```
+:::{.fragment}
+_would fail due to the sheer number of files_
+:::
+
+:::{.fragment}
+_not to mention other buggy oddities_
+
+```{sh}
+ERROR: non-monotonic time axis!
+```
+:::
+
+
 ## implementation
 
-:::{.columns}
+ * automated workflows using [Apache Airflow](https://airflow.apache.org)'s direct acyclic graphs (DAGs)
 
-:::{.column}
+ * each dataset:
+   * versioned with its processing code and that of its input datasets -> unique object ID
+   * reproducible
 
-* data transferred daily to MPI-M file system
-* automated workflows using [Apache Airflow](https://airflow.apache.org)'s direct acyclic graphs (DAGs)
+## direct acyclic graphs (DAGs)
+
+![](static/level1dag.png)
+
+:::{.aside}
+level 1 DAG, triggers downstream processing
+::: 
+
+## data hierarchy and products
 
 :::{.fragment}
-  * each dataset is:
-    * versioned with its processing code and that of its input datasets
-    * reproducible, with a unique object ID
+ * level 0 (raw)
 :::
-
-:::
-
-:::{.column}
 
 :::{.fragment}
-![](static/dag.png){width=1000px}
-:::
-:::
-
-
+ * level 1 (concatenated and cleaned)
 :::
 
+:::{.fragment}
+ * level 2 (analysis-ready, controlled, time aggregations)
+:::
+
+:::{.fragment}
+* level 3 (multi-sensor products)
+:::
 
 ## data access
 
@@ -431,7 +411,45 @@ plt.title(None)
 plt.xlabel("wind dir / deg", **axis_labels);
 ```
 
+## a short tour: rain
 
+```{python}
+from matplotlib.patches import Patch
+son = [9, 10, 11]
+jfm = [1, 2, 3]
+wet_color = LAND_COLOR
+dry_color = ACCENT
+def get_season_blocks(time_arr, month_arr, target_months):
+    mask = np.isin(month_arr, list(target_months))
+    mask_padded = np.concatenate(([False], mask, [False]))
+    idx_changes = np.where(mask_padded[:-1] != mask_padded[1:])[0]
+
+    blocks = idx_changes.reshape(-1, 2)
+
+    time_bounds = []
+    for start, end in blocks:
+        t_start = time_arr[start]
+        t_end = time_arr[min(end, len(time_arr) - 1)]
+        time_bounds.append((t_start, t_end))
+    return time_bounds
+
+fig5, ax5 = plt.subplots(figsize=(14, 2))
+sfc.rain_intensity.rolling(time=7).mean().plot()
+
+for start, end in get_season_blocks(sfc.time.values, sfc.time.dt.month, jfm):
+    ax5.axvspan(start, end, color=dry_color, alpha=0.2, zorder=0)
+for start, end in get_season_blocks(sfc.time.values, sfc.time.dt.month, son):
+    ax5.axvspan(start, end, color=wet_color, alpha=0.2, zorder=0)
+
+legend_elements = [
+    Patch(facecolor=dry_color, alpha=0.5, label='JFM (dry)'),
+    Patch(facecolor=wet_color, alpha=0.5, label='SON (wet)')
+]
+ax5.legend(handles=legend_elements, loc='upper left')
+plt.title(None)
+plt.xlabel("time", **axis_labels)
+plt.ylabel("rolling rain / mm h-1");
+```
 ## a short tour: clouds
 
 ```{python}
@@ -448,9 +466,9 @@ plt.show()
 
 ## a short tour: clouds
 
- * todo: plot a cool big cloud
-
 ```{python}
+Z = cat.BCO.cloudradar(time="raw").to_dask().Z.sel(alt=slice(None, 15000))
+
 choice = np.datetime64("2026-04-05T21:40")
 time_window = 15
 start_time = choice - np.timedelta64(time_window, "m")
@@ -459,23 +477,71 @@ end_time = choice + np.timedelta64(time_window, "m")
 
 ```{python}
 #| echo: true
-clouds = cat.BCO.cloudradar(time="raw").to_dask().Z.sel(time=slice(start_time, end_time), alt=slice(None, 15000))
+clouds = Z.sel(time=slice(start_time, end_time))
 clouds.plot(y="alt", robust=True, cmap="Greys", vmin=-60, vmax=35, cbar_kwargs={'label': 'Z / dBZ'}, extend="both")
 plt.ylabel("alt / m", **axis_labels)
 plt.xlabel("time", **axis_labels)
 plt.title(None);
 ```
 
+:::{.aside}
+precipitating cumulus, altocumulus castellanus, and cirrus
+:::
+
+## a short tour: clouds
+
+```{python}
+choice = np.datetime64("2025-02-22T00:30")
+time_window = 35
+start_time = choice - np.timedelta64(time_window, "m")
+end_time = choice + np.timedelta64(time_window, "m")
+```
+
+```{python}
+#| echo: true
+clouds = Z.sel(time=slice(start_time, end_time))
+clouds.plot(y="alt", robust=True, cmap="Greys", vmin=-60, vmax=35, cbar_kwargs={'label': 'Z / dBZ'}, extend="both")
+plt.ylabel("alt / m", **axis_labels)
+plt.xlabel("time", **axis_labels)
+plt.title(None);
+```
+
+:::{.aside}
+trade cumulus
+:::
+
+## a short tour: clouds
+
+```{python}
+choice = np.datetime64("2024-10-13T11:30")
+time_window = 35
+start_time = choice - np.timedelta64(time_window, "m")
+end_time = choice + np.timedelta64(time_window, "m")
+```
+
+```{python}
+#| echo: true
+clouds = Z.sel(time=slice(start_time, end_time))
+clouds.plot(y="alt", robust=True, cmap="Greys", vmin=-60, vmax=35, cbar_kwargs={'label': 'Z / dBZ'}, extend="both")
+plt.ylabel("alt / m", **axis_labels)
+plt.xlabel("time", **axis_labels)
+plt.title(None);
+```
+
+:::{.aside}
+deep convection
+:::
+
 ## science at the MPI-M
 
-{{< video https://youtu.be/0KmimDq4cSU?si=grZzYoGu0PC9oPEG start="20" height="500" aspect-ratio="16x9" >}}[^3]
+{{< video https://youtu.be/0KmimDq4cSU?si=j2yhyHbeKGwmBkHD&t=20 height="500" aspect-ratio="16x9" >}}[^3]
 
 
 [^3]: Feynman, R. (1964). Seeking New Laws. Cornell University lecture.
 
 ## how is it done?
 
-* campaigns: EUREC4A, [ORCESTRA](https://orcestra-campaign.org/)
+* campaigns: [EUREC4A](https://eurec4a.eu/), [ORCESTRA](https://orcestra-campaign.org/)
 * model experiments with a convection-permitting model:
   * aqua planets
   * global north and south
@@ -500,78 +566,256 @@ plt.ylabel("temp. anomaly / deg C", **axis_labels);
 
 warm winter (follows nearby SSTs)
 
-## <span style="color: #CE3072;">missing</span>: 2024 high clouds
+## <span style="color: #CE3072;">missing</span> high clouds: a big-picture perspective
+
+## {background-image="static/clouds.svg" background-size="contain"}
+
+## a focused perspective
 
 ```{python}
-high = lambda da: da.sel(alt=slice(5000, 15000))
-highclouds = ds.pipe(high).cloud_fraction
+high = lambda da: da.sel(alt=slice(8000, 15000))
+low = lambda da: da.sel(alt=slice(None, 4000))
+cloudclim = ds.cloud_fraction.groupby(ds.time.dt.month).mean()
+anomaly = ds.cloud_fraction.groupby(ds.time.dt.month) - cloudclim
+highanomaly = anomaly.pipe(high).compute()
+lownaomaly = anomaly.pipe(low).compute()
 months = ["2023-12", "2024-01", "2024-02", "2024-03"]
-highcloudsbymonth = [highclouds.sel(time=month).mean(dim="time").compute() for month in months]
-colors = plt.get_cmap("tab20")(np.linspace(0, 1, 20))
-```
-```{python}
-#| echo: true
-for i, (m, da) in enumerate(zip(months, highcloudsbymonth)):
-    da.plot(y="alt", label=m, color=colors[i])
-plt.title(None)
-plt.xlabel("cloud fraction / 1", **axis_labels)
-plt.ylabel("alt / m", **axis_labels)
-plt.legend()
-plt.xlim([0.0, 0.06])
+
+fig, (ax_h, ax_l) = plt.subplots(2, 2, figsize=(6, 6), constrained_layout=True, sharey="row")
+axh_abs, axh_ano = ax_h
+axl_abs, axl_ano = ax_l
+
+for tsel in months:
+    ds.cloud_fraction.pipe(high).sel(time=tsel).mean(dim="time").plot(y="alt", label=tsel, ax=axh_abs)
+    ds.cloud_fraction.pipe(low).sel(time=tsel).mean(dim="time").plot(y="alt", label=tsel, ax=axl_abs)
+    highanomaly.sel(time=tsel).mean(dim="time").plot(y="alt", label=tsel, ax=axh_ano)
+    lownaomaly.sel(time=tsel).mean(dim="time").plot(y="alt", label=tsel, ax=axl_ano)
+
+plt.setp(ax_h, ylabel="alt / m", xlabel="cloud fraction / 1")
+axh_ano.set_ylabel(None)
+plt.setp(ax_l, ylabel="alt / m", xlabel="cloud fraction / 1")
+axl_ano.set_ylabel(None)
+axh_abs.set_title("absolute")
+axh_ano.set_title("absolute minus monthly climate")
+plt.setp([axl_abs, axl_ano], title=None)
+fig.legend(*axh_abs.get_legend_handles_labels(), bbox_to_anchor=(1., 0.0), ncol=len(months))
+
 plt.show()
 ```
 
-# another perspective {background-image="_extensions/titles/clouds.png"}
+## trough in subtropical westerly jet
 
-## role of the synoptic state
-
-  * todo: get rid of trade wind arrows, make nicer, try JFM average or a 3 panel thing, try plotting ssts
-
-![climatological subtropical westerly jet](static/2024-01-clim-circ-div.png)
-
-## role of the synoptic state {transition="none"}
-
- * todo: make nicer, try also plotting cloud cover anomaly averaged over different levels
-
-![accentuated trough, upstream convergence](static/2024-01-circ-rh-ano.png)
+![](static/2024-01-wind.png)
 
 ## proposed mechanism:
 
- * warm SSTs + upper level convergence
- * heat and moisture trapped below
- * hot surface temperatures, and suppressed high cloud amount
+ * warm SSTs & upper-level subsidence
+ * dry upper levels (chicken or egg?)
+ * warm air cannot entrain as much (?)
 
-## extensions? [^4]
+## next? [^4]
 
- * what drives cirrus clouds at BCO in other conditions?
- * would having a very shallow trough in the subtropical westerly jet produce anomalously little upstream convergence, and more high clouds?
- * would a weaker subtropical jet and less wind shear allow clouds to grow taller?
+ * moisture advection and relative humidity anomaly (in temperature space)
+ * what else drives cirrus cloud amount at the BCO?
+ * conversely, would a low convergence or a divergence anomaly (shallow trough, weaker jet) increase high cloud amount?
 
 [^4]: input welcomed!
 
-# another idea
+# measurement campaign! 🚢
 
-## weak temperature gradient approximation (WTG)[^5]
+## San Diego (Dec 11) to Fiji (Jan 4)
 
- * Coriolis force is weak near equator
- * gravity waves are extremely effective in smoothing free tropospheric temperature and pressure gradients
- * convection and the accompanying latent heating generates gravity waves, controlling the free troposhperic temperature
+```{python}
+import xarray as xr
+from matplotlib.patches import Rectangle
+def coords_json_to_ds(path):
+    import json
+    with open(path, 'r') as f:
+        data = json.load(f)
+    
+    coordinates = []
+    for feature in data['features']:
+        if feature['geometry']['type'] == 'Point':
+            lon, lat, _alt = feature['geometry']['coordinates']
+            coordinates.append([lat, lon])
+    
+    coords_array = np.array(coordinates)
+    
+    ds = xr.Dataset(
+        coords={
+            'lat': (('waypoint', coords_array[:, 0], {
+                    "long_name": "north latitude",
+                    "units": "degree_north",
+                    "valid_min": -90.0,
+                    "valid_max": 90.0,
+                },)),
+            'lon': (('waypoint', coords_array[:, 1], {
+                    "long_name": "east longitude",
+                    "units": "degree_east",
+                    "valid_min": -180.0,
+                    "valid_max": 180.0,
+                },))
+        }
+    )
+    
+    return ds
+def rename_and_sel(ds, vars):
+    ds = ds.rename({"valid_time": "time", "latitude": "lat", "longitude": "lon"})[vars]
+    return (ds.assign_coords(lon=(((ds.lon + 180) % 360) - 180))
+            .sortby(["lon", "lat"])
+            .sel(time=slice("1980", None),))
+sst = xr.open_dataset(
+    "https://data.earthdatahub.destine.eu/era5/era5-single-levels-atmosphere-monthly-v0.zarr",
+    storage_options={"client_kwargs": {"trust_env": True}}, chunks={}, engine="zarr",
+).pipe(rename_and_sel, ["sst"])
+clim = sst.sst.groupby(sst.time.dt.month).mean()
+fig, ax = plt.subplots(figsize=(12, 4), subplot_kw={'projection': ccrs.PlateCarree(central_longitude=180)})
+anomaly = (sst.sst.groupby(sst.time.dt.month) - clim)
+ax.add_feature(cfeature.COASTLINE)
+route = coords_json_to_ds("static/journey.json")
+ax.plot(route.lon, route.lat, 'o', transform=ccrs.PlateCarree(), color='black')
+dx = anomaly.sel(time="1997-12").mean(dim="time")
+im = ax.pcolormesh(
+    dx.lon.values,
+    dx.lat.values,
+    dx,
+    transform=ccrs.PlateCarree(),
+    cmap="bwr",
+    shading="auto",
+    vmin=-3, vmax=5,
+)
+ax.add_patch(
+    Rectangle(
+        (170, -5),
+        50,
+        10,
+        transform=ccrs.PlateCarree(),
+        fill=False,
+        edgecolor="k",
+        lw=2,
+    )
+)
+ax.set_extent([145, -100, -25, 25])
+plt.title("Dec 1997 anomaly, Niño 3.4, and campaign route")
+fig.colorbar(im, ax=ax, label="SST anomaly / deg K", extend='both')
+plt.show()
+```
 
-[^5]: Sobel, A. et al. (2001). [The Weak Temperature Gradient Approximation and Balanced Tropical Moisture Waves](https://doi.org/10.1175/1520-0469(2001)058%3C3650:TWTGAA%3E2.0.CO;2). Journal of the Atmospheric Sciences.
+## current anomaly
 
-## what do we know?
+```{python}
+fig, ax = plt.subplots(figsize=(12, 4), subplot_kw={'projection': ccrs.PlateCarree(central_longitude=180)})
+anomaly = (sst.sst.groupby(sst.time.dt.month) - clim)
+ax.add_feature(cfeature.COASTLINE)
+ax.plot(route.lon, route.lat, 'o', transform=ccrs.PlateCarree(), color='black')
+dx = anomaly.sel(time="2026-10").mean(dim="time")
+im = ax.pcolormesh(
+    dx.lon.values,
+    dx.lat.values,
+    dx,
+    transform=ccrs.PlateCarree(),
+    cmap="bwr",
+    shading="auto",
+    vmin=-3, vmax=5,
+)
+ax.add_patch(
+    Rectangle(
+        (170, -5),
+        50,
+        10,
+        transform=ccrs.PlateCarree(),
+        fill=False,
+        edgecolor="k",
+        lw=2,
+    )
+)
+ax.set_extent([145, -100, -25, 25])
+plt.title("Oct 2026 anomaly, Niño 3.4, and campaign route")
+fig.colorbar(im, ax=ax, label="SST anomaly / deg K", extend='both')
+plt.show()
+```
 
- * the latitudinal scope of the WTG in km-scale, convection-permitting simulations is thought to be ~ ±10°
- * [^6] used column-integrated precipitable water to pick out convection
+## instrumentation
+
+:::{.columns}
+
 
 :::{.fragment}
- * we're not sure that models can accurately simulate gravity waves! [^7]
+
+:::{.column}
+
+![radiosondes](static/vaisala.jpg)
+
 :::
 
-[^6]: Bao, J. & Stevens, B. (2021). The Elements of the Thermodynamic Structure of the Tropical Atmosphere, Journal of the Meteorological Society of Japan.
-[^7]: Stephan, C. C. et al. (2019). Intercomparison of Gravity Waves in Global Convection-Permitting Models. J. Atmos. Sci.
+:::
 
-## observations to test WTG
+:::{.fragment}
+
+:::{.column}
+
+![ceilometer](static/ceilometer.jpg)
+
+:::
+
+:::
+
+:::{.fragment}
+
+:::{.column}
+
+sea snake, all-sky camera, sun photometer
+
+:::
+
+:::
+
+:::
+
+## scientific scope
+
+todo, El Niño
+
+# Thanks!
+
+## P.S.
+
+ * [TCO data](https://tcodata.mpimet.mpg.de), [ORCESTRA data](https://browser.orcestra-campaign.org/), [model data](https://easy.gems.dkrz.de/)
+ * curious about:
+   * p3 and the model!
+   * run the bubble with CliMA?
+   * AI, ML?
+   * model output formats and storage?
+   * strong scaling vs ICON?
+   * convection (parameterization)?
+
+## extra: trough in subtropical westerly jet
+
+![accentuated trough, upstream convergence](static/2024-01-wind-anomaly.png)
+
+## extra: DJFM means
+
+![](static/panel_4_period_mean.png)
+
+## extra: monthly means
+
+![](static/panel_8_winds.png)
+
+## extra: rh (in pressure space)
+
+![](static/relative_rh_eurec4a_anomaly.png)
+
+![](static/rh_eurec4a_anomaly.png)
+
+## extra: rh (in pressure space)
+
+![](static/rh_eurec4a.png)
+
+## extra: ta
+
+![](static/ta_eurec4a_anomaly.png)
+
+## extra: observations to test WTG?
 
  * high-resolution temperature and moisture measurements from the Raman LIDAR at the BCO
 
@@ -590,30 +834,3 @@ plt.title(None)
 plt.legend()
 plt.show()
 ```
-
-## observations to test the WTG
-
- * is it possible to identify the moist adiabat to which temperature at the BCO relaxes?
- * Tracking Of Organized Convection Algorithm through 3D segmentatioN (TOOCAN)
- * if so, do we observe the time and spatial scales of advection predicted by WTG?
-
-## non-local stability-inversion mechanism[^8]
-
- * can we observe an increase in invsersion strength and in low cloud amount with convective warming in the free troposphere
-
-[^8]: Williams, A. I. L., et al. (2023). Circus tents, convective thresholds, and the non-linear climate response to tropical SSTs. Geophysical Research Letters.
-
-## observations to test the WTG: II
-
- * gravity wave retrieval from hyperspectral brightness temperatures measured by the atmospheric infrared sounder (AIRS) aboard NASA's AQUA
- * method used in [^9] for a geostationary satellite could be adapted to a scanning instrument
-
-[^9]: Poujol, B., & Bony, S. (2024). Measuring clear-air vertical motions from space. AGU Advances.
-
-## measurement campaign!
-
-## LINK TO next gems, ORCESTRA, other nice dataset examples
-
-* convective permitting model... can I run the bubble with CliMA?
-
-## demo with Tobi's cloud radar tool?

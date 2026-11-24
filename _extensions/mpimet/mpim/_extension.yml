@@ -19,6 +19,7 @@ contributes:
       center: true
       format-resources:
         - minerva.png
+        - clouds.svg
       filters:
         - file-dependencies.lua
     html:

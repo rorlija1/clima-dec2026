@@ -30,6 +30,13 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: add .netrc
+        env:
+          NETRC_B64: ${{ secrets.netrc }}
+        run: |
+          echo "$NETRC_B64" | base64 --decode > "$HOME/.netrc"
+          chmod 600 "$HOME/.netrc"
+
       - name: install Julia
         run: curl -fsSL https://install.julialang.org | sh -s -- -y
 
@@ -45,9 +52,6 @@ jobs:
 
       - name: install dependencies
         run: pixi install
-
-      - name: verify julia
-        run: julia --version
 
       - name: render
         run: pixi run render
