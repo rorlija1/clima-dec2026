@@ -11,7 +11,9 @@ date: 2026-12-01
 
 ## as a guest, it's important to me to (at least try to) speak the language
 
-## but here, it's English...
+. . .
+
+but here, it's English...
 
 {{< embed julia.qmd include="content" >}}
 
@@ -374,6 +376,8 @@ level 1 DAG, triggers downstream processing
 * level 3 (multi-sensor products)
 :::
 
+# datasets: a tasting menu
+
 ## data access
 
 ```{python}
@@ -384,7 +388,7 @@ print(len(list(cat.BCO)))
 [e for e in list(cat.BCO) if "LIDAR" not in e and "lidar" not in e]
 ```
 
-## a short tour: surface meteorology
+## surface meteorology
 
 
 ```{python}
@@ -401,7 +405,7 @@ plt.title(None)
 plt.ylabel("T / deg C", **axis_labels);
 ```
 
-## a short tour: surface meteorology {transition=none}
+## surface meteorology {transition=none}
 
 ```{python}
 #| echo: true
@@ -411,7 +415,7 @@ plt.title(None)
 plt.xlabel("wind dir / deg", **axis_labels);
 ```
 
-## a short tour: rain
+## rain
 
 ```{python}
 from matplotlib.patches import Patch
@@ -450,7 +454,7 @@ plt.title(None)
 plt.xlabel("time", **axis_labels)
 plt.ylabel("rolling rain / mm h-1");
 ```
-## a short tour: clouds
+## a short tour: cloud atlas
 
 ```{python}
 #| echo: true
@@ -464,33 +468,10 @@ plt.legend()
 plt.show()
 ```
 
-## a short tour: clouds
+## cloud atlas
 
 ```{python}
 Z = cat.BCO.cloudradar(time="raw").to_dask().Z.sel(alt=slice(None, 15000))
-
-choice = np.datetime64("2026-04-05T21:40")
-time_window = 15
-start_time = choice - np.timedelta64(time_window, "m")
-end_time = choice + np.timedelta64(time_window, "m")
-```
-
-```{python}
-#| echo: true
-clouds = Z.sel(time=slice(start_time, end_time))
-clouds.plot(y="alt", robust=True, cmap="Greys", vmin=-60, vmax=35, cbar_kwargs={'label': 'Z / dBZ'}, extend="both")
-plt.ylabel("alt / m", **axis_labels)
-plt.xlabel("time", **axis_labels)
-plt.title(None);
-```
-
-:::{.aside}
-precipitating cumulus, altocumulus castellanus, and cirrus
-:::
-
-## a short tour: clouds
-
-```{python}
 choice = np.datetime64("2025-02-22T00:30")
 time_window = 35
 start_time = choice - np.timedelta64(time_window, "m")
@@ -510,7 +491,7 @@ plt.title(None);
 trade cumulus
 :::
 
-## a short tour: clouds
+## a short tour: cloud atlas
 
 ```{python}
 choice = np.datetime64("2024-10-13T11:30")
@@ -529,7 +510,73 @@ plt.title(None);
 ```
 
 :::{.aside}
+stratiform anvil
+:::
+
+## cloud atlas
+
+```{python}
+choice = np.datetime64("2026-10-11T10:45")
+time_window = 45
+start_time = choice - np.timedelta64(time_window, "m")
+end_time = choice + np.timedelta64(time_window, "m")
+```
+
+```{python}
+#| echo: true
+clouds = Z.sel(time=slice(start_time, end_time))
+clouds.plot(y="alt", robust=True, cmap="Greys", vmin=-60, vmax=35, cbar_kwargs={'label': 'Z / dBZ'}, extend="both")
+plt.ylabel("alt / m", **axis_labels)
+plt.xlabel("time", **axis_labels)
+plt.title(None);
+```
+
+:::{.aside}
 deep convection
+:::
+
+## cloud atlas
+
+```{python}
+choice = np.datetime64("2024-10-16T08:25")
+time_window = 20
+start_time = choice - np.timedelta64(time_window, "m")
+end_time = choice + np.timedelta64(time_window, "m")
+```
+
+```{python}
+#| echo: true
+clouds = Z.sel(time=slice(start_time, end_time), alt=slice(None, 8000))
+clouds.plot(y="alt", robust=True, cmap="Greys", vmin=-60, vmax=35, cbar_kwargs={'label': 'Z / dBZ'}, extend="both")
+plt.ylabel("alt / m", **axis_labels)
+plt.xlabel("time", **axis_labels)
+plt.title(None);
+```
+
+:::{.aside}
+congestus
+:::
+
+## cloud atlas
+
+```{python}
+choice = np.datetime64("2026-04-05T21:40")
+time_window = 15
+start_time = choice - np.timedelta64(time_window, "m")
+end_time = choice + np.timedelta64(time_window, "m")
+```
+
+```{python}
+#| echo: true
+clouds = Z.sel(time=slice(start_time, end_time))
+clouds.plot(y="alt", robust=True, cmap="Greys", vmin=-60, vmax=35, cbar_kwargs={'label': 'Z / dBZ'}, extend="both")
+plt.ylabel("alt / m", **axis_labels)
+plt.xlabel("time", **axis_labels)
+plt.title(None);
+```
+
+:::{.aside}
+precipitating cumulus, altocumulus castellanus, and cirrus
 :::
 
 ## science at the MPI-M
@@ -539,32 +586,33 @@ deep convection
 
 [^3]: Feynman, R. (1964). Seeking New Laws. Cornell University lecture.
 
-## how is it done?
-
-* campaigns: [EUREC4A](https://eurec4a.eu/), [ORCESTRA](https://orcestra-campaign.org/)
-* model experiments with a convection-permitting model:
-  * aqua planets
-  * global north and south
-  * remove Americas
-  * smoothed orography
-  * LAMs
-
 # a brief investigation 🧐
 
 ## <span style="color: #CE3072;">missing</span>: 2024 winter
 
 ```{python}
-clim = sfc.ta.groupby(sfc.time.dt.dayofyear).mean(dim="time")
-```
+import pandas as pd
+import xarray as xr
+def resampleyr(da):
+    da = da.resample(time="10D").mean()
+    return da.assign_coords(time=np.arange(da.sizes["time"]))
 
-```{python}
-#| echo: true
-(sfc.ta.groupby(sfc.time.dt.dayofyear) - clim).sel(time=slice("2023-11", "2024-04")).plot(**line_args)
-plt.axhline(0, linestyle="--", alpha=0.7, **line_args)
-plt.ylabel("temp. anomaly / deg C", **axis_labels);
+annual = xr.concat([resampleyr(da) for _, da in sfc.ta.where(sfc.time.dt.year != 2024, drop=True).groupby("time.year")], dim="year")
+mean = annual.mean("year")
+std = annual.std("year")
+for y in np.unique(sfc.time.dt.year):
+    kwargs = {"color": "gray", "alpha": 0.3} if y!=2024 else {"color": ACCENT, "label": "2024"}
+    dxyr = sfc.sel(time=str(y)).resample(time="10D").mean()
+    plt.plot(dxyr.time.dt.dayofyear, dxyr.ta, **kwargs)
+x = np.arange(mean.size) * 10 + 1
+plt.fill_between(x, mean - std, mean + std, color="gray", alpha=0.3, label="±1 σ")
+plt.plot(x, mean, color="black", label="mean (excluding 2024)", alpha=0.5)
+xcoord = pd.date_range("2024-03-01", "2024-12-01", freq="3MS")
+plt.xticks(xcoord.dayofyear, xcoord.strftime("%b"))
+plt.ylabel("T / deg C", **axis_labels)
+plt.xlabel("time", **axis_labels)
+plt.legend();
 ```
-
-warm winter (follows nearby SSTs)
 
 ## <span style="color: #CE3072;">missing</span> high clouds: a big-picture perspective
 
@@ -613,11 +661,15 @@ plt.show()
  * dry upper levels (chicken or egg?)
  * warm air cannot entrain as much (?)
 
-## next? [^4]
+:::{.fragment}
 
- * moisture advection and relative humidity anomaly (in temperature space)
- * what else drives cirrus cloud amount at the BCO?
- * conversely, would a low convergence or a divergence anomaly (shallow trough, weaker jet) increase high cloud amount?
+ * next: [^4]
+    * moisture advection and relative humidity (in temperature space)
+    * what else drives cirrus cloud amount at the BCO?
+    * conversely, would a low convergence or a divergence anomaly (shallow trough, weaker jet) increase high cloud amount?
+
+:::
+
 
 [^4]: input welcomed!
 
@@ -626,7 +678,6 @@ plt.show()
 ## San Diego (Dec 11) to Fiji (Jan 4)
 
 ```{python}
-import xarray as xr
 from matplotlib.patches import Rectangle
 def coords_json_to_ds(path):
     import json
@@ -774,7 +825,7 @@ sea snake, all-sky camera, sun photometer
 
 ## scientific scope
 
-todo, El Niño
+El Niño
 
 # Thanks!
 
@@ -803,9 +854,17 @@ todo, El Niño
 
 ## extra: rh (in pressure space)
 
-![](static/relative_rh_eurec4a_anomaly.png)
+:::{.columns}
 
+:::{.column}
+![](static/relative_rh_eurec4a_anomaly.png)
+:::
+
+:::{.column}
 ![](static/rh_eurec4a_anomaly.png)
+:::
+
+:::
 
 ## extra: rh (in pressure space)
 
@@ -815,9 +874,17 @@ todo, El Niño
 
 ![](static/ta_eurec4a_anomaly.png)
 
-## extra: observations to test WTG?
+## science in practice:
 
- * high-resolution temperature and moisture measurements from the Raman LIDAR at the BCO
+* campaigns: [EUREC4A](https://eurec4a.eu/), [ORCESTRA](https://orcestra-campaign.org/)
+* model experiments with a convection-permitting model:
+  * aqua planets
+  * global north and south
+  * remove Americas
+  * smoothed orography
+  * LAMs
+
+## extra: observations to test WTG?
 
 ```{python}
 lidar = cat.BCO.lidar_CORAL_LR_t_c1_v1.to_dask().sel(time=slice("2020-01-01T14:00", "2020-01-01T14:06"), alt=slice(7500, 15000))
