@@ -7,7 +7,10 @@ author:
 date: 2026-12-01
 ---
 
-## who am I?
+## I was here before!
+
+ * Thanks for teaching me!
+ * Where is P3 now?
 
 ## as a guest, it's important to me to (at least try to) speak the language
 
@@ -18,12 +21,6 @@ but here, it's English...
 {{< embed julia.qmd include="content" >}}
 
 {{< embed julia-2.qmd include="content" >}}
-
-
-## I was here before!
-
- * Thanks for teaching me!
- * Where is P3 now?
 
 # The Barbados Cloud Observatory (BCO)
 
@@ -36,8 +33,6 @@ but here, it's English...
 
 :::{.column}
 ```{python}
-#| code-fold: true
-#| code-summary: "expand"
 import cartopy.crs as ccrs
 import cartopy.feature as cfeature
 import numpy as np
@@ -68,8 +63,6 @@ plt.show()
 ## let's go to the Atlantic {transition="none"}
 
 ```{python}
-#| code-fold: true
-#| code-summary: "expand"
 lon = -59.4288
 lat = 13.1627
 def plot_extent_box(ax, extent, color="m", linewidth=2, transform=ccrs.PlateCarree()):
@@ -98,18 +91,7 @@ ax2.add_feature(cfeature.COASTLINE.with_scale("50m"),
 
 ## clouds over the Atlantic {transition="none"}
 
-
-```{python}
-fig2, ax2 = plt.subplots(
-    figsize=(8, 8),
-    subplot_kw={"projection": ccrs.Robinson()}
-)
-ax2.set_extent([-70, 15, 0, 20], crs=ccrs.PlateCarree())
-ax2.add_feature(cfeature.LAND.with_scale("50m"),
-                facecolor=LAND_COLOR, edgecolor=COAST_COLOR, linewidth=0.5, zorder=2)
-ax2.add_feature(cfeature.COASTLINE.with_scale("50m"),
-                edgecolor=COAST_COLOR, linewidth=0.5, zorder=3)
-```
+![NASA GOES](https://cdn.star.nesdis.noaa.gov/GOES19/ABI/SECTOR/taw/GEOCOLOR/GOES19-TAW-GEOCOLOR-900x540.gif)
 
 ## clouds over the Atlantic {transition="none"}
 
@@ -163,10 +145,9 @@ ax2.plot(
     marker=".", markersize=12, color=ACCENT, markeredgecolor="white",
     markeredgewidth=0.8, transform=ccrs.PlateCarree(), zorder=5
 )
-plot_extent_box(ax2, extent=[-58.5, -57, 12.5, 14], color=ACCENT)
 ```
 :::{.fragment}
-<span style="color: #ffab57"> BCO, and '[EUREC4A](https://eurec4a.eu/) box'</span>
+<span style="color: #ffab57">BCO</span>
 :::
 
 
@@ -230,21 +211,29 @@ plt.box(False)
 
 ## weather and climate data wrangling
 
-* individuals run painstaking processing for period(s) and instrument(s) of interest
 
-. . .
+:::{.columns}
 
- * or if the data is processed, it is probably (choose one or more):
+:::{.column}
+
+ * individual, painstaking processing
 
 :::{.fragment}
- * private to individuals or institutions
- * (down)loaded eagerly
- * not versioned, hashed, or content-addressable
+ * or if the data is processed, it is:
+    * private
+    * (down)loaded eagerly
+    * not versioned, hashed, content-addressable
 :::
 
-## (even / especially) large organizations are not perfect
+:::
 
-![CMIP6 data browser](static/cmip6-dataportal.png)
+:::{.column}
+
+![(even / especially) large organizations are not perfect](static/cmip6-dataportal.png)
+
+:::
+
+:::
 
 ## downloads a shell script
 
@@ -280,118 +269,122 @@ EOF--dataset.file.url.chksum_type.chksum
 )"
 ```
 
-. . .
-
+:::{.aside}
 but at least they're checksummed
+:::
 
-## our philosophy
-
- * analysis-ready, cloud-optimized (ARCO) datasets[^2]
+## our philosophy: burden on the provider, not user<span style="color: #CE3072;">s</span>
 
 :::{.fragment}
- * [zarr](https://zarr.dev/) format on a publicly available [object store](https://docs.dkrz.de/doc/datastorage/swift/index.html)
-   * lazy loading
-
-![](static/zarr-logo.png){height=52px fig-align='center'}
+ * analysis-ready, cloud-optimized (ARCO) datasets[^2]
 :::
 
 :::{.fragment}
- * burden on provider, not user<span style="color: #CE3072;">s</span>
+ * [zarr](https://zarr.dev/) format on a publicly available [object store](https://docs.dkrz.de/doc/datastorage/swift/index.html)
 :::
 
 :::{.fragment}
  * versioned and reproducible processing
 :::
 
+![](static/zarr-logo.png){height=52px fig-align='center'}
 
 [^2]: R. P. Abernathey et al. (2021). [Cloud-Native Repositories for Big Scientific Data](https://doi.org/10.1109/MCSE.2021.3059437), Computing in Science & Engineering.
 
-## particularity of continuously-growing datasets
+## continuously-growing datasets
 
-(as opposed to campaign data, model data)
 
-:::{.fragment}
-```{python3}
-xr.open_mfdataset([pd.read_csv(f).to_xarray() for f in rawfiles])
-```
+:::{.columns}
+
+:::{.column}
+ * model data: consistent dimensions, no artifacts
 :::
 
-:::{.fragment}
-_is not well-suited to an ever-growing (and -changing) record_
-
-```{sh}
-ERROR: cannot reindex along dimension 'range' with differing sizes {'range': 200} and {'range': 199}
-```
+:::{.column}
+ * campaign data: more heterogeneous, but no new measurements
 :::
 
-## it isn't straightforward
+:::{.column}
+
+BCO data:
+
+:::{.fragment}
 
 ```{python3}
 xr.open_mfdataset("**/bco_radar_dataset_*.nc")
 ```
-:::{.fragment}
-_would fail due to the sheer number of files_
-:::
-
-:::{.fragment}
-_not to mention other buggy oddities_
-
 ```{sh}
 ERROR: non-monotonic time axis!
 ```
+```{sh}
+ERROR: cannot reindex along dimension 'range' with differing sizes {'range': 200} and {'range': 199}
+```
+
+an ever-growing (and -changing) record
+
+:::
+
+:::
+
 :::
 
 
 ## implementation
 
+
+:::{.columns}
+
+:::{.column}
  * automated workflows using [Apache Airflow](https://airflow.apache.org)'s direct acyclic graphs (DAGs)
 
  * each dataset:
    * versioned with its processing code and that of its input datasets -> unique object ID
    * reproducible
+:::
 
-## direct acyclic graphs (DAGs)
-
-![](static/level1dag.png)
+:::{.column}
+![](static/level1dag.png){height=500px}
 
 :::{.aside}
 level 1 DAG, triggers downstream processing
 ::: 
 
+:::
+
+:::
+
 ## data hierarchy and products
 
-:::{.fragment}
- * level 0 (raw)
-:::
-
-:::{.fragment}
- * level 1 (concatenated and cleaned)
-:::
-
-:::{.fragment}
- * level 2 (analysis-ready, controlled, time aggregations)
-:::
-
-:::{.fragment}
-* level 3 (multi-sensor products)
-:::
+```{mermaid}
+flowchart TD
+  A[raw] --> B[level 1 - concatenate & clean]
+  B --> C[level 2 - analysis-ready]
+  C --> D[level 2 - time aggregations]
+  D --> E[level 3 - multi-sensor products]
+```
 
 # datasets: a tasting menu
 
 ## data access
 
 ```{python}
+from pprint import pprint
+```
+
+```{python}
 #| echo: true
 import intake
 cat = intake.open_catalog("https://tcodata.mpimet.mpg.de/catalog.yaml")
 print(len(list(cat.BCO)))
-[e for e in list(cat.BCO) if "LIDAR" not in e and "lidar" not in e]
+pprint(list(cat.BCO), width=120, compact=True)
 ```
 
 ## surface meteorology
 
 
 ```{python}
+import matplotlib.pyplot as plt
+plt.style.use("mpl.style")
 axis_labels = {"fontsize": 18}
 line_args = {"color": line_color, "linewidth": 2}
 line_args_acc = {"color": ACCENT, "linewidth": 2}
@@ -401,8 +394,6 @@ line_args_acc = {"color": ACCENT, "linewidth": 2}
 #| echo: true
 sfc = cat.BCO.surfacemet(time="P1D").to_dask()
 sfc.ta.plot(**line_args)
-plt.title(None)
-plt.ylabel("T / deg C", **axis_labels);
 ```
 
 ## surface meteorology {transition=none}
@@ -454,7 +445,8 @@ plt.title(None)
 plt.xlabel("time", **axis_labels)
 plt.ylabel("rolling rain / mm h-1");
 ```
-## a short tour: cloud atlas
+
+## cloud atlas
 
 ```{python}
 #| echo: true
@@ -465,6 +457,16 @@ plt.title("Z > -40 dBZ", **axis_labels)
 plt.ylabel("alt / m", **axis_labels)
 plt.xlabel("cloud fraction / 1", **axis_labels)
 plt.legend()
+plt.show()
+```
+
+## cloud atlas
+
+```{python}
+ds.Z.plot(y="alt", robust=True, cmap="Blues_r", vmin=-60, vmax=35, add_colorbar=False)
+plt.title(None)
+plt.gca().yaxis.set_visible(False)
+plt.gca().set_facecolor("white")
 plt.show()
 ```
 
@@ -614,11 +616,29 @@ plt.xlabel("time", **axis_labels)
 plt.legend();
 ```
 
-## <span style="color: #CE3072;">missing</span> high clouds: a big-picture perspective
+## <span style="color: #CE3072;">missing</span> high clouds
 
-## {background-image="static/clouds.svg" background-size="contain"}
+```{python}
+ds = cat.BCO.cloudradar(time="P1D").to_dask()
+ds.Z.plot(y="alt", robust=True, cmap="Blues_r", vmin=-60, vmax=35, add_colorbar=False)
+plt.title(None)
+plt.gca().set_facecolor("white")
+plt.gca().yaxis.set_visible(False)
+plt.show()
+```
 
-## a focused perspective
+## <span style="color: #CE3072;">missing</span> high clouds
+
+```{python}
+ds2 = cat.BCO.cloudradar(time="PT1H").to_dask()
+ds2.Z.sel(time=slice("2023-12", "2024-03")).plot(y="alt", robust=True, cmap="Blues_r", vmin=-60, vmax=35, add_colorbar=False)
+plt.title(None)
+plt.gca().set_facecolor("white")
+plt.gca().yaxis.set_visible(False)
+plt.show()
+```
+
+## high and low cloud fraction & anomalies
 
 ```{python}
 high = lambda da: da.sel(alt=slice(8000, 15000))
@@ -655,21 +675,29 @@ plt.show()
 
 ![](static/2024-01-wind.png)
 
-## proposed mechanism:
+## mechanisms
 
+:::{.columns}
+
+:::{.column}
  * warm SSTs & upper-level subsidence
  * dry upper levels (chicken or egg?)
  * warm air cannot entrain as much (?)
+:::
+
+:::{.column}
 
 :::{.fragment}
-
  * next: [^4]
-    * moisture advection and relative humidity (in temperature space)
-    * what else drives cirrus cloud amount at the BCO?
-    * conversely, would a low convergence or a divergence anomaly (shallow trough, weaker jet) increase high cloud amount?
+    * moisture advection
+    * relative humidity (in temperature space)
+    * other drivers of cirrus cloud amount
+    * opposite synoptic state
+:::
 
 :::
 
+:::
 
 [^4]: input welcomed!
 
@@ -725,15 +753,14 @@ anomaly = (sst.sst.groupby(sst.time.dt.month) - clim)
 ax.add_feature(cfeature.COASTLINE)
 route = coords_json_to_ds("static/journey.json")
 ax.plot(route.lon, route.lat, 'o', transform=ccrs.PlateCarree(), color='black')
-dx = anomaly.sel(time="1997-12").mean(dim="time")
+dx = anomaly.sel(time="1997-10").mean(dim="time")
 im = ax.pcolormesh(
     dx.lon.values,
     dx.lat.values,
     dx,
     transform=ccrs.PlateCarree(),
     cmap="bwr",
-    shading="auto",
-    vmin=-3, vmax=5,
+    vmin=-7.5, vmax=7.5,
 )
 ax.add_patch(
     Rectangle(
@@ -747,7 +774,7 @@ ax.add_patch(
     )
 )
 ax.set_extent([145, -100, -25, 25])
-plt.title("Dec 1997 anomaly, Niño 3.4, and campaign route")
+plt.title("Oct 1997 anomaly, Niño 3.4, and campaign route")
 fig.colorbar(im, ax=ax, label="SST anomaly / deg K", extend='both')
 plt.show()
 ```
@@ -766,8 +793,7 @@ im = ax.pcolormesh(
     dx,
     transform=ccrs.PlateCarree(),
     cmap="bwr",
-    shading="auto",
-    vmin=-3, vmax=5,
+    vmin=-7.5, vmax=7.5,
 )
 ax.add_patch(
     Rectangle(
@@ -788,44 +814,68 @@ plt.show()
 
 ## instrumentation
 
+::: {.r-stack}
+![](static/vaisala.jpg){.fragment .fade-out fragment-index=1}
+
+:::{.fragment .fade-in fragment-index=1}
+```{python}
+fig, ax = plt.subplots(figsize=(3, 5))
+xr.open_dataset(
+    "https://ipfs.orcestra-campaign.org/ipfs/bafybeibgeeqs5uhmbqy4hz4v3pihrfisiklcetisxkf63d2r473szaprwi/",
+    engine="zarr",
+    consolidated=True,
+).rh.mean(dim="sonde").plot(y="altitude")
+ax.set_facecolor("white")
+plt.title("mean rh across ORCESTRA sondes");
+```
+:::
+:::
+
+:::{.aside}
+radiosondes
+:::
+
+
+## instrumentation
+
+::: {.r-stack}
+![](static/ceilometer.jpg){.fragment .fade-out fragment-index=1}
+
+:::{.fragment .fade-in fragment-index=1}
+```{python}
+Z.sel(time=slice("2026-10-11T09:00", "2026-10-11T10:30")).plot(y="alt", robust=True, cmap="Greys", vmin=-60, vmax=35, cbar_kwargs={'label': 'Z / dBZ'}, extend="both")
+cat.BCO.ceilometer_c3.to_dask().cbh.sel(time=slice("2026-10-11T09:00", "2026-10-11T10:30")).max(dim="layer").where(lambda da: da > 0).plot(color=LAND_COLOR, label='cloud base')
+plt.ylabel("alt / m", **axis_labels)
+plt.xlabel("time", **axis_labels)
+plt.legend()
+plt.title(None);
+```
+:::
+
+:::
+
+:::{.aside}
+ceilometer
+:::
+
+
+## instrumentation
+
 :::{.columns}
 
-
-:::{.fragment}
+:::{.column}
+sea snake
+:::
 
 :::{.column}
-
-![radiosondes](static/vaisala.jpg)
-
+![all-sky camera](https://barbados.mpimet.mpg.de/bcoweb/camera/allsky/allsky.jpg)
 :::
-
-:::
-
-:::{.fragment}
 
 :::{.column}
-
-![ceilometer](static/ceilometer.jpg)
-
+![sun photometer](static/microtops.png)
 :::
 
 :::
-
-:::{.fragment}
-
-:::{.column}
-
-sea snake, all-sky camera, sun photometer
-
-:::
-
-:::
-
-:::
-
-## scientific scope
-
-El Niño
 
 # Thanks!
 
@@ -898,6 +948,7 @@ for i, t in enumerate(lidar.time.values):
 plt.ylabel("alt / m", **axis_labels)
 plt.xlabel("ta / deg K", **axis_labels)
 plt.title(None)
+
 plt.legend()
 plt.show()
 ```

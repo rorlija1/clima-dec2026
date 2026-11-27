@@ -1,0 +1,20 @@
+figure.constrained_layout.use: True
+
+font.sans-serif: Roboto, sans-serif
+
+axes.spines.top: False
+axes.spines.right: False
+
+legend.frameon: False
+
+savefig.dpi: 600
+
+figure.facecolor: 'none'
+axes.facecolor: 'none'
+
+
+text.color: 'black'
+xtick.color: 'black'
+ytick.color: 'black'
+axes.edgecolor: 'black'
+axes.labelcolor: 'black'
